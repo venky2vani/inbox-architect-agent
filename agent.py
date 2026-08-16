@@ -183,19 +183,41 @@ class InboxArchitectAgent:
             return
 
         print(f"\n🎯 Found {len(suggestions)} potential new categories:\n")
+        approved_count = 0
+        rejected_count = 0
+
         for i, suggestion in enumerate(suggestions, 1):
             print(f"{i}. {suggestion['suggested_label'].upper()}")
             print(f"   Domain: {suggestion['domain']}")
             print(f"   Emails: {suggestion['email_count']}")
             print(f"   Confidence: {suggestion['confidence']:.1%}")
             print(f"   Description: {suggestion['suggested_description']}")
-            print()
+
+            while True:
+                response = input("   Approve? (y/n/skip): ").strip().lower()
+                if response in ("y", "yes"):
+                    classifier.confirm_label(
+                        suggestion['domain'],
+                        suggestion['suggested_label']
+                    )
+                    print(f"   ✓ Approved!\n")
+                    approved_count += 1
+                    break
+                elif response in ("n", "no"):
+                    classifier.reject_pattern(suggestion['domain'])
+                    print(f"   ✗ Rejected\n")
+                    rejected_count += 1
+                    break
+                elif response in ("s", "skip"):
+                    print(f"   ⊘ Skipped\n")
+                    break
+                else:
+                    print("   Invalid input. Please enter: y (approve), n (reject), or skip")
 
         output_path = "data/pattern_review.md"
         classifier.export_suggestions_to_file(suggestions, output_path)
-        print(f"✓ Review file saved to: {output_path}")
-        print("\nTo approve a label, edit data/dynamic_labels.json or use:")
-        print("  python agent.py --confirm-label <domain> <label_name>")
+        print(f"\n📊 Results: {approved_count} approved, {rejected_count} rejected")
+        print(f"✓ Full suggestions saved to: {output_path}")
 
     def confirm_label(self, domain: str, label: str) -> None:
         """Confirm a dynamic label for a domain."""

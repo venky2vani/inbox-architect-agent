@@ -11,37 +11,19 @@ Review the suggested categories below. For each:
 
 ## 1. BANKING_INVESTMENT
 
-**Domain:** `hdfcbank.bank.in`
-**Email Count:** 308
-**Confidence:** 100.0%
+**Domain:** `hdfcbank.net`
+**Email Count:** 137
+**Confidence:** 81.1%
 **Description:** Banking, investment accounts, and portfolio updates
 
-**Common Keywords:** `your`, `have`, `done`, `check`, `details`
+**Common Keywords:** `have`, `done`, `check`, `details`, `credit`
 
 **Sample Subjects:**
-- HDFC Bank Combined Email Statement for June-2026
-- View: Account update for your HDFC Bank A/c
+- Rs.625.00 debited via Credit Card **0348
+- Rs.666.00 debited via Credit Card **0348
 - ❗  You have done a UPI txn. Check details!
 
-**Period:** 2026-07-03 14:30:59 to 2026-04-30 16:36:59
-
----
-
-## 2. BANKING_INVESTMENT
-
-**Domain:** `mailers.hdfcbank.bank.in`
-**Email Count:** 94
-**Confidence:** 68.2%
-**Description:** Banking, investment accounts, and portfolio updates
-
-**Common Keywords:** `instant`, `cash`, `venkatesh`, `with`, `rate`
-
-**Sample Subjects:**
-- Get Instant Extra Cash with a lower Interest Rate
-- Get Instant Extra Cash with a lower Interest Rate
-- Get Instant Extra Cash with a lower Interest Rate
-
-**Period:** 2026-06-16 09:37:31 to 2026-05-01 08:02:36
+**Period:** 2025-11-18 07:56:54 to 2025-10-27 10:31:56
 
 ---
 
