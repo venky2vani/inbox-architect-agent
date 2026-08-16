@@ -78,6 +78,12 @@ class ReviewRunner:
     """Orchestrate agent in interactive review mode."""
 
     def __init__(self, config_path: str = "config.yaml"):
+        # Ensure INFO-level logs are emitted so the UI can capture and display them.
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+            force=True,
+        )
         self.config_path = config_path
         self.config = load_config(config_path)
         apply_config(self.config)
