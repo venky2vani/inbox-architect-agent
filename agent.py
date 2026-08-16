@@ -300,6 +300,11 @@ class InboxArchitectAgent:
         dry_run: bool,
     ) -> List[ProcessedItem]:
         """Fetch and process a batch of message IDs, isolating per-email failures."""
+        if dry_run:
+            logger.warning(
+                "DRY RUN: no emails will be archived or labeled in Gmail for this batch"
+            )
+
         processor = self.processors[0]
         batch_processed: List[ProcessedItem] = []
 
@@ -377,16 +382,38 @@ class InboxArchitectAgent:
                     except Exception as exc:  # pylint: disable=broad-except
                         logger.error("Failed to archive message %s: %s", msg.id, exc)
 
-            # Apply a Gmail label based on the extracted type (e.g. Invoice, Payment, Bill).
-            if not dry_run:
-                email_type = (processed.extracted_data or {}).get("type", "other")
-                if email_type and email_type != "other":
-                    type_label = email_type.title()
-                    logger.info("Applying label '%s' to: %s", type_label, msg.subject[:60])
+            # Compute Gmail labels based on the category and extracted type.
+            labels_to_apply: List[str] = []
+
+            # Category label (e.g. Banking_Investment, Action_Needed, Noise).
+            category = processed.category
+            if category:
+                labels_to_apply.append(
+                    category.replace("_", " ").title().replace(" ", "_")
+                )
+
+            # Type label from extracted data (e.g. Invoice, Payment, Bill).
+            email_type = (processed.extracted_data or {}).get("type", "other")
+            if email_type and email_type != "other":
+                type_label = email_type.title()
+                if type_label not in labels_to_apply:
+                    labels_to_apply.append(type_label)
+
+            if labels_to_apply:
+                if dry_run:
+                    logger.info(
+                        "[dry-run] Would apply labels %s to: %s",
+                        labels_to_apply,
+                        msg.subject[:60],
+                    )
+                else:
+                    logger.info(
+                        "Applying labels %s to: %s", labels_to_apply, msg.subject[:60]
+                    )
                     try:
-                        connector.mark_processed(msg.id, [type_label])
+                        connector.mark_processed(msg.id, labels_to_apply)
                     except Exception as exc:  # pylint: disable=broad-except
-                        logger.error("Failed to apply label to %s: %s", msg.id, exc)
+                        logger.error("Failed to apply labels to %s: %s", msg.id, exc)
 
             # Update checkpoint after each successful email.
             if self.checkpoint:

@@ -129,6 +129,45 @@ class TestDynamicClassifierPatternDetection:
         assert result is not None
         assert result["label"] == "social_media"
 
+    def test_guess_category_banking_investment(self):
+        """Test category guessing for Indian and global bank domains."""
+        classifier = DynamicClassifier()
+
+        bank_domains = [
+            "hdfcbank.com",
+            "icicibank.com",
+            "idbi.bank.in",
+            "sbi.co.in",
+            "axisbank.com",
+            "kotak.com",
+            "pnb.co.in",
+            "bankofbaroda.com",
+            "canarabank.com",
+            "unionbankofindia.co.in",
+            "bankofindia.co.in",
+            "indianbank.in",
+            "centralbankofindia.co.in",
+            "iobnet.co.in",
+            "ucobank.com",
+            "yesbank.in",
+            "idfcfirstbank.com",
+            "indusind.com",
+            "federalbank.co.in",
+            "southindianbank.com",
+            "karnatakabank.com",
+            "rblbank.com",
+            "bandhanbank.com",
+            "aubank.in",
+        ]
+        for domain in bank_domains:
+            result = classifier._guess_category(
+                domain,
+                ["statement", "account", "transaction"],
+                [],
+            )
+            assert result is not None, f"Failed for {domain}"
+            assert result["label"] == "banking_investment"
+
     def test_guess_category_food_delivery(self):
         """Test category guessing for food delivery platforms."""
         classifier = DynamicClassifier()

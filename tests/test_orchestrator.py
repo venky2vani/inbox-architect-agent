@@ -78,6 +78,70 @@ def test_run_daily_digest_stores_and_archives_noise():
     connector.archive.assert_called_once_with("2")
 
 
+def test_run_daily_digest_applies_category_label():
+    agent = InboxArchitectAgent()
+
+    connector = MagicMock()
+    connector.name = "mock_gmail"
+    connector._list_unread_ids.return_value = [{"id": "4", "threadId": "t4"}]
+    connector.fetch_message_by_id.return_value = make_message("4", "Bank alert")
+
+    persistence = MagicMock()
+    processor = MagicMock()
+    processor.process.return_value = ProcessedItem(
+        original_id="4",
+        sender="test@example.com",
+        subject="Bank alert",
+        category="banking_investment",
+        priority=3,
+        summary="Banking alert",
+        action_items=[],
+        extracted_data={"type": "other"},
+    )
+    processor.local_hits = 0
+    processor.llm_calls = 0
+
+    agent.connectors = [connector]
+    agent.persistence = persistence
+    agent.processors = [processor]
+
+    agent.run_daily_digest(limit=10, archive_noise=True, dry_run=False)
+
+    connector.mark_processed.assert_called_once_with("4", ["Banking_Investment"])
+
+
+def test_run_daily_digest_applies_type_and_category_labels():
+    agent = InboxArchitectAgent()
+
+    connector = MagicMock()
+    connector.name = "mock_gmail"
+    connector._list_unread_ids.return_value = [{"id": "5", "threadId": "t5"}]
+    connector.fetch_message_by_id.return_value = make_message("5", "Invoice due")
+
+    persistence = MagicMock()
+    processor = MagicMock()
+    processor.process.return_value = ProcessedItem(
+        original_id="5",
+        sender="test@example.com",
+        subject="Invoice due",
+        category="action_needed",
+        priority=4,
+        summary="Invoice",
+        action_items=["Pay invoice"],
+        extracted_data={"type": "invoice"},
+    )
+    processor.local_hits = 0
+    processor.llm_calls = 0
+
+    agent.connectors = [connector]
+    agent.persistence = persistence
+    agent.processors = [processor]
+
+    agent.run_daily_digest(limit=10, archive_noise=True, dry_run=False)
+
+    connector.mark_processed.assert_called_once_with("5", ["Action_Needed", "Invoice"])
+
+
 def test_run_daily_digest_dry_run_does_not_store():
     agent = InboxArchitectAgent()
 
