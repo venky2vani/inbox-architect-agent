@@ -31,10 +31,10 @@
       "category": "reference",
       "priority": 2,
       "should_archive": false,
-      "hits": 214,
+      "hits": 215,
       "misses": 315,
       "created_at": "2026-08-15T18:06:09.459421+00:00",
-      "last_used": "2026-08-16T05:59:23.344374+00:00"
+      "last_used": "2026-08-16T06:00:10.963548+00:00"
     },
     {
       "id": "397e0516-07e8-4983-bd5d-2c7b0d4dca19",
@@ -449,12 +449,12 @@
       "type": "body_keyword",
       "value": "com",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 118,
-      "misses": 108,
+      "misses": 109,
       "created_at": "2026-08-15T18:06:19.857132+00:00",
-      "last_used": "2026-08-16T06:00:03.111145+00:00"
+      "last_used": "2026-08-16T06:00:10.967513+00:00"
     },
     {
       "id": "a68a57f9-12ee-4c9b-a8be-9dc92c8bb0d0",
@@ -1266,11 +1266,11 @@
       "value": "receipt",
       "category": "reference",
       "priority": 2,
-      "should_archive": true,
+      "should_archive": false,
       "hits": 18,
-      "misses": 43,
+      "misses": 44,
       "created_at": "2026-08-15T18:06:40.035744+00:00",
-      "last_used": "2026-08-16T05:59:23.344388+00:00"
+      "last_used": "2026-08-16T06:00:10.963585+00:00"
     },
     {
       "id": "b77fb4df-452e-4af5-9c2c-a27692e6be83",
@@ -1373,12 +1373,12 @@
       "type": "body_keyword",
       "value": "please",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 71,
-      "misses": 155,
+      "misses": 156,
       "created_at": "2026-08-15T18:06:48.427044+00:00",
-      "last_used": "2026-08-16T06:00:03.111817+00:00"
+      "last_used": "2026-08-16T06:00:10.965775+00:00"
     },
     {
       "id": "72314c14-1a51-4350-b1ef-cf68c5c50ba1",
@@ -4939,10 +4939,10 @@
       "category": "reference",
       "priority": 2,
       "should_archive": false,
-      "hits": 5,
+      "hits": 6,
       "misses": 10,
       "created_at": "2026-08-15T18:08:33.490387+00:00",
-      "last_used": "2026-08-16T05:46:29.226547+00:00"
+      "last_used": "2026-08-16T06:00:10.964149+00:00"
     },
     {
       "id": "139a54bd-bc1f-4a15-92fa-b083aa04da51",
@@ -5813,12 +5813,12 @@
       "type": "body_keyword",
       "value": "ltd",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 4,
-      "misses": 13,
+      "misses": 14,
       "created_at": "2026-08-15T18:08:55.688351+00:00",
-      "last_used": "2026-08-16T06:00:03.113100+00:00"
+      "last_used": "2026-08-16T06:00:10.967119+00:00"
     },
     {
       "id": "a7d87a1e-01b2-429c-bff7-89d3d29d5509",
@@ -6113,12 +6113,12 @@
       "type": "body_keyword",
       "value": "any",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 10,
-      "misses": 20,
+      "misses": 21,
       "created_at": "2026-08-15T18:09:01.958911+00:00",
-      "last_used": "2026-08-16T06:00:03.111506+00:00"
+      "last_used": "2026-08-16T06:00:10.965302+00:00"
     },
     {
       "id": "e029eb33-47d8-4a68-ad17-640d1ddd65fb",
@@ -6773,12 +6773,12 @@
       "type": "body_keyword",
       "value": "mail",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 8,
-      "misses": 24,
+      "misses": 25,
       "created_at": "2026-08-15T18:10:51.060971+00:00",
-      "last_used": "2026-08-16T06:00:03.110996+00:00"
+      "last_used": "2026-08-16T06:00:10.964324+00:00"
     },
     {
       "id": "c742076e-5b2b-4b52-b916-4f9a2ea6c1aa",
@@ -7372,13 +7372,13 @@
       "id": "f059e01f-c2c4-4f9e-8a6e-92f307fb50a9",
       "type": "subject_keyword",
       "value": "bill",
-      "category": "action_needed",
-      "priority": 4,
+      "category": "reference",
+      "priority": 2,
       "should_archive": false,
       "hits": 32,
-      "misses": 20,
+      "misses": 21,
       "created_at": "2026-08-15T18:12:23.280086+00:00",
-      "last_used": "2026-08-16T05:44:58.636681+00:00"
+      "last_used": "2026-08-16T06:00:10.963130+00:00"
     },
     {
       "id": "056c6e1f-0871-41e1-9639-f0850b6f6100",
@@ -19265,24 +19265,24 @@
       "type": "sender_email",
       "value": "info@agdiagnostics.com",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.109750+00:00",
-      "last_used": "2026-08-16T06:00:03.109750+00:00"
+      "last_used": "2026-08-16T06:00:10.962658+00:00"
     },
     {
       "id": "d12298a9-6cb2-4a5e-b855-1ca55effc440",
       "type": "sender_domain",
       "value": "agdiagnostics.com",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.109998+00:00",
-      "last_used": "2026-08-16T06:00:03.109998+00:00"
+      "last_used": "2026-08-16T06:00:10.962954+00:00"
     },
     {
       "id": "d730ca43-6ea9-4ad8-96e5-5f729f9faccb",
@@ -19337,84 +19337,108 @@
       "type": "body_keyword",
       "value": "agdiagnostics",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.111133+00:00",
-      "last_used": "2026-08-16T06:00:03.111133+00:00"
+      "last_used": "2026-08-16T06:00:10.967486+00:00"
     },
     {
       "id": "16489c7a-47ac-4a4f-9e91-111201ec630a",
       "type": "body_keyword",
       "value": "contents",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.111276+00:00",
-      "last_used": "2026-08-16T06:00:03.111276+00:00"
+      "last_used": "2026-08-16T06:00:10.964807+00:00"
     },
     {
       "id": "8708e893-f696-4529-90a1-b282b83fd630",
       "type": "body_keyword",
       "value": "including",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.111418+00:00",
-      "last_used": "2026-08-16T06:00:03.111418+00:00"
+      "last_used": "2026-08-16T06:00:10.965176+00:00"
     },
     {
       "id": "2aa01d10-348c-472b-a50d-a56d4ccd58ba",
       "type": "body_keyword",
       "value": "intended",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.111768+00:00",
-      "last_used": "2026-08-16T06:00:03.111768+00:00"
+      "last_used": "2026-08-16T06:00:10.965732+00:00"
     },
     {
       "id": "40df9eb2-cdbf-4910-b606-01d06ba8f4b9",
       "type": "body_keyword",
       "value": "golwilkar",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.112119+00:00",
-      "last_used": "2026-08-16T06:00:03.112119+00:00"
+      "last_used": "2026-08-16T06:00:10.966145+00:00"
     },
     {
       "id": "2a77ec3c-2c53-4380-969c-ed61bfad89ae",
       "type": "body_keyword",
       "value": "diagnostics",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T06:00:03.112622+00:00",
-      "last_used": "2026-08-16T06:00:03.112622+00:00"
+      "last_used": "2026-08-16T06:00:10.966539+00:00"
     },
     {
       "id": "902f8009-b1d0-40bc-a7f3-913040a0f07d",
       "type": "body_keyword",
       "value": "pvt",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
+      "should_archive": false,
+      "hits": 1,
+      "misses": 1,
+      "created_at": "2026-08-16T06:00:03.112988+00:00",
+      "last_used": "2026-08-16T06:00:10.966970+00:00"
+    },
+    {
+      "id": "1862db63-155b-4564-808e-78eb2ea0d11f",
+      "type": "subject_keyword",
+      "value": "cum",
+      "category": "reference",
+      "priority": 2,
       "should_archive": false,
       "hits": 1,
       "misses": 0,
-      "created_at": "2026-08-16T06:00:03.112988+00:00",
-      "last_used": "2026-08-16T06:00:03.112988+00:00"
+      "created_at": "2026-08-16T06:00:10.963508+00:00",
+      "last_used": "2026-08-16T06:00:10.963508+00:00"
+    },
+    {
+      "id": "708858bb-b846-4ccf-be62-76a461e790bd",
+      "type": "subject_keyword",
+      "value": "tests",
+      "category": "reference",
+      "priority": 2,
+      "should_archive": false,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:10.964024+00:00",
+      "last_used": "2026-08-16T06:00:10.964024+00:00"
     }
   ]
 }
