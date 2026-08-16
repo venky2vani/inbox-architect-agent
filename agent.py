@@ -20,11 +20,13 @@ from dotenv import load_dotenv
 
 from plugins.base import (
     EmailConnector,
+    EmailMessage,
     PersistencePlugin,
     ProcessedItem,
     ProcessorPlugin,
 )
 from plugins.checkpoint import Checkpoint
+from plugins.pattern_cache import PatternCache
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +41,7 @@ class InboxArchitectAgent:
         self.plugins_dir = plugins_dir
         self.checkpoint: Optional[Checkpoint] = None
         self.failed_ids: List[str] = []
+        self.pattern_cache = PatternCache()
         # Parallel processing configuration. All plugins implement copy_for_thread()
         # safely, so parallel processing is enabled by default for performance.
         # Disable with PARALLEL_PROCESSING=false if needed for debugging.
@@ -149,27 +152,60 @@ class InboxArchitectAgent:
             elapsed = time.perf_counter() - start
             logger.info("Authenticated %s in %.2fs", connector.name, elapsed)
 
-    def analyze_patterns(self, limit: int = 200) -> None:
-        """Analyze emails for emerging patterns and suggest new dynamic labels."""
+    def _record_llm_required(
+        self, message: EmailMessage, item: ProcessedItem
+    ) -> None:
+        """Persist an LLM-classified email for later pattern analysis."""
+        try:
+            self.pattern_cache.record(message, item)
+        except Exception as exc:  # pylint: disable=broad-except
+            logger.warning("Failed to record LLM-required pattern: %s", exc)
+
+    def analyze_patterns(
+        self,
+        limit: int = 200,
+        source: str = "llm-required",
+    ) -> None:
+        """Analyze emails for emerging patterns and suggest new dynamic labels.
+
+        Args:
+            limit: Maximum messages to analyze.
+            source: Where to read messages from. ``llm-required`` analyzes
+                emails that bypassed rules and reached the LLM (the default).
+                ``gmail`` falls back to scanning unread Gmail messages.
+        """
         from plugins.dynamic_classifier import DynamicClassifier
 
         classifier = DynamicClassifier()
+        all_messages: List[EmailMessage] = []
 
-        if not self.connectors:
-            raise RuntimeError("No connectors available.")
+        if source == "llm-required":
+            all_messages = self.pattern_cache.load_messages(limit=limit)
+            logger.info(
+                "Analyzing %d cached LLM-required email(s) for patterns...",
+                len(all_messages),
+            )
+        elif source == "gmail":
+            if not self.connectors:
+                raise RuntimeError("No connectors available.")
 
-        all_messages: List[Any] = []
-        for connector in self.connectors:
-            logger.info("Fetching %d emails for pattern analysis...", limit)
-            message_ids = connector._list_unread_ids(limit)
-            logger.info("Fetched %d message IDs", len(message_ids))
+            for connector in self.connectors:
+                logger.info("Fetching %d emails for pattern analysis...", limit)
+                message_ids = connector._list_unread_ids(limit)
+                logger.info("Fetched %d message IDs", len(message_ids))
 
-            for msg_meta in message_ids:
-                try:
-                    msg = connector.fetch_message_by_id(msg_meta["id"])
-                    all_messages.append(msg)
-                except Exception as exc:  # pylint: disable=broad-except
-                    logger.warning("Failed to fetch message %s: %s", msg_meta["id"], exc)
+                for msg_meta in message_ids:
+                    try:
+                        msg = connector.fetch_message_by_id(msg_meta["id"])
+                        all_messages.append(msg)
+                    except Exception as exc:  # pylint: disable=broad-except
+                        logger.warning(
+                            "Failed to fetch message %s: %s", msg_meta["id"], exc
+                        )
+        else:
+            raise ValueError(
+                f"Unknown pattern source: {source}. Use 'llm-required' or 'gmail'."
+            )
 
         if not all_messages:
             logger.warning("No messages found for analysis")
@@ -709,6 +745,8 @@ def apply_config(config: Dict[str, Any]) -> None:
         ("processor", "rate_limit_delay"): "LLM_RATE_LIMIT_DELAY",
         ("agent", "daily_digest", "batch_size"): "DAILY_DIGEST_BATCH_SIZE",
         ("agent", "daily_digest", "checkpoint_path"): "CHECKPOINT_PATH",
+        ("agent", "pattern_source"): "PATTERN_SOURCE",
+        ("agent", "pattern_cache_path"): "PATTERN_CACHE_PATH",
     }
 
     processor_rules = config.get("processor", {}).get("rules", {})
@@ -805,6 +843,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Analyze emails for new emerging patterns and suggest dynamic labels.",
     )
     parser.add_argument(
+        "--pattern-source",
+        type=str,
+        default=None,
+        choices=["llm-required", "gmail"],
+        help=(
+            "Source of emails for pattern analysis. "
+            "'llm-required' (default) analyzes emails that bypassed rules and reached the LLM. "
+            "'gmail' scans unread Gmail messages instead."
+        ),
+    )
+    parser.add_argument(
         "--confirm-label",
         nargs=2,
         metavar=("DOMAIN", "LABEL"),
@@ -872,6 +921,12 @@ def main() -> None:
     agent = InboxArchitectAgent()
     agent.load_plugins()
 
+    # Wire the LLM-required callback so hard-to-classify emails are cached
+    # for targeted pattern analysis instead of re-scanning Gmail.
+    for processor in agent.processors:
+        if hasattr(processor, "on_llm_required"):
+            processor.on_llm_required = agent._record_llm_required
+
     if args.reset_checkpoint:
         checkpoint_path = os.getenv("CHECKPOINT_PATH", "data/checkpoint.json")
         logger.info("Resetting checkpoint: %s", checkpoint_path)
@@ -880,7 +935,13 @@ def main() -> None:
     agent.authenticate_connectors()
 
     if args.analyze_patterns:
-        agent.analyze_patterns(limit=limit)
+        source = (
+            args.pattern_source
+            or os.getenv("PATTERN_SOURCE")
+            or digest_config.get("pattern_source")
+            or "llm-required"
+        )
+        agent.analyze_patterns(limit=limit, source=source)
         return
 
     if args.confirm_label:
