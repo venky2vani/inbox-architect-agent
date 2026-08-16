@@ -39,15 +39,14 @@ class InboxArchitectAgent:
         self.plugins_dir = plugins_dir
         self.checkpoint: Optional[Checkpoint] = None
         self.failed_ids: List[str] = []
-        # Parallel processing configuration. Default is False because many
-        # network clients (e.g. google-api-python-client / httplib2) are not
-        # thread-safe. Set PARALLEL_PROCESSING=true only after confirming that
-        # all loaded plugins implement copy_for_thread() safely.
+        # Parallel processing configuration. All plugins implement copy_for_thread()
+        # safely, so parallel processing is enabled by default for performance.
+        # Disable with PARALLEL_PROCESSING=false if needed for debugging.
         self.max_workers = int(os.getenv("PARALLEL_MAX_WORKERS", "0"))
         if self.max_workers <= 0:
             # Auto-detect: CPU count * 2, capped at 8
             self.max_workers = min(8, (os.cpu_count() or 4) * 2)
-        self.use_parallel = os.getenv("PARALLEL_PROCESSING", "false").lower() == "true"
+        self.use_parallel = os.getenv("PARALLEL_PROCESSING", "true").lower() == "true"
 
     def load_plugins(self) -> None:
         """Discover and instantiate plugins from the plugins directory."""

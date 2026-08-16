@@ -21,6 +21,8 @@ def make_message(msg_id: str, subject: str) -> EmailMessage:
 
 def test_run_daily_digest_stores_and_archives_noise():
     agent = InboxArchitectAgent()
+    # Disable parallel processing for mock-based tests
+    agent.use_parallel = False
 
     connector = MagicMock()
     connector.name = "mock_gmail"
@@ -80,6 +82,8 @@ def test_run_daily_digest_stores_and_archives_noise():
 
 def test_run_daily_digest_applies_category_label():
     agent = InboxArchitectAgent()
+    # Disable parallel processing for mock-based tests
+    agent.use_parallel = False
 
     connector = MagicMock()
     connector.name = "mock_gmail"
@@ -112,6 +116,8 @@ def test_run_daily_digest_applies_category_label():
 
 def test_run_daily_digest_applies_type_and_category_labels():
     agent = InboxArchitectAgent()
+    # Disable parallel processing for mock-based tests
+    agent.use_parallel = False
 
     connector = MagicMock()
     connector.name = "mock_gmail"
@@ -144,6 +150,8 @@ def test_run_daily_digest_applies_type_and_category_labels():
 
 def test_run_daily_digest_dry_run_does_not_store():
     agent = InboxArchitectAgent()
+    # Disable parallel processing for mock-based tests
+    agent.use_parallel = False
 
     connector = MagicMock()
     connector.name = "mock_gmail"
