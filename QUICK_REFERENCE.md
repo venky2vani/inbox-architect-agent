@@ -42,6 +42,13 @@ python monitor_efficiency.py
 python agent.py --analyze-patterns --limit 500
 ```
 
+### Launch Interactive Review UI
+```bash
+python agent.py --ui
+# Opens http://127.0.0.1:8000 in your browser
+# Process emails one batch at a time with live suggestions
+```
+
 ### Save a New Pattern
 ```bash
 python agent.py --confirm-label <domain> <category>

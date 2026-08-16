@@ -793,6 +793,11 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="DOMAIN",
         help="Reject a suggested pattern from analysis.",
     )
+    parser.add_argument(
+        "--ui",
+        action="store_true",
+        help="Launch the interactive review UI server (http://127.0.0.1:8000).",
+    )
     return parser
 
 
@@ -863,6 +868,22 @@ def main() -> None:
 
     if args.reject_pattern:
         agent.reject_pattern(args.reject_pattern)
+        return
+
+    if args.ui:
+        # Launch the interactive review UI server
+        import subprocess
+        import sys
+        logger.info("Launching review UI server at http://127.0.0.1:8000")
+        logger.info("Press Ctrl+C to stop the server")
+        try:
+            subprocess.run(
+                [sys.executable, "-m", "uvicorn", "ui.review_server:app",
+                 "--host", "127.0.0.1", "--port", "8000"],
+                check=False
+            )
+        except KeyboardInterrupt:
+            logger.info("UI server stopped")
         return
 
     agent.run_daily_digest(
