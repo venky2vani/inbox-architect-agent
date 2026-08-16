@@ -76,13 +76,13 @@
       "id": "4eaa7e54-a794-4c4d-af2a-e3eed167b424",
       "type": "subject_keyword",
       "value": "card",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 490,
-      "misses": 309,
+      "misses": 310,
       "created_at": "2026-08-15T18:06:09.459449+00:00",
-      "last_used": "2026-08-16T06:00:39.154091+00:00"
+      "last_used": "2026-08-16T06:00:59.803528+00:00"
     },
     {
       "id": "e5a5025b-555c-46bf-94f1-5850bd21627e",
@@ -211,10 +211,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 273,
+      "hits": 275,
       "misses": 42,
       "created_at": "2026-08-15T18:06:16.170515+00:00",
-      "last_used": "2026-08-16T06:00:14.870868+00:00"
+      "last_used": "2026-08-16T06:00:59.803969+00:00"
     },
     {
       "id": "cce86365-9362-48b9-bd54-cf263b63388a",
@@ -427,10 +427,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 162,
+      "hits": 164,
       "misses": 229,
       "created_at": "2026-08-15T18:06:19.857119+00:00",
-      "last_used": "2026-08-16T06:00:46.069593+00:00"
+      "last_used": "2026-08-16T06:01:08.142099+00:00"
     },
     {
       "id": "e9e05709-bc59-4382-b0e7-5cbfc3b7c854",
@@ -451,10 +451,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 118,
+      "hits": 119,
       "misses": 110,
       "created_at": "2026-08-15T18:06:19.857132+00:00",
-      "last_used": "2026-08-16T06:00:25.079635+00:00"
+      "last_used": "2026-08-16T06:01:08.142104+00:00"
     },
     {
       "id": "a68a57f9-12ee-4c9b-a8be-9dc92c8bb0d0",
@@ -1050,11 +1050,11 @@
       "value": "order",
       "category": "reference",
       "priority": 2,
-      "should_archive": false,
+      "should_archive": true,
       "hits": 49,
-      "misses": 71,
+      "misses": 72,
       "created_at": "2026-08-15T18:06:34.397980+00:00",
-      "last_used": "2026-08-16T06:00:30.818712+00:00"
+      "last_used": "2026-08-16T06:01:02.808276+00:00"
     },
     {
       "id": "2f6f1594-b784-487e-9b13-2d1dce5f86cd",
@@ -1510,7 +1510,7 @@
       "hits": 3,
       "misses": 3,
       "created_at": "2026-08-15T18:06:53.566876+00:00",
-      "last_used": "2026-08-16T05:59:23.344367+00:00"
+      "last_used": "2026-08-16T06:01:11.059303+00:00"
     },
     {
       "id": "abb8def6-20a3-40c1-a06c-2763c7cca9d8",
@@ -1522,7 +1522,7 @@
       "hits": 3,
       "misses": 3,
       "created_at": "2026-08-15T18:06:53.566898+00:00",
-      "last_used": "2026-08-16T05:59:23.344370+00:00"
+      "last_used": "2026-08-16T06:01:11.059314+00:00"
     },
     {
       "id": "bdcbbce5-cfb2-42e0-ac64-4186dbded6c7",
@@ -2070,11 +2070,11 @@
       "value": "alerts@bigbasket.com",
       "category": "reference",
       "priority": 2,
-      "should_archive": false,
+      "should_archive": true,
       "hits": 42,
-      "misses": 28,
+      "misses": 29,
       "created_at": "2026-08-15T18:07:18.634916+00:00",
-      "last_used": "2026-08-16T06:00:30.818627+00:00"
+      "last_used": "2026-08-16T06:01:02.808195+00:00"
     },
     {
       "id": "a378b882-69ce-4e7e-90f9-b9deeb466f59",
@@ -2082,11 +2082,11 @@
       "value": "bigbasket.com",
       "category": "reference",
       "priority": 2,
-      "should_archive": false,
+      "should_archive": true,
       "hits": 42,
-      "misses": 28,
+      "misses": 29,
       "created_at": "2026-08-15T18:07:18.634952+00:00",
-      "last_used": "2026-08-16T06:00:30.818679+00:00"
+      "last_used": "2026-08-16T06:01:02.808246+00:00"
     },
     {
       "id": "676b7545-7543-4fe1-ac38-b6f8eb07c817",
@@ -2167,10 +2167,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 12,
+      "hits": 13,
       "misses": 5,
       "created_at": "2026-08-15T18:07:20.478583+00:00",
-      "last_used": "2026-08-16T05:49:49.318820+00:00"
+      "last_used": "2026-08-16T06:00:59.804729+00:00"
     },
     {
       "id": "23039f1c-f3e5-4fcb-a58a-a55f4e786017",
@@ -2515,10 +2515,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 57,
+      "hits": 58,
       "misses": 35,
       "created_at": "2026-08-15T18:07:29.284821+00:00",
-      "last_used": "2026-08-16T05:52:18.413325+00:00"
+      "last_used": "2026-08-16T06:00:59.804336+00:00"
     },
     {
       "id": "35e775f3-0ac1-4e43-9a23-e3dd11220f1e",
@@ -2527,10 +2527,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 50,
+      "hits": 51,
       "misses": 49,
       "created_at": "2026-08-15T18:07:29.284840+00:00",
-      "last_used": "2026-08-16T05:52:18.413650+00:00"
+      "last_used": "2026-08-16T06:00:59.804393+00:00"
     },
     {
       "id": "48f4e562-785d-483d-9848-27de193b4c5d",
@@ -2647,10 +2647,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 52,
+      "hits": 53,
       "misses": 119,
       "created_at": "2026-08-15T18:07:31.128153+00:00",
-      "last_used": "2026-08-16T06:00:46.069714+00:00"
+      "last_used": "2026-08-16T06:00:59.804075+00:00"
     },
     {
       "id": "ab2a41b1-0519-4e64-9ca6-c7ca20459836",
@@ -2842,7 +2842,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:07:43.314975+00:00",
-      "last_used": "2026-08-16T05:59:56.485979+00:00"
+      "last_used": "2026-08-16T06:01:08.142072+00:00"
     },
     {
       "id": "3c028eca-8928-4275-a19d-7dcc52f123b8",
@@ -2854,7 +2854,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:07:43.315020+00:00",
-      "last_used": "2026-08-16T05:59:56.486024+00:00"
+      "last_used": "2026-08-16T06:01:08.142090+00:00"
     },
     {
       "id": "a99fd1b3-dab0-46c9-a5db-c1ce63cd4ed3",
@@ -3286,7 +3286,7 @@
       "hits": 25,
       "misses": 9,
       "created_at": "2026-08-15T18:07:47.204715+00:00",
-      "last_used": "2026-08-16T05:59:19.384684+00:00"
+      "last_used": "2026-08-16T06:01:04.040036+00:00"
     },
     {
       "id": "4e318c10-092b-437f-8143-b385846b0846",
@@ -3538,7 +3538,7 @@
       "hits": 6,
       "misses": 3,
       "created_at": "2026-08-15T18:07:50.278227+00:00",
-      "last_used": "2026-08-16T05:59:45.210080+00:00"
+      "last_used": "2026-08-16T06:01:04.040042+00:00"
     },
     {
       "id": "3fe913ca-af27-4db0-a832-8ff1f6c13fe2",
@@ -4111,10 +4111,10 @@
       "category": "reference",
       "priority": 2,
       "should_archive": true,
-      "hits": 21,
+      "hits": 22,
       "misses": 11,
       "created_at": "2026-08-15T18:08:03.693079+00:00",
-      "last_used": "2026-08-16T05:59:41.887045+00:00"
+      "last_used": "2026-08-16T06:01:02.808451+00:00"
     },
     {
       "id": "ccf871e9-0b26-4ffa-94da-dbf44337018a",
@@ -4534,7 +4534,7 @@
       "hits": 8,
       "misses": 0,
       "created_at": "2026-08-15T18:08:27.552327+00:00",
-      "last_used": "2026-08-16T05:54:58.776718+00:00"
+      "last_used": "2026-08-16T06:01:08.142095+00:00"
     },
     {
       "id": "21c2fee6-97c7-4e88-9e0b-263b69a006c8",
@@ -4816,13 +4816,13 @@
       "id": "6c2e672f-0ed2-4f25-a795-e98d38698d3e",
       "type": "subject_keyword",
       "value": "threat",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-15T18:08:32.135422+00:00",
-      "last_used": "2026-08-15T18:08:32.135422+00:00"
+      "last_used": "2026-08-16T06:00:56.418118+00:00"
     },
     {
       "id": "5781d2b3-bf80-4452-9981-54d9ecb99c70",
@@ -6712,13 +6712,13 @@
       "id": "c2ae8aac-87e8-40e8-92bb-ef5fab9c7dd6",
       "type": "subject_keyword",
       "value": "june",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
       "hits": 7,
-      "misses": 3,
+      "misses": 4,
       "created_at": "2026-08-15T18:10:51.060658+00:00",
-      "last_used": "2026-08-16T05:59:51.366310+00:00"
+      "last_used": "2026-08-16T06:00:56.417697+00:00"
     },
     {
       "id": "52dc01ae-0c91-43ea-acfd-13e8142ca2de",
@@ -6778,7 +6778,7 @@
       "hits": 8,
       "misses": 25,
       "created_at": "2026-08-15T18:10:51.060971+00:00",
-      "last_used": "2026-08-16T06:00:10.964324+00:00"
+      "last_used": "2026-08-16T06:01:04.040046+00:00"
     },
     {
       "id": "c742076e-5b2b-4b52-b916-4f9a2ea6c1aa",
@@ -6955,10 +6955,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 36,
+      "hits": 37,
       "misses": 27,
       "created_at": "2026-08-15T18:11:20.711958+00:00",
-      "last_used": "2026-08-16T06:00:46.068522+00:00"
+      "last_used": "2026-08-16T06:00:59.803477+00:00"
     },
     {
       "id": "d161c3c6-64d5-4362-8665-e64f8f62db1d",
@@ -6967,10 +6967,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 36,
+      "hits": 37,
       "misses": 27,
       "created_at": "2026-08-15T18:11:20.712076+00:00",
-      "last_used": "2026-08-16T06:00:46.068572+00:00"
+      "last_used": "2026-08-16T06:00:59.803522+00:00"
     },
     {
       "id": "ca712687-93bd-4dc4-9b9c-80ab00a98043",
@@ -7003,10 +7003,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 36,
+      "hits": 37,
       "misses": 27,
       "created_at": "2026-08-15T18:11:20.712529+00:00",
-      "last_used": "2026-08-16T06:00:46.069644+00:00"
+      "last_used": "2026-08-16T06:00:59.804449+00:00"
     },
     {
       "id": "f4fa605a-9a0b-4f61-9a0c-aad2ebb5a889",
@@ -7015,10 +7015,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 36,
+      "hits": 37,
       "misses": 27,
       "created_at": "2026-08-15T18:11:20.712624+00:00",
-      "last_used": "2026-08-16T06:00:46.069694+00:00"
+      "last_used": "2026-08-16T06:00:59.804498+00:00"
     },
     {
       "id": "55cc37af-ce3c-4fd5-a15b-788266b64bf0",
@@ -7366,7 +7366,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:12:23.279855+00:00",
-      "last_used": "2026-08-16T05:44:58.636665+00:00"
+      "last_used": "2026-08-16T06:01:11.059288+00:00"
     },
     {
       "id": "f059e01f-c2c4-4f9e-8a6e-92f307fb50a9",
@@ -7378,7 +7378,7 @@
       "hits": 32,
       "misses": 21,
       "created_at": "2026-08-15T18:12:23.280086+00:00",
-      "last_used": "2026-08-16T06:00:10.963130+00:00"
+      "last_used": "2026-08-16T06:01:11.059310+00:00"
     },
     {
       "id": "056c6e1f-0871-41e1-9639-f0850b6f6100",
@@ -7390,7 +7390,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:12:23.280280+00:00",
-      "last_used": "2026-08-16T05:44:58.636685+00:00"
+      "last_used": "2026-08-16T06:01:11.059318+00:00"
     },
     {
       "id": "93f22f3f-c3e7-4123-bf62-83d382a6fdf5",
@@ -7414,7 +7414,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:12:23.280524+00:00",
-      "last_used": "2026-08-16T05:44:58.636688+00:00"
+      "last_used": "2026-08-16T06:01:11.059322+00:00"
     },
     {
       "id": "20c891c9-9cea-4d3a-8349-a4aa9731a03f",
@@ -7426,7 +7426,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:12:23.280657+00:00",
-      "last_used": "2026-08-16T05:44:58.636690+00:00"
+      "last_used": "2026-08-16T06:01:11.059327+00:00"
     },
     {
       "id": "c1f16415-4d34-4275-a295-e2fa793bd1e1",
@@ -7519,10 +7519,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 3,
+      "hits": 4,
       "misses": 1,
       "created_at": "2026-08-15T18:12:57.377801+00:00",
-      "last_used": "2026-08-16T05:51:57.733012+00:00"
+      "last_used": "2026-08-16T06:00:59.803964+00:00"
     },
     {
       "id": "e94eefe1-a5fe-4c5c-aed5-93d973fe72b8",
@@ -7603,10 +7603,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 6,
+      "hits": 7,
       "misses": 6,
       "created_at": "2026-08-15T18:13:01.986058+00:00",
-      "last_used": "2026-08-16T05:49:30.069695+00:00"
+      "last_used": "2026-08-16T06:00:56.419224+00:00"
     },
     {
       "id": "39865827-77d1-4c01-b2c3-f0f1892832ca",
@@ -8746,7 +8746,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:14:07.018311+00:00",
-      "last_used": "2026-08-16T05:50:18.843801+00:00"
+      "last_used": "2026-08-16T06:01:04.040018+00:00"
     },
     {
       "id": "17118e89-1e0f-4096-b2a0-2de9d99790f1",
@@ -8758,7 +8758,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:14:07.018414+00:00",
-      "last_used": "2026-08-16T05:50:18.843820+00:00"
+      "last_used": "2026-08-16T06:01:04.040033+00:00"
     },
     {
       "id": "7e7599c0-6b96-461b-abaa-02ddeb759bbb",
@@ -9415,10 +9415,10 @@
       "category": "reference",
       "priority": 2,
       "should_archive": true,
-      "hits": 20,
+      "hits": 21,
       "misses": 3,
       "created_at": "2026-08-15T18:15:03.881869+00:00",
-      "last_used": "2026-08-16T05:59:41.886956+00:00"
+      "last_used": "2026-08-16T06:01:02.808421+00:00"
     },
     {
       "id": "3148f329-b879-4e2a-b4f9-6b758e60d571",
@@ -11647,10 +11647,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 2,
+      "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:17:02.423308+00:00",
-      "last_used": "2026-08-16T05:50:59.155385+00:00"
+      "last_used": "2026-08-16T06:00:53.363840+00:00"
     },
     {
       "id": "7dd75e57-0051-4452-a534-7465745bbb10",
@@ -11944,13 +11944,13 @@
       "id": "728a9d8e-47a5-41f7-96a7-68a8e1074080",
       "type": "subject_keyword",
       "value": "all",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 2,
-      "misses": 5,
+      "misses": 6,
       "created_at": "2026-08-15T18:17:21.475394+00:00",
-      "last_used": "2026-08-16T05:24:19.754362+00:00"
+      "last_used": "2026-08-16T06:00:53.363914+00:00"
     },
     {
       "id": "1e4801df-dc7f-4475-b823-68ef25bd90bc",
@@ -12304,13 +12304,13 @@
       "id": "3e267241-41fe-495f-84e9-98d385535dc6",
       "type": "body_keyword",
       "value": "loan",
-      "category": "action_needed",
-      "priority": 5,
-      "should_archive": false,
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
       "hits": 5,
-      "misses": 1,
+      "misses": 2,
       "created_at": "2026-08-15T18:17:34.679793+00:00",
-      "last_used": "2026-08-16T05:51:57.733021+00:00"
+      "last_used": "2026-08-16T06:00:59.804054+00:00"
     },
     {
       "id": "6fb635d8-0331-484e-bfab-8311abba455c",
@@ -12394,7 +12394,7 @@
       "hits": 3,
       "misses": 0,
       "created_at": "2026-08-15T18:17:50.040103+00:00",
-      "last_used": "2026-08-16T06:00:42.138124+00:00"
+      "last_used": "2026-08-16T06:00:47.295357+00:00"
     },
     {
       "id": "da02a5d2-ebbc-40db-a75e-0d8fe4d50056",
@@ -12799,10 +12799,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 4,
+      "hits": 5,
       "misses": 0,
       "created_at": "2026-08-15T18:18:18.098554+00:00",
-      "last_used": "2026-08-16T06:00:22.877711+00:00"
+      "last_used": "2026-08-16T06:00:59.804585+00:00"
     },
     {
       "id": "5fb36288-3de2-4567-b03f-c07dba6f1880",
@@ -16384,13 +16384,13 @@
       "id": "d4e20987-c3aa-4dee-a6af-0ff9287da0c7",
       "type": "body_keyword",
       "value": "dad",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
       "hits": 2,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T04:13:58.996064+00:00",
-      "last_used": "2026-08-16T05:29:08.743354+00:00"
+      "last_used": "2026-08-16T06:00:59.804273+00:00"
     },
     {
       "id": "805b5359-815f-45ae-a708-f5985db7d3ec",
@@ -17635,10 +17635,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 1,
+      "hits": 2,
       "misses": 0,
       "created_at": "2026-08-16T05:51:08.678949+00:00",
-      "last_used": "2026-08-16T05:51:08.678949+00:00"
+      "last_used": "2026-08-16T06:00:56.417963+00:00"
     },
     {
       "id": "f03840aa-e7d8-4560-b1fd-5c68c202ab53",
@@ -18247,10 +18247,10 @@
       "category": "noise",
       "priority": 1,
       "should_archive": true,
-      "hits": 1,
+      "hits": 2,
       "misses": 0,
       "created_at": "2026-08-16T05:54:44.541505+00:00",
-      "last_used": "2026-08-16T05:54:44.541505+00:00"
+      "last_used": "2026-08-16T06:00:56.418246+00:00"
     },
     {
       "id": "cb8d0199-420f-4a05-b413-d18f9d5f7c29",
@@ -18388,13 +18388,13 @@
       "id": "16bdb4b6-681a-4052-a4d5-8387860a3b28",
       "type": "body_keyword",
       "value": "fee",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
       "hits": 1,
-      "misses": 1,
+      "misses": 2,
       "created_at": "2026-08-16T05:54:54.575419+00:00",
-      "last_used": "2026-08-16T05:55:19.305381+00:00"
+      "last_used": "2026-08-16T06:00:59.804712+00:00"
     },
     {
       "id": "6436bbe0-57eb-47ed-b17b-11c9709e0417",
@@ -18676,37 +18676,37 @@
       "id": "c42b1ca7-a071-445d-ace1-824671da214b",
       "type": "subject_keyword",
       "value": "zero",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T05:56:06.562969+00:00",
-      "last_used": "2026-08-16T05:56:06.562969+00:00"
+      "last_used": "2026-08-16T06:00:59.803679+00:00"
     },
     {
       "id": "5d421081-4e26-4f6c-8585-bb9973880f70",
       "type": "subject_keyword",
       "value": "processing",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T05:56:06.563284+00:00",
-      "last_used": "2026-08-16T05:56:06.563284+00:00"
+      "last_used": "2026-08-16T06:00:59.803802+00:00"
     },
     {
       "id": "54e3cd56-d36c-4eee-8fa9-acbb865e4e3e",
       "type": "subject_keyword",
       "value": "fee",
-      "category": "reference",
-      "priority": 2,
+      "category": "noise",
+      "priority": 1,
       "should_archive": true,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-16T05:56:06.563696+00:00",
-      "last_used": "2026-08-16T05:56:06.563696+00:00"
+      "last_used": "2026-08-16T06:00:59.803917+00:00"
     },
     {
       "id": "0ecfda6d-94d1-45da-961d-1a18d4df6490",
@@ -19631,6 +19631,354 @@
       "misses": 0,
       "created_at": "2026-08-16T06:00:46.070196+00:00",
       "last_used": "2026-08-16T06:00:46.070196+00:00"
+    },
+    {
+      "id": "438b2f26-76c9-4182-af49-bd79598a3889",
+      "type": "sender_email",
+      "value": "services@customer.icici.bank.in",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.804122+00:00",
+      "last_used": "2026-08-16T06:00:49.804122+00:00"
+    },
+    {
+      "id": "4bfc013e-8f85-4f28-9d5b-8a32e0f0136e",
+      "type": "sender_domain",
+      "value": "customer.icici.bank.in",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.804309+00:00",
+      "last_used": "2026-08-16T06:00:49.804309+00:00"
+    },
+    {
+      "id": "2a27169f-56be-4d67-ad47-758e41d376b2",
+      "type": "subject_keyword",
+      "value": "revamped",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.804523+00:00",
+      "last_used": "2026-08-16T06:00:49.804523+00:00"
+    },
+    {
+      "id": "f40fcb14-df78-400d-9469-dae5d1ce6268",
+      "type": "subject_keyword",
+      "value": "deposits",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.804673+00:00",
+      "last_used": "2026-08-16T06:00:49.804673+00:00"
+    },
+    {
+      "id": "296abcb2-a392-47a6-8745-677c375a8a4b",
+      "type": "subject_keyword",
+      "value": "accounts",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.804836+00:00",
+      "last_used": "2026-08-16T06:00:49.804836+00:00"
+    },
+    {
+      "id": "e422777d-a555-4b40-a725-341339913616",
+      "type": "subject_keyword",
+      "value": "features",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.805013+00:00",
+      "last_used": "2026-08-16T06:00:49.805013+00:00"
+    },
+    {
+      "id": "275093a1-088f-4dc0-9a0f-41ef27419a3d",
+      "type": "subject_keyword",
+      "value": "imobile",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:49.805148+00:00",
+      "last_used": "2026-08-16T06:00:49.805148+00:00"
+    },
+    {
+      "id": "387dc5e2-9c99-4f89-92f7-90d53b5562ff",
+      "type": "sender_email",
+      "value": "notification@zivame.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:53.362965+00:00",
+      "last_used": "2026-08-16T06:00:53.362965+00:00"
+    },
+    {
+      "id": "9dcc4c2e-0dab-4c1e-8e82-9f42320421b6",
+      "type": "sender_domain",
+      "value": "zivame.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:53.363312+00:00",
+      "last_used": "2026-08-16T06:00:53.363312+00:00"
+    },
+    {
+      "id": "d046d2f3-a94f-4df3-b1af-b574bb59e8c0",
+      "type": "subject_keyword",
+      "value": "zivame",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:53.363511+00:00",
+      "last_used": "2026-08-16T06:00:53.363511+00:00"
+    },
+    {
+      "id": "58289402-ff5f-4b7d-ad53-a0bf6b3f79b1",
+      "type": "subject_keyword",
+      "value": "liked",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:53.363641+00:00",
+      "last_used": "2026-08-16T06:00:53.363641+00:00"
+    },
+    {
+      "id": "7acdffaa-7956-41ec-9560-cffb60484e06",
+      "type": "subject_keyword",
+      "value": "loved",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:53.363765+00:00",
+      "last_used": "2026-08-16T06:00:53.363765+00:00"
+    },
+    {
+      "id": "3e6af1e7-fde4-495e-88f4-a553b77d6ebb",
+      "type": "sender_email",
+      "value": "engage@b2me.cisco.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.417229+00:00",
+      "last_used": "2026-08-16T06:00:56.417229+00:00"
+    },
+    {
+      "id": "2b51bdb6-2419-4b24-b6e9-43b7a489fd81",
+      "type": "sender_domain",
+      "value": "b2me.cisco.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.417606+00:00",
+      "last_used": "2026-08-16T06:00:56.417606+00:00"
+    },
+    {
+      "id": "f656bc03-71d2-4925-93a1-6ea2bc2683e2",
+      "type": "subject_keyword",
+      "value": "research",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.417844+00:00",
+      "last_used": "2026-08-16T06:00:56.417844+00:00"
+    },
+    {
+      "id": "90573c81-04c8-40df-9f02-397af55f58d7",
+      "type": "subject_keyword",
+      "value": "gen",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.418083+00:00",
+      "last_used": "2026-08-16T06:00:56.418083+00:00"
+    },
+    {
+      "id": "35b88818-ec53-479e-b8d9-995d1d24ab7d",
+      "type": "body_keyword",
+      "value": "elqtrackid",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.418488+00:00",
+      "last_used": "2026-08-16T06:00:56.418488+00:00"
+    },
+    {
+      "id": "bfbf7b4d-26b3-48fd-8102-346fe3801f1f",
+      "type": "body_keyword",
+      "value": "elq",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.418629+00:00",
+      "last_used": "2026-08-16T06:00:56.418629+00:00"
+    },
+    {
+      "id": "92c78b4b-e593-413b-beae-1951bd69f6a2",
+      "type": "body_keyword",
+      "value": "elqaid",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.418764+00:00",
+      "last_used": "2026-08-16T06:00:56.418764+00:00"
+    },
+    {
+      "id": "75dc28cb-b298-4933-8241-1878de13bd08",
+      "type": "body_keyword",
+      "value": "elqat",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.418898+00:00",
+      "last_used": "2026-08-16T06:00:56.418898+00:00"
+    },
+    {
+      "id": "c02221e5-fc94-4898-a0c7-17bd47e7ccd2",
+      "type": "body_keyword",
+      "value": "elqak",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.419032+00:00",
+      "last_used": "2026-08-16T06:00:56.419032+00:00"
+    },
+    {
+      "id": "8d4b1e45-1c0e-4245-be2c-70f3dc777c1f",
+      "type": "body_keyword",
+      "value": "def",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.419165+00:00",
+      "last_used": "2026-08-16T06:00:56.419165+00:00"
+    },
+    {
+      "id": "b8317dc7-157a-4283-bc60-0eafd057ef1c",
+      "type": "body_keyword",
+      "value": "lid",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.419355+00:00",
+      "last_used": "2026-08-16T06:00:56.419355+00:00"
+    },
+    {
+      "id": "fc30859e-f9a3-4d44-b1af-0f913ade7289",
+      "type": "body_keyword",
+      "value": "network",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:56.419505+00:00",
+      "last_used": "2026-08-16T06:00:56.419505+00:00"
+    },
+    {
+      "id": "eea79948-b696-4d35-9f02-8e2fa426a670",
+      "type": "body_keyword",
+      "value": "period",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:00:59.804873+00:00",
+      "last_used": "2026-08-16T06:00:59.804873+00:00"
+    },
+    {
+      "id": "3a8ad26e-f813-49d9-b6b0-3e09ad2fa75f",
+      "type": "sender_email",
+      "value": "linkedin@em.linkedin.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:01:05.981887+00:00",
+      "last_used": "2026-08-16T06:01:05.981887+00:00"
+    },
+    {
+      "id": "cdd584d7-bb48-4e0e-a520-e1990a7c831c",
+      "type": "sender_domain",
+      "value": "em.linkedin.com",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:01:05.982329+00:00",
+      "last_used": "2026-08-16T06:01:05.982329+00:00"
+    },
+    {
+      "id": "71901dc2-e6a7-44ee-8719-3e11e3dd1070",
+      "type": "subject_keyword",
+      "value": "expertise",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:01:05.985446+00:00",
+      "last_used": "2026-08-16T06:01:05.985446+00:00"
+    },
+    {
+      "id": "07f10fb7-26b9-438e-8306-180e6357d96d",
+      "type": "subject_keyword",
+      "value": "requested",
+      "category": "noise",
+      "priority": 1,
+      "should_archive": true,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-16T06:01:05.985835+00:00",
+      "last_used": "2026-08-16T06:01:05.985835+00:00"
     }
   ]
 }
