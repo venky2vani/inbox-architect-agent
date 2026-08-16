@@ -97,18 +97,6 @@
       "last_used": "2026-08-16T12:23:14.412102+00:00"
     },
     {
-      "id": "2a9a9286-a5a7-4dd0-8d88-e65e83ce779d",
-      "type": "sender_domain",
-      "value": "razorpay.com",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 26,
-      "misses": 43,
-      "created_at": "2026-08-15T18:06:11.562575+00:00",
-      "last_used": "2026-08-16T12:23:14.412121+00:00"
-    },
-    {
       "id": "6784cfe3-60a5-453b-8dc3-ff1896a2a951",
       "type": "subject_keyword",
       "value": "failed",
@@ -119,18 +107,6 @@
       "misses": 3,
       "created_at": "2026-08-15T18:06:11.562592+00:00",
       "last_used": "2026-08-16T17:50:37.947202+00:00"
-    },
-    {
-      "id": "43a9bb44-eb7d-4d27-9624-470371df76a4",
-      "type": "subject_keyword",
-      "value": "grateful",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 21,
-      "created_at": "2026-08-15T18:06:11.562600+00:00",
-      "last_used": "2026-08-16T04:59:27.387732+00:00"
     },
     {
       "id": "a33aa457-bb29-4f9c-b083-908d6ce6cd14",
@@ -421,18 +397,6 @@
       "last_used": "2026-08-16T16:54:00.412937+00:00"
     },
     {
-      "id": "f4b525b5-06c6-4c8a-acfb-a9fcc4bba62e",
-      "type": "body_keyword",
-      "value": "https",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 822,
-      "misses": 729,
-      "created_at": "2026-08-15T18:06:19.857119+00:00",
-      "last_used": "2026-08-16T17:52:23.409217+00:00"
-    },
-    {
       "id": "e9e05709-bc59-4382-b0e7-5cbfc3b7c854",
       "type": "body_keyword",
       "value": "update",
@@ -719,18 +683,6 @@
       "misses": 218,
       "created_at": "2026-08-15T18:06:25.797663+00:00",
       "last_used": "2026-08-16T17:52:18.598507+00:00"
-    },
-    {
-      "id": "6130745f-f5fc-4939-a56d-8c7ba01a63c5",
-      "type": "body_keyword",
-      "value": "email",
-      "category": "reference",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 319,
-      "misses": 298,
-      "created_at": "2026-08-15T18:06:25.797672+00:00",
-      "last_used": "2026-08-16T17:52:25.478946+00:00"
     },
     {
       "id": "c32fbbc6-3523-447d-96d0-c9505ffee6b6",
@@ -1117,18 +1069,6 @@
       "last_used": "2026-08-16T17:19:22.166776+00:00"
     },
     {
-      "id": "3fb82185-04a8-4845-912c-d0c7ae25ed3c",
-      "type": "body_keyword",
-      "value": "thank",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 16,
-      "misses": 15,
-      "created_at": "2026-08-15T18:06:34.398053+00:00",
-      "last_used": "2026-08-16T17:48:46.842767+00:00"
-    },
-    {
       "id": "badbc957-4a39-4d4f-9b56-7cee95866199",
       "type": "body_keyword",
       "value": "purchase",
@@ -1163,18 +1103,6 @@
       "misses": 1,
       "created_at": "2026-08-15T18:06:34.398091+00:00",
       "last_used": "2026-08-16T06:13:06.476552+00:00"
-    },
-    {
-      "id": "2befbaf8-5188-4bf3-b9f9-62afef33577f",
-      "type": "body_keyword",
-      "value": "address",
-      "category": "action_needed",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 11,
-      "misses": 23,
-      "created_at": "2026-08-15T18:06:34.398102+00:00",
-      "last_used": "2026-08-16T17:32:39.789207+00:00"
     },
     {
       "id": "bbe16bec-594a-4154-876c-fc0f8512cb38",
@@ -1247,18 +1175,6 @@
       "misses": 41,
       "created_at": "2026-08-15T18:06:40.035691+00:00",
       "last_used": "2026-08-16T17:51:57.714988+00:00"
-    },
-    {
-      "id": "0097d385-522b-42c8-b7f5-f22c7c80af15",
-      "type": "sender_domain",
-      "value": "mygateliving.in",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
-      "hits": 24,
-      "misses": 41,
-      "created_at": "2026-08-15T18:06:40.035724+00:00",
-      "last_used": "2026-08-16T17:51:57.715007+00:00"
     },
     {
       "id": "ebab60f5-2fa2-469d-8722-b4e183794a46",
@@ -2077,18 +1993,6 @@
       "last_used": "2026-08-16T12:33:12.128132+00:00"
     },
     {
-      "id": "a378b882-69ce-4e7e-90f9-b9deeb466f59",
-      "type": "sender_domain",
-      "value": "bigbasket.com",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 58,
-      "misses": 139,
-      "created_at": "2026-08-15T18:07:18.634952+00:00",
-      "last_used": "2026-08-16T12:33:12.128159+00:00"
-    },
-    {
       "id": "676b7545-7543-4fe1-ac38-b6f8eb07c817",
       "type": "subject_keyword",
       "value": "bigbasket",
@@ -2255,18 +2159,6 @@
       "misses": 15,
       "created_at": "2026-08-15T18:07:25.742608+00:00",
       "last_used": "2026-08-16T17:00:33.895232+00:00"
-    },
-    {
-      "id": "d5d425ef-6d51-4902-82ad-a24f78fc6076",
-      "type": "sender_domain",
-      "value": "email.openai.com",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 10,
-      "misses": 15,
-      "created_at": "2026-08-15T18:07:25.742647+00:00",
-      "last_used": "2026-08-16T17:00:33.895257+00:00"
     },
     {
       "id": "1133b68e-3a91-4825-8904-84d533dceb7e",
@@ -2471,18 +2363,6 @@
       "misses": 95,
       "created_at": "2026-08-15T18:07:29.284687+00:00",
       "last_used": "2026-08-16T17:50:26.661587+00:00"
-    },
-    {
-      "id": "aeb97646-a90c-48f1-afe9-30cb0916001e",
-      "type": "sender_domain",
-      "value": "amazonpay.in",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 59,
-      "misses": 95,
-      "created_at": "2026-08-15T18:07:29.284726+00:00",
-      "last_used": "2026-08-16T17:50:26.661612+00:00"
     },
     {
       "id": "caeaaeb7-6328-4b11-b97f-99a5c736ef5b",
@@ -2759,18 +2639,6 @@
       "misses": 29,
       "created_at": "2026-08-15T18:07:37.674606+00:00",
       "last_used": "2026-08-16T17:50:45.422568+00:00"
-    },
-    {
-      "id": "d31e48b5-888a-4939-b07a-78a23fbaecec",
-      "type": "sender_domain",
-      "value": "livpuresmart.com",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 10,
-      "misses": 29,
-      "created_at": "2026-08-15T18:07:37.674647+00:00",
-      "last_used": "2026-08-16T17:50:45.422595+00:00"
     },
     {
       "id": "3e256ac6-32de-4607-a090-a42eee6794a8",
@@ -3265,18 +3133,6 @@
       "last_used": "2026-08-16T17:18:42.007152+00:00"
     },
     {
-      "id": "4f19314e-9a99-4f63-807a-18bfeb44fb2b",
-      "type": "subject_keyword",
-      "value": "benefits",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 19,
-      "created_at": "2026-08-15T18:07:47.204693+00:00",
-      "last_used": "2026-08-16T16:19:17.043187+00:00"
-    },
-    {
       "id": "a1c17c13-46e8-4701-975a-532b18fcf252",
       "type": "subject_keyword",
       "value": "now",
@@ -3467,30 +3323,6 @@
       "misses": 4,
       "created_at": "2026-08-15T18:07:48.434720+00:00",
       "last_used": "2026-08-16T17:52:25.479163+00:00"
-    },
-    {
-      "id": "97d17bbf-6b40-4e1a-a94a-f3cab03590d8",
-      "type": "body_keyword",
-      "value": "click",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 148,
-      "misses": 75,
-      "created_at": "2026-08-15T18:07:48.434823+00:00",
-      "last_used": "2026-08-16T17:52:14.126713+00:00"
-    },
-    {
-      "id": "fb020f61-90fd-45e1-bbbf-0ea144ec9a1e",
-      "type": "body_keyword",
-      "value": "here",
-      "category": "reference",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 128,
-      "misses": 57,
-      "created_at": "2026-08-15T18:07:48.434872+00:00",
-      "last_used": "2026-08-16T17:52:25.478939+00:00"
     },
     {
       "id": "4a2082ce-58e4-458c-bb61-e9d47d4a5748",
@@ -4189,18 +4021,6 @@
       "last_used": "2026-08-16T12:37:20.331120+00:00"
     },
     {
-      "id": "c370e074-fd99-4325-a151-f049e151e2fb",
-      "type": "sender_domain",
-      "value": "cred.club",
-      "category": "reference",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 41,
-      "misses": 59,
-      "created_at": "2026-08-15T18:08:16.048617+00:00",
-      "last_used": "2026-08-16T12:39:14.876104+00:00"
-    },
-    {
       "id": "de16ff4b-dce1-4e98-8dd2-f00795ffc0a8",
       "type": "subject_keyword",
       "value": "important",
@@ -4283,18 +4103,6 @@
       "misses": 7,
       "created_at": "2026-08-15T18:08:25.605394+00:00",
       "last_used": "2026-08-16T11:31:11.144408+00:00"
-    },
-    {
-      "id": "08bc41d7-9a81-4a69-b9c0-0603848e01b1",
-      "type": "sender_domain",
-      "value": "github.com",
-      "category": "action_needed",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 7,
-      "misses": 15,
-      "created_at": "2026-08-15T18:08:25.605442+00:00",
-      "last_used": "2026-08-16T14:13:40.426882+00:00"
     },
     {
       "id": "c9634e0b-cd31-4624-bba1-a0641cfd5c5d",
@@ -4415,18 +4223,6 @@
       "misses": 14,
       "created_at": "2026-08-15T18:08:25.605762+00:00",
       "last_used": "2026-08-16T17:52:19.676916+00:00"
-    },
-    {
-      "id": "63d03ccc-9822-4c64-990e-106dc3e3b9ce",
-      "type": "body_keyword",
-      "value": "contact",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 21,
-      "misses": 43,
-      "created_at": "2026-08-15T18:08:25.605818+00:00",
-      "last_used": "2026-08-16T17:51:54.859049+00:00"
     },
     {
       "id": "2c549f4a-bd24-4c55-8bb7-b7748b44f78b",
@@ -4619,18 +4415,6 @@
       "misses": 20,
       "created_at": "2026-08-15T18:08:30.111519+00:00",
       "last_used": "2026-08-16T17:31:16.768240+00:00"
-    },
-    {
-      "id": "4e8efc25-81da-4eb5-887d-a5c17c4e2b02",
-      "type": "sender_domain",
-      "value": "cncf.io",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 9,
-      "misses": 20,
-      "created_at": "2026-08-15T18:08:30.111568+00:00",
-      "last_used": "2026-08-16T17:31:16.768327+00:00"
     },
     {
       "id": "49a914a2-53a3-4190-822b-27014cf4c3ab",
@@ -4919,18 +4703,6 @@
       "misses": 10,
       "created_at": "2026-08-15T18:08:33.490297+00:00",
       "last_used": "2026-08-16T12:24:52.883393+00:00"
-    },
-    {
-      "id": "b009f2a6-357d-4076-8425-d84d4c0ddd2f",
-      "type": "sender_domain",
-      "value": "amazon.in",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 39,
-      "misses": 90,
-      "created_at": "2026-08-15T18:08:33.490346+00:00",
-      "last_used": "2026-08-16T12:24:52.883459+00:00"
     },
     {
       "id": "ded789c0-4a01-4cef-8bd2-493c61e16afa",
@@ -5341,18 +5113,6 @@
       "last_used": "2026-08-16T17:35:15.006828+00:00"
     },
     {
-      "id": "51cbfd8a-139f-4779-abcc-c68a21fb1590",
-      "type": "sender_domain",
-      "value": "dxe.sbilife.co.in",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
-      "hits": 10,
-      "misses": 14,
-      "created_at": "2026-08-15T18:08:40.195456+00:00",
-      "last_used": "2026-08-16T17:35:15.006907+00:00"
-    },
-    {
       "id": "f9ebb2ad-1023-442e-a83e-af6efa46150b",
       "type": "subject_keyword",
       "value": "renewal",
@@ -5459,18 +5219,6 @@
       "misses": 0,
       "created_at": "2026-08-15T18:08:52.127398+00:00",
       "last_used": "2026-08-16T16:59:32.589822+00:00"
-    },
-    {
-      "id": "24615d0d-f637-4dad-9adc-0fe024b19754",
-      "type": "body_keyword",
-      "value": "link",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 44,
-      "misses": 48,
-      "created_at": "2026-08-15T18:08:52.127491+00:00",
-      "last_used": "2026-08-16T17:33:54.819655+00:00"
     },
     {
       "id": "1f014c28-e9e3-44fa-8c0e-8f9e62f2b947",
@@ -6145,18 +5893,6 @@
       "last_used": "2026-08-16T17:35:03.035831+00:00"
     },
     {
-      "id": "d0b7f1aa-4a6c-4bb7-97c2-47fe599198b7",
-      "type": "sender_email",
-      "value": "prime@amazon.in",
-      "category": "action_needed",
-      "priority": 5,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 15,
-      "created_at": "2026-08-15T18:09:03.801068+00:00",
-      "last_used": "2026-08-16T05:09:58.691552+00:00"
-    },
-    {
       "id": "937f51a2-122c-47bf-8a2d-88778b176fdf",
       "type": "subject_keyword",
       "value": "welcome",
@@ -6517,18 +6253,6 @@
       "last_used": "2026-08-16T17:52:19.675785+00:00"
     },
     {
-      "id": "9c97ddcc-b976-4ea9-bf07-987212d2a76a",
-      "type": "body_keyword",
-      "value": "http",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
-      "hits": 13,
-      "misses": 12,
-      "created_at": "2026-08-15T18:09:16.715353+00:00",
-      "last_used": "2026-08-16T17:50:08.131599+00:00"
-    },
-    {
       "id": "e074eefd-06a7-4410-b5cf-f8fec6260920",
       "type": "body_keyword",
       "value": "upn",
@@ -6791,18 +6515,6 @@
       "misses": 3,
       "created_at": "2026-08-15T18:10:51.061015+00:00",
       "last_used": "2026-08-16T10:33:53.242739+00:00"
-    },
-    {
-      "id": "a0145142-ad18-4efa-95f0-2d30ea4dfb4b",
-      "type": "body_keyword",
-      "value": "per",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 18,
-      "created_at": "2026-08-15T18:10:51.061059+00:00",
-      "last_used": "2026-08-16T17:50:08.135278+00:00"
     },
     {
       "id": "36a15aa5-4449-41bb-bef8-40aed3f285f3",
@@ -7177,18 +6889,6 @@
       "last_used": "2026-08-16T05:15:43.612474+00:00"
     },
     {
-      "id": "e8ac21cf-335c-46de-a4a1-177ae491b35a",
-      "type": "sender_domain",
-      "value": "cpc.incometax.gov.in",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 8,
-      "misses": 19,
-      "created_at": "2026-08-15T18:11:29.420383+00:00",
-      "last_used": "2026-08-16T05:17:40.235850+00:00"
-    },
-    {
       "id": "a24a130e-e799-4b2a-baba-36d31ad09bdc",
       "type": "subject_keyword",
       "value": "income",
@@ -7259,30 +6959,6 @@
       "misses": 21,
       "created_at": "2026-08-15T18:12:17.338948+00:00",
       "last_used": "2026-08-16T17:50:14.672353+00:00"
-    },
-    {
-      "id": "7574ef97-bf3c-4821-9666-0978891d046a",
-      "type": "subject_keyword",
-      "value": "status",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 15,
-      "created_at": "2026-08-15T18:12:17.338991+00:00",
-      "last_used": "2026-08-16T09:43:21.555711+00:00"
-    },
-    {
-      "id": "0c863afc-187b-4a7b-8845-8ef56519645f",
-      "type": "subject_keyword",
-      "value": "notification",
-      "category": "action_needed",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 14,
-      "created_at": "2026-08-15T18:12:17.339032+00:00",
-      "last_used": "2026-08-16T05:44:35.105342+00:00"
     },
     {
       "id": "de7d0376-030b-4a9e-b56b-8705f5cde7f1",
@@ -8627,18 +8303,6 @@
       "misses": 1,
       "created_at": "2026-08-15T18:13:45.815886+00:00",
       "last_used": "2026-08-16T17:50:32.860282+00:00"
-    },
-    {
-      "id": "406f7d36-b95e-4632-9d9e-1796d6d732c9",
-      "type": "sender_domain",
-      "value": "airtel.com",
-      "category": "action_needed",
-      "priority": 4,
-      "should_archive": false,
-      "hits": 7,
-      "misses": 23,
-      "created_at": "2026-08-15T18:13:45.815980+00:00",
-      "last_used": "2026-08-16T17:50:56.296612+00:00"
     },
     {
       "id": "a74b72c0-7afe-4c70-a825-6c392990ae1f",
@@ -16285,18 +15949,6 @@
       "last_used": "2026-08-16T17:50:08.354470+00:00"
     },
     {
-      "id": "03483207-afc2-496b-bc55-6d543ab00fda",
-      "type": "sender_domain",
-      "value": "irctc.co.in",
-      "category": "reference",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 8,
-      "misses": 18,
-      "created_at": "2026-08-16T04:13:33.798048+00:00",
-      "last_used": "2026-08-16T17:50:08.354692+00:00"
-    },
-    {
       "id": "e3b46775-83f0-4006-a045-192f60c2a877",
       "type": "subject_keyword",
       "value": "cancel",
@@ -16307,18 +15959,6 @@
       "misses": 0,
       "created_at": "2026-08-16T04:13:33.798159+00:00",
       "last_used": "2026-08-16T05:28:39.162015+00:00"
-    },
-    {
-      "id": "78804ac0-569c-458d-90b1-712a02209f68",
-      "type": "subject_keyword",
-      "value": "ticket",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T04:13:33.798263+00:00",
-      "last_used": "2026-08-16T16:43:58.066272+00:00"
     },
     {
       "id": "f3d73462-52e2-4229-b33a-ea1dff934cda",
@@ -17365,18 +17005,6 @@
       "last_used": "2026-08-16T17:50:55.497515+00:00"
     },
     {
-      "id": "6097d918-0b91-41d1-8ffc-8fc8ac080dce",
-      "type": "subject_keyword",
-      "value": "source",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 10,
-      "created_at": "2026-08-16T05:50:59.156074+00:00",
-      "last_used": "2026-08-16T17:15:57.947437+00:00"
-    },
-    {
       "id": "5ba35082-d736-436f-a9f7-a7b052f3f395",
       "type": "subject_keyword",
       "value": "management",
@@ -17759,18 +17387,6 @@
       "misses": 288,
       "created_at": "2026-08-16T05:51:51.585545+00:00",
       "last_used": "2026-08-16T17:35:17.433838+00:00"
-    },
-    {
-      "id": "40353ae2-029e-4f1c-9a50-d9495006182d",
-      "type": "sender_domain",
-      "value": "hdfcbank.net",
-      "category": "action_needed",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 378,
-      "misses": 552,
-      "created_at": "2026-08-16T05:51:51.585764+00:00",
-      "last_used": "2026-08-16T17:35:18.885836+00:00"
     },
     {
       "id": "aa26cc0d-908a-4859-8b49-796cea524c63",
@@ -24877,18 +24493,6 @@
       "last_used": "2026-08-16T07:48:27.104994+00:00"
     },
     {
-      "id": "2102a69f-79cc-4818-8480-338f6dd08966",
-      "type": "body_keyword",
-      "value": "nbsp",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 5,
-      "created_at": "2026-08-16T07:48:27.105362+00:00",
-      "last_used": "2026-08-16T10:30:25.368548+00:00"
-    },
-    {
       "id": "a1cd4daa-2343-488b-8c12-1e7543dd0711",
       "type": "sender_email",
       "value": "coursera@m.learn.coursera.org",
@@ -25151,18 +24755,6 @@
       "misses": 7,
       "created_at": "2026-08-16T07:48:56.161039+00:00",
       "last_used": "2026-08-16T17:17:22.480994+00:00"
-    },
-    {
-      "id": "d5f72030-4160-4b88-a25f-b245a1dd6b6e",
-      "type": "sender_domain",
-      "value": "zoom.us",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 4,
-      "misses": 7,
-      "created_at": "2026-08-16T07:48:56.161507+00:00",
-      "last_used": "2026-08-16T17:17:22.481401+00:00"
     },
     {
       "id": "46cc10c7-f3b0-463c-881b-312586296ed4",
@@ -26879,18 +26471,6 @@
       "misses": 0,
       "created_at": "2026-08-16T07:53:21.301254+00:00",
       "last_used": "2026-08-16T09:41:21.853863+00:00"
-    },
-    {
-      "id": "aab9f1a9-8c0a-4a7b-9cb7-e07368da6934",
-      "type": "sender_domain",
-      "value": "goindigo.in",
-      "category": "reference",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 3,
-      "misses": 7,
-      "created_at": "2026-08-16T07:53:21.301440+00:00",
-      "last_used": "2026-08-16T17:47:24.514681+00:00"
     },
     {
       "id": "b64e429c-b30c-411b-883d-32a9f630a0c0",
@@ -30445,18 +30025,6 @@
       "last_used": "2026-08-16T17:47:24.998370+00:00"
     },
     {
-      "id": "310feeb2-6206-4a82-8e32-ac5ff28f942d",
-      "type": "subject_keyword",
-      "value": "workflows",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T09:30:36.419449+00:00",
-      "last_used": "2026-08-16T17:01:52.865444+00:00"
-    },
-    {
       "id": "2153d2f8-b123-48ec-aaa6-4e922354c613",
       "type": "body_keyword",
       "value": "devops",
@@ -32075,18 +31643,6 @@
       "misses": 0,
       "created_at": "2026-08-16T09:40:13.553603+00:00",
       "last_used": "2026-08-16T09:40:13.553603+00:00"
-    },
-    {
-      "id": "be628fec-e701-46d6-9f4d-96b5fa75a123",
-      "type": "body_keyword",
-      "value": "ikea",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 7,
-      "created_at": "2026-08-16T09:40:13.554397+00:00",
-      "last_used": "2026-08-16T11:23:56.658845+00:00"
     },
     {
       "id": "e9e0bfb2-25a1-492f-883f-e89e2ec07e5b",
@@ -35041,18 +34597,6 @@
       "last_used": "2026-08-16T12:25:22.621449+00:00"
     },
     {
-      "id": "ce19a4c5-5a92-473b-b871-6371d321da82",
-      "type": "sender_domain",
-      "value": "custcomm.icicibank.com",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 6,
-      "misses": 11,
-      "created_at": "2026-08-16T10:18:04.390497+00:00",
-      "last_used": "2026-08-16T12:25:22.621646+00:00"
-    },
-    {
       "id": "46b6bca7-2b92-43c2-a0f3-00a9e74cbd23",
       "type": "subject_keyword",
       "value": "modes",
@@ -35411,18 +34955,6 @@
       "misses": 5,
       "created_at": "2026-08-16T10:19:11.466493+00:00",
       "last_used": "2026-08-16T17:50:28.596628+00:00"
-    },
-    {
-      "id": "348b0cf2-bffe-4ae0-859b-06c1e1e446c4",
-      "type": "body_keyword",
-      "value": "login",
-      "category": "action_needed",
-      "priority": 5,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T10:19:11.468022+00:00",
-      "last_used": "2026-08-16T17:30:53.926856+00:00"
     },
     {
       "id": "c4f6ec1a-20ae-4fef-b735-c0e516138d3d",
@@ -37463,30 +36995,6 @@
       "misses": 0,
       "created_at": "2026-08-16T10:25:51.033777+00:00",
       "last_used": "2026-08-16T17:48:47.543042+00:00"
-    },
-    {
-      "id": "d02e02c0-ae5d-4e12-b89f-81d0014f2060",
-      "type": "sender_email",
-      "value": "travel@mail.savaari.com",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 6,
-      "created_at": "2026-08-16T10:25:54.205568+00:00",
-      "last_used": "2026-08-16T14:42:39.975138+00:00"
-    },
-    {
-      "id": "24c30359-2a65-491f-84f4-bc0b6ce39ee3",
-      "type": "sender_domain",
-      "value": "mail.savaari.com",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 6,
-      "created_at": "2026-08-16T10:25:54.205801+00:00",
-      "last_used": "2026-08-16T14:42:39.975948+00:00"
     },
     {
       "id": "0a271a3e-9620-45ea-9172-1150d2ca7452",
@@ -42121,18 +41629,6 @@
       "last_used": "2026-08-16T17:30:58.466777+00:00"
     },
     {
-      "id": "0ee8cda2-9d0f-481a-bfa1-5f75a4a52485",
-      "type": "sender_domain",
-      "value": "mailers.hdfcbank.net",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 13,
-      "misses": 24,
-      "created_at": "2026-08-16T10:46:22.915817+00:00",
-      "last_used": "2026-08-16T17:30:58.467004+00:00"
-    },
-    {
       "id": "c33a8318-ec4e-465c-a72a-c43b9f0f6f9c",
       "type": "body_keyword",
       "value": "deal",
@@ -42155,18 +41651,6 @@
       "misses": 1,
       "created_at": "2026-08-16T10:46:22.917262+00:00",
       "last_used": "2026-08-16T11:32:52.733763+00:00"
-    },
-    {
-      "id": "9c4676e6-0fef-4380-b800-071d43395a36",
-      "type": "subject_keyword",
-      "value": "copilot",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T10:46:27.215816+00:00",
-      "last_used": "2026-08-16T16:52:56.677884+00:00"
     },
     {
       "id": "771183e0-d6fb-4a5a-ad0a-a3ee25bc8035",
@@ -42515,18 +41999,6 @@
       "misses": 0,
       "created_at": "2026-08-16T10:47:33.884733+00:00",
       "last_used": "2026-08-16T10:47:33.884733+00:00"
-    },
-    {
-      "id": "5d5fa923-b2aa-4a7f-ad2f-1a68ed14dbd0",
-      "type": "subject_keyword",
-      "value": "march",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 6,
-      "created_at": "2026-08-16T10:47:33.884998+00:00",
-      "last_used": "2026-08-16T14:54:23.263722+00:00"
     },
     {
       "id": "a30d6a67-f753-4650-a26f-7b35b89f0e3a",
@@ -45635,18 +45107,6 @@
       "misses": 2,
       "created_at": "2026-08-16T11:03:46.590773+00:00",
       "last_used": "2026-08-16T17:31:34.529608+00:00"
-    },
-    {
-      "id": "679a2b9f-c822-4388-9633-2cec35cde1b7",
-      "type": "body_keyword",
-      "value": "friday",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T11:04:21.406223+00:00",
-      "last_used": "2026-08-16T16:59:02.420526+00:00"
     },
     {
       "id": "fba31d71-4130-4da9-97ad-bd335dbafe2c",
@@ -78601,18 +78061,6 @@
       "last_used": "2026-08-16T17:16:58.485102+00:00"
     },
     {
-      "id": "b3f07f02-9576-4738-bae8-cba832d9fff1",
-      "type": "body_keyword",
-      "value": "website",
-      "category": "reference",
-      "priority": 2,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 0,
-      "created_at": "2026-08-16T17:17:04.555186+00:00",
-      "last_used": "2026-08-16T17:17:04.555186+00:00"
-    },
-    {
       "id": "b1fcc937-2667-4dda-8e60-274acbf32c5a",
       "type": "body_keyword",
       "value": "mzgaaagd",
@@ -78973,18 +78421,6 @@
       "last_used": "2026-08-16T17:52:14.126653+00:00"
     },
     {
-      "id": "f692f88c-9131-48b3-bac6-7e9137bd0aea",
-      "type": "subject_keyword",
-      "value": "october",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 5,
-      "created_at": "2026-08-16T17:17:45.047396+00:00",
-      "last_used": "2026-08-16T17:47:30.164684+00:00"
-    },
-    {
       "id": "d1fe0efb-e8d3-4f0e-ad3a-1adbdc6c5002",
       "type": "subject_keyword",
       "value": "payzapp",
@@ -79247,42 +78683,6 @@
       "misses": 0,
       "created_at": "2026-08-16T17:19:04.787342+00:00",
       "last_used": "2026-08-16T17:19:04.787342+00:00"
-    },
-    {
-      "id": "3cc4bd46-2e8c-404d-b38a-abf313111912",
-      "type": "sender_email",
-      "value": "customersupport@pitshirts.in",
-      "category": "action_needed",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T17:19:11.260141+00:00",
-      "last_used": "2026-08-16T17:20:22.400801+00:00"
-    },
-    {
-      "id": "5beaaa2e-b54e-4785-8177-40e8afcecec7",
-      "type": "sender_domain",
-      "value": "pitshirts.in",
-      "category": "action_needed",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T17:19:11.260731+00:00",
-      "last_used": "2026-08-16T17:20:22.401242+00:00"
-    },
-    {
-      "id": "0b4ac815-64e3-4174-9f3a-5c571bdefd84",
-      "type": "body_keyword",
-      "value": "pitshirts",
-      "category": "action_needed",
-      "priority": 2,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 4,
-      "created_at": "2026-08-16T17:19:11.261528+00:00",
-      "last_used": "2026-08-16T17:20:22.402914+00:00"
     },
     {
       "id": "dd349afa-a65b-4182-8392-33bf8d01a347",
@@ -79571,18 +78971,6 @@
       "misses": 0,
       "created_at": "2026-08-16T17:19:48.122070+00:00",
       "last_used": "2026-08-16T17:19:48.122070+00:00"
-    },
-    {
-      "id": "1b318a7c-8791-4578-b0e1-2d07967369d9",
-      "type": "subject_keyword",
-      "value": "oct",
-      "category": "reference",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 1,
-      "misses": 9,
-      "created_at": "2026-08-16T17:19:48.811327+00:00",
-      "last_used": "2026-08-16T17:50:08.355517+00:00"
     },
     {
       "id": "d9e04ecb-73cf-474e-bdae-794566a14657",
@@ -80713,18 +80101,6 @@
       "last_used": "2026-08-16T17:30:58.158184+00:00"
     },
     {
-      "id": "7d4b2393-8485-4614-b110-ef73e804ae35",
-      "type": "body_keyword",
-      "value": "unknown",
-      "category": "noise",
-      "priority": 1,
-      "should_archive": true,
-      "hits": 1,
-      "misses": 0,
-      "created_at": "2026-08-16T17:30:58.470918+00:00",
-      "last_used": "2026-08-16T17:30:58.470918+00:00"
-    },
-    {
       "id": "aca8c200-8395-47b5-981e-84345ec7a123",
       "type": "body_keyword",
       "value": "mtkynjk",
@@ -81059,18 +80435,6 @@
       "misses": 0,
       "created_at": "2026-08-16T17:31:20.016101+00:00",
       "last_used": "2026-08-16T17:32:39.786030+00:00"
-    },
-    {
-      "id": "564b34d6-613e-42bc-b6f1-b88ffa2031c9",
-      "type": "subject_keyword",
-      "value": "confirm",
-      "category": "action_needed",
-      "priority": 3,
-      "should_archive": false,
-      "hits": 3,
-      "misses": 0,
-      "created_at": "2026-08-16T17:31:20.017299+00:00",
-      "last_used": "2026-08-16T17:31:34.529589+00:00"
     },
     {
       "id": "59a941ba-7a38-454a-b526-0f9e3b06e16e",
