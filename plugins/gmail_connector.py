@@ -1,6 +1,7 @@
 """Gmail connector plugin for the Inbox Architect Agent."""
 
 import base64
+import copy
 import logging
 import os
 import time
@@ -111,6 +112,22 @@ class GmailConnector(EmailConnector):
         logger.info("Gmail service built in %.2fs", time.perf_counter() - start_build)
         logger.info("Authenticated Gmail scopes: %s", self.creds.scopes)
         return True
+
+    def copy_for_thread(self) -> "GmailConnector":
+        """Return a shallow copy with a thread-local Gmail service.
+
+        The google-api-python-client service uses httplib2.Http, which is not
+        thread-safe. Each worker thread must therefore use its own service.
+        The credentials object is shared read-only; token refresh is performed
+        by the main thread before parallel work begins.
+        """
+        if self.creds is None or self.service is None:
+            raise RuntimeError(
+                "Connector must be authenticated before creating thread-local copies."
+            )
+        new = copy.copy(self)
+        new.service = build("gmail", "v1", credentials=self.creds)
+        return new
 
     def _list_unread_ids(self, limit: int) -> List[Dict[str, str]]:
         """Return a list of unread message metadata (id, threadId).

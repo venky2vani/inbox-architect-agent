@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -53,6 +54,7 @@ class SmartInboxProcessor(ProcessorPlugin):
         self.client: Optional[Any] = None
         self.local_hits = 0
         self.llm_calls = 0
+        self._lock = threading.Lock()
         self._last_llm_call_time: Optional[float] = None
         self.on_llm_required = on_llm_required
 
@@ -186,7 +188,8 @@ class SmartInboxProcessor(ProcessorPlugin):
             logger.debug("→ Checking local intelligence for: %s", subject_preview)
             local_result = self.local_intel.classify(message)
             if local_result is not None:
-                self.local_hits += 1
+                with self._lock:
+                    self.local_hits += 1
                 logger.info(
                     "✓ LOCAL INTEL | %s | category: %s (confidence: %.2f)",
                     subject_preview,
@@ -208,7 +211,8 @@ class SmartInboxProcessor(ProcessorPlugin):
             subject_preview
         )
         processed = self._process_with_llm(message)
-        self.llm_calls += 1
+        with self._lock:
+            self.llm_calls += 1
         if self.local_intel is not None:
             self.local_intel.learn(message, processed)
         return processed

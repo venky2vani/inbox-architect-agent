@@ -7,6 +7,7 @@ locally cached rule is confident enough.
 import json
 import os
 import re
+import threading
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -135,6 +136,7 @@ class LocalIntelligence:
             prune_after_days or os.getenv("LOCAL_INTELLIGENCE_PRUNE_DAYS", "30")
         )
         self.rules: List[Dict[str, Any]] = []
+        self._lock = threading.RLock()
         self._load()
 
     def _load(self) -> None:
@@ -149,11 +151,16 @@ class LocalIntelligence:
             self.rules = []
 
     def _save(self) -> None:
-        """Persist rules to disk."""
-        self.rules_path.parent.mkdir(parents=True, exist_ok=True)
-        self.rules_path.write_text(
-            json.dumps({"rules": self.rules}, indent=2), encoding="utf-8"
-        )
+        """Persist rules to disk.
+
+        Callers must hold ``self._lock`` when modifying rules. This method is
+        also safe to call independently because it acquires the lock itself.
+        """
+        with self._lock:
+            self.rules_path.parent.mkdir(parents=True, exist_ok=True)
+            self.rules_path.write_text(
+                json.dumps({"rules": self.rules}, indent=2), encoding="utf-8"
+            )
 
     @staticmethod
     def _now() -> str:
@@ -268,94 +275,96 @@ class LocalIntelligence:
 
     def learn(self, message: EmailMessage, item: ProcessedItem) -> None:
         """Update local rules based on an LLM-derived result."""
-        should_archive = item.status == "archived" or item.category == "noise"
-        for rule_type, value in self._features(message):
-            rule = self._find_rule(rule_type, value)
-            if rule is None:
-                self.rules.append(
-                    self._create_rule(
-                        rule_type,
-                        value,
-                        item.category,
-                        item.priority,
-                        should_archive,
+        with self._lock:
+            should_archive = item.status == "archived" or item.category == "noise"
+            for rule_type, value in self._features(message):
+                rule = self._find_rule(rule_type, value)
+                if rule is None:
+                    self.rules.append(
+                        self._create_rule(
+                            rule_type,
+                            value,
+                            item.category,
+                            item.priority,
+                            should_archive,
+                        )
                     )
-                )
-            else:
-                self._update_rule(
-                    rule, item.category, item.priority, should_archive
-                )
-        self.prune()
-        self._save()
+                else:
+                    self._update_rule(
+                        rule, item.category, item.priority, should_archive
+                    )
+            self.prune()
+            self._save()
 
     def classify(self, message: EmailMessage) -> Optional[ProcessedItem]:
         """Return a ProcessedItem if local rules are confident enough."""
-        features = self._features(message)
-        matched_rules: List[Dict[str, Any]] = []
-        for rule_type, value in features:
-            rule = self._find_rule(rule_type, value)
-            if rule is None:
-                continue
-            total = rule.get("hits", 0) + rule.get("misses", 0)
-            if total < self.min_hits:
-                continue
-            matched_rules.append(rule)
+        with self._lock:
+            features = self._features(message)
+            matched_rules: List[Dict[str, Any]] = []
+            for rule_type, value in features:
+                rule = self._find_rule(rule_type, value)
+                if rule is None:
+                    continue
+                total = rule.get("hits", 0) + rule.get("misses", 0)
+                if total < self.min_hits:
+                    continue
+                matched_rules.append(rule)
 
-        if not matched_rules:
-            return None
+            if not matched_rules:
+                return None
 
-        # Combine evidence weighted by rule type and confidence.
-        weighted_score = 0.0
-        total_weight = 0.0
-        categories: Dict[str, float] = {}
-        priorities: List[int] = []
-        should_archive_votes = 0.0
+            # Combine evidence weighted by rule type and confidence.
+            weighted_score = 0.0
+            total_weight = 0.0
+            categories: Dict[str, float] = {}
+            priorities: List[int] = []
+            should_archive_votes = 0.0
 
-        for rule in matched_rules:
-            weight = _RULE_TYPE_WEIGHTS.get(rule.get("type", ""), 0.1)
-            conf = self._confidence(rule)
-            w = weight * conf
-            total_weight += w
-            weighted_score += conf * w
-            cat = rule.get("category", "reference")
-            categories[cat] = categories.get(cat, 0.0) + w
-            priorities.append(rule.get("priority", 3))
-            if rule.get("should_archive", False):
-                should_archive_votes += w
+            for rule in matched_rules:
+                weight = _RULE_TYPE_WEIGHTS.get(rule.get("type", ""), 0.1)
+                conf = self._confidence(rule)
+                w = weight * conf
+                total_weight += w
+                weighted_score += conf * w
+                cat = rule.get("category", "reference")
+                categories[cat] = categories.get(cat, 0.0) + w
+                priorities.append(rule.get("priority", 3))
+                if rule.get("should_archive", False):
+                    should_archive_votes += w
 
-        if total_weight == 0:
-            return None
+            if total_weight == 0:
+                return None
 
-        avg_confidence = weighted_score / total_weight
-        if avg_confidence < self.confidence_threshold:
-            return None
+            avg_confidence = weighted_score / total_weight
+            if avg_confidence < self.confidence_threshold:
+                return None
 
-        best_category = max(categories, key=categories.get)
-        # Use the median priority among matching rules.
-        priorities.sort()
-        priority = priorities[len(priorities) // 2]
-        should_archive = should_archive_votes > (total_weight / 2)
+            best_category = max(categories, key=categories.get)
+            # Use the median priority among matching rules.
+            priorities.sort()
+            priority = priorities[len(priorities) // 2]
+            should_archive = should_archive_votes > (total_weight / 2)
 
-        for rule in matched_rules:
-            rule["last_used"] = self._now()
-        self._save()
+            for rule in matched_rules:
+                rule["last_used"] = self._now()
+            self._save()
 
-        summary = (
-            f"Local intelligence: matched {len(matched_rules)} rule(s) "
-            f"for category '{best_category}' (confidence: {avg_confidence:.2f})."
-        )
-        return ProcessedItem(
-            original_id=message.id,
-            sender=message.sender,
-            subject=message.subject,
-            category=best_category,
-            priority=priority,
-            summary=summary,
-            action_items=[],
-            extracted_data={"_local_intelligence": True},
-            destination="sheets_index",
-            status="archived" if should_archive else "pending",
-        )
+            summary = (
+                f"Local intelligence: matched {len(matched_rules)} rule(s) "
+                f"for category '{best_category}' (confidence: {avg_confidence:.2f})."
+            )
+            return ProcessedItem(
+                original_id=message.id,
+                sender=message.sender,
+                subject=message.subject,
+                category=best_category,
+                priority=priority,
+                summary=summary,
+                action_items=[],
+                extracted_data={"_local_intelligence": True},
+                destination="sheets_index",
+                status="archived" if should_archive else "pending",
+            )
 
     def prune(self) -> None:
         """Remove stale, low-confidence rules."""

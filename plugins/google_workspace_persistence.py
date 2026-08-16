@@ -4,6 +4,7 @@ Sheets  -> Metadata index (searchable, filterable)
 Drive   -> Raw content + attachments (organized by date/category)
 """
 
+import copy
 import io
 import logging
 import os
@@ -69,6 +70,23 @@ class GoogleWorkspacePersistence(PersistencePlugin):
         self._ensure_headers()
         logger.info("Opening or creating Drive folder: %s", self.drive_root_name)
         self.drive_root_id = self._get_or_create_drive_folder(self.drive_root_name)
+
+    def copy_for_thread(self) -> "GoogleWorkspacePersistence":
+        """Return a shallow copy with thread-local Sheets and Drive clients.
+
+        gspread and googleapiclient both use httplib2.Http, which is not
+        thread-safe. Each worker thread therefore needs its own clients.
+        The credentials object and discovered folder/sheet IDs are shared
+        read-only.
+        """
+        if self.creds is None:
+            raise RuntimeError(
+                "Persistence must be authenticated before creating thread-local copies."
+            )
+        new = copy.copy(self)
+        new.sheets = gspread.authorize(self.creds)
+        new.drive = build("drive", "v3", credentials=self.creds)
+        return new
 
     @google_retry
     def _load_credentials(self) -> Credentials:

@@ -68,6 +68,17 @@ class EmailConnector(ABC):
         """Mark a message as processed."""
         ...
 
+    def copy_for_thread(self) -> "EmailConnector":
+        """Return a thread-safe copy of this plugin instance.
+
+        Subclasses that wrap non-thread-safe network clients (e.g. the
+        google-api-python-client service, which uses a non-thread-safe
+        httplib2.Http instance) must override this so each worker thread gets
+        its own client. The default implementation returns ``self`` and is
+        therefore only safe when the subclass is already thread-safe.
+        """
+        return self
+
 
 class PersistencePlugin(ABC):
     """Base class for storage backends."""
@@ -89,6 +100,13 @@ class PersistencePlugin(ABC):
         """Retrieve processed items for a specific date."""
         ...
 
+    def copy_for_thread(self) -> "PersistencePlugin":
+        """Return a thread-safe copy of this plugin instance.
+
+        See :meth:`EmailConnector.copy_for_thread` for details.
+        """
+        return self
+
 
 class ProcessorPlugin(ABC):
     """Base class for LLM/post-processing plugins."""
@@ -97,3 +115,10 @@ class ProcessorPlugin(ABC):
     def process(self, message: EmailMessage) -> ProcessedItem:
         """Process a single email message into a structured item."""
         ...
+
+    def copy_for_thread(self) -> "ProcessorPlugin":
+        """Return a thread-safe copy of this plugin instance.
+
+        See :meth:`EmailConnector.copy_for_thread` for details.
+        """
+        return self

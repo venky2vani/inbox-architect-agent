@@ -8,10 +8,12 @@ import argparse
 import importlib
 import logging
 import os
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
 from dotenv import load_dotenv
@@ -37,6 +39,15 @@ class InboxArchitectAgent:
         self.plugins_dir = plugins_dir
         self.checkpoint: Optional[Checkpoint] = None
         self.failed_ids: List[str] = []
+        # Parallel processing configuration. Default is False because many
+        # network clients (e.g. google-api-python-client / httplib2) are not
+        # thread-safe. Set PARALLEL_PROCESSING=true only after confirming that
+        # all loaded plugins implement copy_for_thread() safely.
+        self.max_workers = int(os.getenv("PARALLEL_MAX_WORKERS", "0"))
+        if self.max_workers <= 0:
+            # Auto-detect: CPU count * 2, capped at 8
+            self.max_workers = min(8, (os.cpu_count() or 4) * 2)
+        self.use_parallel = os.getenv("PARALLEL_PROCESSING", "false").lower() == "true"
 
     def load_plugins(self) -> None:
         """Discover and instantiate plugins from the plugins directory."""
@@ -299,7 +310,200 @@ class InboxArchitectAgent:
         archive_noise: bool,
         dry_run: bool,
     ) -> List[ProcessedItem]:
-        """Fetch and process a batch of message IDs, isolating per-email failures."""
+        """Fetch and process a batch of message IDs.
+
+        Uses parallel processing if enabled (default), otherwise sequential.
+        """
+        if self.use_parallel and len(batch_ids) > 1:
+            return self._process_batch_parallel(connector, batch_ids, archive_noise, dry_run)
+        return self._process_batch_sequential(connector, batch_ids, archive_noise, dry_run)
+
+    def _process_batch_parallel(
+        self,
+        connector: EmailConnector,
+        batch_ids: List[Dict[str, str]],
+        archive_noise: bool,
+        dry_run: bool,
+    ) -> List[ProcessedItem]:
+        """Process batch in parallel using ThreadPoolExecutor.
+
+        Each worker thread receives its own copies of the connector and
+        persistence plugins. The underlying Google API clients use httplib2,
+        which is not thread-safe, so sharing a single service across threads
+        leads to crashes such as segmentation faults.
+        """
+        if dry_run:
+            logger.warning(
+                "DRY RUN: no emails will be archived or labeled in Gmail for this batch"
+            )
+
+        batch_processed: List[ProcessedItem] = []
+        total = len(batch_ids)
+
+        logger.info("Processing %d emails with %d parallel workers", total, self.max_workers)
+
+        processor = self.processors[0]
+        base_persistence = self.persistence
+        thread_local = threading.local()
+
+        def get_thread_connector() -> EmailConnector:
+            """Return a thread-local copy of the connector."""
+            if not hasattr(thread_local, "connector"):
+                thread_local.connector = connector.copy_for_thread()
+            return thread_local.connector
+
+        def get_thread_persistence() -> Optional[PersistencePlugin]:
+            """Return a thread-local copy of the persistence plugin (if any)."""
+            if base_persistence is None:
+                return None
+            if not hasattr(thread_local, "persistence"):
+                thread_local.persistence = base_persistence.copy_for_thread()
+            return thread_local.persistence
+
+        def worker_task(
+            msg_meta: Dict[str, str], idx: int, total: int
+        ) -> Optional[ProcessedItem]:
+            """Callable executed in each worker thread."""
+            return self._process_single_email(
+                get_thread_connector(),
+                processor,
+                msg_meta,
+                archive_noise,
+                dry_run,
+                idx,
+                total,
+                get_thread_persistence(),
+            )
+
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            # Submit all tasks
+            futures = {
+                executor.submit(worker_task, msg_meta, idx, total): (idx, msg_meta)
+                for idx, msg_meta in enumerate(batch_ids, 1)
+            }
+
+            # Process completed tasks as they finish
+            for future in as_completed(futures):
+                idx, msg_meta = futures[future]
+                try:
+                    result = future.result(timeout=120)  # 120 second timeout per email
+                    if result is not None:
+                        batch_processed.append(result)
+                except Exception as exc:  # pylint: disable=broad-except
+                    logger.error(
+                        "[%d/%d] Failed to process message %s: %s",
+                        idx,
+                        total,
+                        msg_meta["id"],
+                        exc,
+                    )
+                    self.failed_ids.append(msg_meta["id"])
+
+        return batch_processed
+
+    def _process_single_email(
+        self,
+        connector: EmailConnector,
+        processor: ProcessorPlugin,
+        msg_meta: Dict[str, str],
+        archive_noise: bool,
+        dry_run: bool,
+        idx: int,
+        total: int,
+        persistence: Optional[PersistencePlugin] = None,
+    ) -> Optional[ProcessedItem]:
+        """Process a single email (can be called in parallel).
+
+        When ``persistence`` is provided it is used for attachment storage instead
+        of ``self.persistence``. This lets worker threads use thread-local
+        persistence instances that wrap non-thread-safe network clients.
+        """
+        msg_id = msg_meta["id"]
+        try:
+            logger.debug("[%d/%d] Fetching message %s", idx, total, msg_id)
+            msg = connector.fetch_message_by_id(msg_id)
+        except Exception as exc:  # pylint: disable=broad-except
+            logger.error("[%d/%d] Failed to fetch message %s: %s", idx, total, msg_id, exc)
+            self.failed_ids.append(msg_id)
+            return None
+
+        logger.info("[%d/%d] Processing: %s", idx, total, msg.subject[:60])
+        try:
+            start_process = time.perf_counter()
+            processed = processor.process(msg)
+            elapsed_process = time.perf_counter() - start_process
+            logger.info(
+                "[%d/%d] Categorized as %s (priority=%d) in %.2fs",
+                idx,
+                total,
+                processed.category,
+                processed.priority,
+                elapsed_process,
+            )
+        except Exception as exc:  # pylint: disable=broad-except
+            logger.error("[%d/%d] Failed to process message %s: %s", idx, total, msg_id, exc)
+            self.failed_ids.append(msg_id)
+            return None
+
+        # Store attachments
+        if not dry_run and msg.attachments and persistence:
+            drive_links: List[str] = []
+            for att in msg.attachments:
+                try:
+                    link = persistence.store_attachment(msg.id, att, att["content_bytes"])
+                    logger.info("Stored attachment %s", att["name"])
+                    drive_links.append(link)
+                except Exception as exc:  # pylint: disable=broad-except
+                    logger.error("Failed to store attachment %s: %s", att["name"], exc)
+            processed.drive_link = "\n".join(drive_links)
+
+        # Archive noise
+        if archive_noise and processed.category == "noise":
+            if dry_run:
+                logger.info("[dry-run] Would archive: %s", msg.subject[:60])
+            else:
+                try:
+                    connector.archive(msg.id)
+                    logger.info("Archived noise: %s", msg.subject[:60])
+                except Exception as exc:  # pylint: disable=broad-except
+                    logger.error("Failed to archive message %s: %s", msg.id, exc)
+
+        # Apply Gmail labels
+        labels_to_apply: List[str] = []
+        category = processed.category
+        if category:
+            labels_to_apply.append(category.replace("_", " ").title().replace(" ", "_"))
+
+        email_type = (processed.extracted_data or {}).get("type", "other")
+        if email_type and email_type != "other":
+            type_label = email_type.title()
+            if type_label not in labels_to_apply:
+                labels_to_apply.append(type_label)
+
+        if labels_to_apply:
+            if dry_run:
+                logger.info("[dry-run] Would apply labels %s to: %s", labels_to_apply, msg.subject[:60])
+            else:
+                try:
+                    connector.mark_processed(msg.id, labels_to_apply)
+                    logger.info("Applied labels %s to: %s", labels_to_apply, msg.subject[:60])
+                except Exception as exc:  # pylint: disable=broad-except
+                    logger.error("Failed to apply labels to %s: %s", msg.id, exc)
+
+        # Update checkpoint
+        if self.checkpoint:
+            self.checkpoint.mark_processed(msg.id)
+
+        return processed
+
+    def _process_batch_sequential(
+        self,
+        connector: EmailConnector,
+        batch_ids: List[Dict[str, str]],
+        archive_noise: bool,
+        dry_run: bool,
+    ) -> List[ProcessedItem]:
+        """Process batch sequentially (original implementation)."""
         if dry_run:
             logger.warning(
                 "DRY RUN: no emails will be archived or labeled in Gmail for this batch"
