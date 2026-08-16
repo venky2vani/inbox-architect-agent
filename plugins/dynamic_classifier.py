@@ -67,6 +67,14 @@ class DynamicClassifier:
         # Cluster emails by sender domain
         clusters = self._cluster_by_sender(messages)
 
+        # Build set of confirmed and rejected domains for fast lookup
+        confirmed_domains = {
+            c["domain"] for c in self.data["confirmed_labels"]
+        }
+        rejected_domains = {
+            r["domain"] for r in self.data["rejected_patterns"]
+        }
+
         # Find clusters that are outliers (don't fit existing categories)
         suggestions = []
         for cluster_domain, emails in clusters.items():
@@ -74,11 +82,12 @@ class DynamicClassifier:
                 continue
 
             # Skip if already has a confirmed label
-            if cluster_domain in self.data["confirmed_labels"]:
+            if cluster_domain in confirmed_domains:
+                logger.debug("Skipping already-confirmed domain: %s", cluster_domain)
                 continue
 
             # Skip if already rejected
-            if cluster_domain in self.data["rejected_patterns"]:
+            if cluster_domain in rejected_domains:
                 logger.debug("Skipping rejected pattern: %s", cluster_domain)
                 continue
 

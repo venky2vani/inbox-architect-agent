@@ -245,6 +245,16 @@
       "domain": "twitch.tv",
       "label": "subscription",
       "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "hdfcbank.net",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T23:16:57.038875"
+    },
+    {
+      "domain": "hdfcbank.net",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T23:27:40.687971"
     }
   ],
   "rejected_patterns": [
