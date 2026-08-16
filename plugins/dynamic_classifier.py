@@ -218,6 +218,8 @@ class DynamicClassifier:
                 "crypto",
                 "blockchain",
                 "ethereum",
+                "defi",
+                "wallet",
             ]
         ):
             return {
@@ -234,8 +236,11 @@ class DynamicClassifier:
                 "playstation",
                 "xbox",
                 "game",
+                "gaming",
                 "esports",
                 "tournament",
+                "multiplayer",
+                "battle",
             ]
         ):
             return {
@@ -251,9 +256,11 @@ class DynamicClassifier:
                 "casino",
                 "poker",
                 "sports-book",
-                "draft",
+                "draftkings",
+                "fanduel",
                 "gamble",
                 "wager",
+                "lottery",
             ]
         ):
             return {
@@ -264,7 +271,17 @@ class DynamicClassifier:
         # Social media platforms
         if any(
             x in domain_lower or x in keywords_text
-            for x in ["facebook", "twitter", "instagram", "tiktok", "snapchat", "social"]
+            for x in [
+                "facebook",
+                "twitter",
+                "x.com",
+                "instagram",
+                "tiktok",
+                "snapchat",
+                "reddit",
+                "pinterest",
+                "social",
+            ]
         ):
             return {
                 "label": "social_media",
@@ -284,6 +301,17 @@ class DynamicClassifier:
                 "maven",
                 "code",
                 "repository",
+                "aws.amazon",
+                "vercel",
+                "netlify",
+                "heroku",
+                "digitalocean",
+                "stackoverflow",
+                "kubernetes",
+                "jenkins",
+                "github actions",
+                "ci/cd",
+                "continuous integration",
             ]
         ):
             return {
@@ -302,12 +330,82 @@ class DynamicClassifier:
                 "recruitment",
                 "application",
                 "job",
+                "jobs",
                 "recruiter",
+                "hiring",
+                "career",
+                "interview",
             ]
         ):
             return {
                 "label": "job_platforms",
                 "description": "Job applications, recruiting, and career platforms",
+            }
+
+        # Education / Online courses
+        if any(
+            x in domain_lower or x in keywords_text
+            for x in [
+                "udemy",
+                "coursera",
+                "edx",
+                "pluralsight",
+                "skillshare",
+                "udacity",
+                "khanacademy",
+                "course",
+                "courses",
+                "webinar",
+                "webinars",
+                "tutorial",
+                "tutorials",
+                "certification",
+                "certifications",
+                "learning",
+                "bootcamp",
+                "workshop",
+                "masterclass",
+                "e-learning",
+                "online course",
+                "training",
+            ]
+        ):
+            return {
+                "label": "education",
+                "description": "Online courses, webinars, and learning platforms",
+            }
+
+        # Medical / Healthcare
+        if any(
+            x in domain_lower or x in keywords_text
+            for x in [
+                "metropolis",
+                "thyrocare",
+                "apollo",
+                "practo",
+                "pharmeasy",
+                "medlife",
+                "1mg",
+                "medical",
+                "healthcare",
+                "lab",
+                "laboratory",
+                "test results",
+                "prescription",
+                "appointment",
+                "doctor",
+                "hospital",
+                "clinic",
+                "health",
+                "diagnostic",
+                "scan",
+                "vaccination",
+                "pharmacy",
+            ]
+        ):
+            return {
+                "label": "medical",
+                "description": "Healthcare, lab results, prescriptions, and appointments",
             }
 
         # Travel / Booking (check before ecommerce)
@@ -322,6 +420,17 @@ class DynamicClassifier:
                 "hotel",
                 "flight",
                 "reservation",
+                "irctc",
+                "makemytrip",
+                "goibibo",
+                "yatra",
+                "cleartrip",
+                "oyorooms",
+                "trip",
+                "travel",
+                "holiday",
+                "package",
+                "tour",
             ]
         ):
             return {
@@ -336,11 +445,14 @@ class DynamicClassifier:
                 "zillow",
                 "redfin",
                 "airbnb",
-                "airbnb",
                 "property",
                 "estate",
                 "listing",
                 "mortgage",
+                "rental",
+                "housing",
+                "apartment",
+                "landlord",
             ]
         ):
             return {
@@ -362,6 +474,10 @@ class DynamicClassifier:
                 "food delivery",
                 "restaurant order",
                 "food order",
+                "delivered",
+                "restaurant",
+                "meal",
+                "food",
             ]
         ):
             return {
@@ -374,12 +490,21 @@ class DynamicClassifier:
             x in domain_lower or x in keywords_text
             for x in [
                 "amazon",
+                "flipkart",
                 "ebay",
                 "shopify",
+                "myntra",
+                "nykaa",
+                "meesho",
                 "order",
                 "purchase",
                 "shipping",
+                "shipped",
                 "delivery",
+                "voucher",
+                "cashback",
+                "deal",
+                "discount",
             ]
         ):
             return {
@@ -391,6 +516,22 @@ class DynamicClassifier:
         if any(
             x in domain_lower or x in keywords_text
             for x in [
+                "netflix",
+                "primevideo",
+                "prime video",
+                "hotstar",
+                "disney",
+                "sonyliv",
+                "sony liv",
+                "aha",
+                "zee5",
+                "voot",
+                "mxplayer",
+                "mx player",
+                "spotify",
+                "appletv",
+                "apple tv",
+                "youtube premium",
                 "twitch",
                 "youtube",
                 "vimeo",
@@ -398,11 +539,44 @@ class DynamicClassifier:
                 "peacock",
                 "streamer",
                 "channel",
+                "subscription",
             ]
         ):
             return {
                 "label": "streaming_video",
                 "description": "Video streaming and content platforms",
+            }
+
+        # Utilities / Government services
+        if any(
+            x in domain_lower or x in keywords_text
+            for x in [
+                "gov.in",
+                "government",
+                "electricity",
+                "utility",
+                "utilities",
+                "bill payment",
+                "msedcl",
+                "kyc",
+                "know your customer",
+                "pension",
+                "yojna",
+                "income tax",
+                "gst",
+                "aadhaar",
+                "pan card",
+                "epfo",
+                "passport",
+                "driving licence",
+                "driving license",
+                "municipal",
+                "property tax",
+            ]
+        ):
+            return {
+                "label": "utilities_government",
+                "description": "Government services, utility bills, and public sector notifications",
             }
 
         # Banking / Investment
@@ -442,16 +616,71 @@ class DynamicClassifier:
                 "rblbank",
                 "bandhanbank",
                 "aubank",
+                # Fintech / wallets
+                "paytm",
+                "phonepe",
+                "cred",
+                "mobikwik",
+                "freecharge",
+                "googlepay",
+                "gpay",
                 # Common card/payment networks
                 "mastercard",
                 "visa",
                 "amex",
                 "rupay",
+                # Transaction keywords
+                "debit",
+                "debited",
+                "credit",
+                "upi",
+                "imps",
+                "neft",
+                "rtgs",
+                "credit card",
+                "loan",
+                "emi",
+                "statement",
+                "transaction",
+                "balance",
+                "mutual fund",
+                "sip",
+                "investment",
+                "trading",
+                "demat",
+                "nse",
+                "bse",
             ]
         ):
             return {
                 "label": "banking_investment",
                 "description": "Banking, investment accounts, and portfolio updates",
+            }
+
+        # Newsletters / Content subscriptions
+        if any(
+            x in domain_lower or x in keywords_text
+            for x in [
+                "newsletter",
+                "newsletters",
+                "digest",
+                "weekly",
+                "edition",
+                "issue",
+                "podcast",
+                "episode",
+                "roundup",
+                "briefing",
+                "ai newsletter",
+                "ai news",
+                "tech news",
+                "dev digest",
+                "tldr",
+            ]
+        ):
+            return {
+                "label": "newsletters",
+                "description": "Newsletters, podcasts, and regular content digests",
             }
 
         # Generic fallback

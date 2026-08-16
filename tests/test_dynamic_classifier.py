@@ -181,6 +181,71 @@ class TestDynamicClassifierPatternDetection:
         assert result is not None
         assert result["label"] == "food_delivery"
 
+    def test_guess_category_education(self):
+        """Test category guessing for education and course platforms."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "coursera.org",
+            ["course", "certification", "learning"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "education"
+
+    def test_guess_category_medical(self):
+        """Test category guessing for healthcare providers."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "metropolisindia.com",
+            ["lab", "test", "results"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "medical"
+
+    def test_guess_category_utilities_government(self):
+        """Test category guessing for government and utility services."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "msedcl.in",
+            ["electricity", "bill", "payment"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "utilities_government"
+
+    def test_guess_category_newsletters(self):
+        """Test category guessing for newsletter senders."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "aisquared.com",
+            ["newsletter", "ai", "edition"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "newsletters"
+
+    def test_guess_category_banking_extended_keywords(self):
+        """Test banking detection via transaction keywords."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "alerts.somebank.com",
+            ["debited", "upi", "transaction"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "banking_investment"
+
 
 class TestDynamicClassifierAnalysis:
     """Test email analysis and suggestion generation."""
