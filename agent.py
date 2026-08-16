@@ -139,6 +139,54 @@ class InboxArchitectAgent:
             elapsed = time.perf_counter() - start
             logger.info("Authenticated %s in %.2fs", connector.name, elapsed)
 
+    def analyze_patterns(self, limit: int = 200) -> None:
+        """Analyze emails for emerging patterns and suggest new dynamic labels."""
+        from plugins.dynamic_classifier import DynamicClassifier
+
+        classifier = DynamicClassifier()
+
+        if not self.connectors:
+            raise RuntimeError("No connectors available.")
+
+        all_messages: List[Any] = []
+        for connector in self.connectors:
+            logger.info("Fetching %d emails for pattern analysis...", limit)
+            message_ids = connector._list_unread_ids(limit)
+            logger.info("Fetched %d message IDs", len(message_ids))
+
+            for msg_meta in message_ids:
+                try:
+                    msg = connector.fetch_message_by_id(msg_meta["id"])
+                    all_messages.append(msg)
+                except Exception as exc:  # pylint: disable=broad-except
+                    logger.warning("Failed to fetch message %s: %s", msg_meta["id"], exc)
+
+        if not all_messages:
+            logger.warning("No messages found for analysis")
+            return
+
+        logger.info("Analyzing %d emails for patterns...", len(all_messages))
+        suggestions = classifier.analyze_emails(all_messages)
+
+        if not suggestions:
+            print("\n✓ No new patterns found. Your current categories are comprehensive!")
+            return
+
+        print(f"\n🎯 Found {len(suggestions)} potential new categories:\n")
+        for i, suggestion in enumerate(suggestions, 1):
+            print(f"{i}. {suggestion['suggested_label'].upper()}")
+            print(f"   Domain: {suggestion['domain']}")
+            print(f"   Emails: {suggestion['email_count']}")
+            print(f"   Confidence: {suggestion['confidence']:.1%}")
+            print(f"   Description: {suggestion['suggested_description']}")
+            print()
+
+        output_path = "data/pattern_review.md"
+        classifier.export_suggestions_to_file(suggestions, output_path)
+        print(f"✓ Review file saved to: {output_path}")
+        print("\nTo approve a label, edit data/dynamic_labels.json or use:")
+        print("  python agent.py --confirm-label <domain> <label_name>")
+
     def run_daily_digest(
         self,
         limit: int = 50,
@@ -483,6 +531,11 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Number of emails to process before persisting intermediate results.",
     )
+    parser.add_argument(
+        "--analyze-patterns",
+        action="store_true",
+        help="Analyze emails for new emerging patterns and suggest dynamic labels.",
+    )
     return parser
 
 
@@ -541,6 +594,10 @@ def main() -> None:
         Checkpoint(checkpoint_path).reset()
 
     agent.authenticate_connectors()
+
+    if args.analyze_patterns:
+        agent.analyze_patterns(limit=limit)
+        return
 
     agent.run_daily_digest(
         limit=limit,
