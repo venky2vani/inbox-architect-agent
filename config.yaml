@@ -2,9 +2,9 @@ agent:
   name: "Inbox Architect Agent"
   plugins_dir: "plugins"
   daily_digest:
-    limit: 50
+    limit: 500  # Process 500 emails per run (pagination handles Gmail API limits)
     archive_noise: true
-    batch_size: 50
+    batch_size: 50  # Persist every 50 emails (independent of limit)
     checkpoint_path: "data/checkpoint.json"
 
 gmail:

@@ -113,23 +113,62 @@ class GmailConnector(EmailConnector):
         return True
 
     def _list_unread_ids(self, limit: int) -> List[Dict[str, str]]:
-        """Return a list of unread message metadata (id, threadId)."""
+        """Return a list of unread message metadata (id, threadId).
+
+        Handles pagination automatically since Gmail API caps maxResults at 500.
+        """
         if not self.service:
             raise RuntimeError("Connector is not authenticated. Call authenticate() first.")
 
         logger.info("Listing unread inbox messages (limit=%d)", limit)
         start_list = time.perf_counter()
-        results = (
-            self.service.users()
-            .messages()
-            .list(userId="me", q="is:unread in:inbox", maxResults=limit)
-            .execute()
-        )
-        messages = results.get("messages", [])
+
+        messages = []
+        page_token = None
+        gmail_page_size = 500  # Gmail API maximum
+        remaining = limit
+
+        while remaining > 0:
+            # Calculate page size: min of remaining limit and Gmail's max
+            page_size = min(remaining, gmail_page_size)
+
+            logger.debug(
+                "Fetching page (page_size=%d, remaining=%d, token=%s)",
+                page_size,
+                remaining,
+                "yes" if page_token else "no"
+            )
+
+            results = (
+                self.service.users()
+                .messages()
+                .list(
+                    userId="me",
+                    q="is:unread in:inbox",
+                    maxResults=page_size,
+                    pageToken=page_token
+                )
+                .execute()
+            )
+
+            page_messages = results.get("messages", [])
+            if not page_messages:
+                logger.debug("No more messages found")
+                break
+
+            messages.extend(page_messages)
+            remaining -= len(page_messages)
+            page_token = results.get("nextPageToken")
+
+            if not page_token:
+                logger.debug("No more pages available")
+                break
+
         logger.info(
-            "Listed %d unread message ID(s) in %.2fs",
+            "Listed %d unread message ID(s) in %.2fs (required %d API calls)",
             len(messages),
             time.perf_counter() - start_list,
+            (len(messages) + gmail_page_size - 1) // gmail_page_size  # Ceiling division
         )
         return messages
 
