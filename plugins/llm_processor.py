@@ -38,6 +38,7 @@ class SmartInboxProcessor(ProcessorPlugin):
         prompt_path: Optional[str] = None,
         local_intelligence: Optional[LocalIntelligence] = None,
         rate_limit_delay: Optional[float] = None,
+        on_llm_required: Optional[Any] = None,
     ):
         self.provider = (provider or os.getenv("LLM_PROVIDER", "openai")).lower()
         self.model = model or os.getenv("PROCESSOR_MODEL", "gpt-4o-mini")
@@ -53,6 +54,7 @@ class SmartInboxProcessor(ProcessorPlugin):
         self.local_hits = 0
         self.llm_calls = 0
         self._last_llm_call_time: Optional[float] = None
+        self.on_llm_required = on_llm_required
 
         local_enabled = (
             local_intelligence is not None
@@ -149,32 +151,62 @@ class SmartInboxProcessor(ProcessorPlugin):
         return prompt
 
     def process(self, message: EmailMessage) -> ProcessedItem:
-        """Process a single email into a structured item."""
-        # Apply hard sender overrides before calling the LLM.
+        """Process a single email into a structured item.
+
+        Classification pipeline (in order):
+        1. Sender override (hard rules)
+        2. Dynamic labels (confirmed patterns)
+        3. Local intelligence (learned rules)
+        4. Fallback (when LLM unavailable)
+        5. LLM (full AI classification)
+        """
+        subject_preview = message.subject[:60]
+        sender_preview = message.sender[:40]
+
+        # 1. Apply hard sender overrides before calling the LLM.
         override = self._sender_override(message)
         if override:
-            logger.info("Hard rule override for sender: %s", message.sender)
+            logger.info(
+                "✓ SENDER OVERRIDE | %s | from: %s",
+                subject_preview, sender_preview
+            )
             return override
 
-        # Check for confirmed dynamic labels.
+        # 2. Check for confirmed dynamic labels.
         dynamic_result = self._check_dynamic_label(message)
         if dynamic_result:
+            logger.info(
+                "✓ DYNAMIC LABEL | %s | category: %s",
+                subject_preview, dynamic_result.category
+            )
             return dynamic_result
 
-        # Try local intelligence first.
+        # 3. Try local intelligence first.
         if self.local_intel is not None:
-            logger.debug("Checking local intelligence for: %s", message.subject[:60])
+            logger.debug("→ Checking local intelligence for: %s", subject_preview)
             local_result = self.local_intel.classify(message)
             if local_result is not None:
                 self.local_hits += 1
-                logger.info("Local intelligence hit for: %s", message.subject[:60])
+                logger.info(
+                    "✓ LOCAL INTEL | %s | category: %s (confidence: %.2f)",
+                    subject_preview,
+                    local_result.category,
+                    0.75  # Estimate from rules
+                )
                 return local_result
+            else:
+                logger.debug("✗ No local intelligence match for: %s", subject_preview)
 
+        # 4. Fallback when no API key is configured.
         if self.client is None:
-            # Fallback when no API key is configured (useful for local testing).
-            logger.debug("No LLM client; using rule-based fallback")
+            logger.warning("⚠️  FALLBACK | %s | No LLM client configured", subject_preview)
             return self._fallback_process(message)
 
+        # 5. No shortcuts worked; must use LLM.
+        logger.warning(
+            "🔴 LLM REQUIRED | %s | Reason: No sender override, no dynamic label, no local rule match",
+            subject_preview
+        )
         processed = self._process_with_llm(message)
         self.llm_calls += 1
         if self.local_intel is not None:
@@ -225,11 +257,10 @@ class SmartInboxProcessor(ProcessorPlugin):
             f"{body_text[:6000]}"
         )
 
-        logger.info("Calling %s LLM for: %s", self.provider, message.subject[:60])
+        logger.info("🔴 [LLM CALL] Sending to %s: %s", self.provider.upper(), message.subject[:60])
         start = time.perf_counter()
         response = self._call_llm(content)
         elapsed = time.perf_counter() - start
-        logger.info("LLM responded in %.2fs for: %s", elapsed, message.subject[:60])
 
         if self.provider == "anthropic":
             raw = response.content[0].text or "{}"
@@ -238,10 +269,25 @@ class SmartInboxProcessor(ProcessorPlugin):
 
         result, is_garbage = self._extract_json(raw)
         processed = self._result_to_item(message, result)
+
         if is_garbage:
-            logger.warning("LLM returned non-JSON for: %s", message.subject[:60])
+            logger.warning("🔴 [LLM ERROR] Non-JSON response (%.2fs) for: %s", elapsed, message.subject[:60])
             processed.summary = f"LLM returned non-JSON response: {raw[:500]}"
             processed.extracted_data = {"_llm_raw_response": raw}
+        else:
+            logger.info(
+                "🔴 [LLM RESULT] Category: %-15s | Priority: %d | %.2fs | %s",
+                processed.category,
+                processed.priority,
+                elapsed,
+                message.subject[:40]
+            )
+        processed.extracted_data["_llm_used"] = True
+        if self.on_llm_required:
+            try:
+                self.on_llm_required(message, processed)
+            except Exception as exc:  # pylint: disable=broad-except
+                logger.warning("on_llm_required callback failed: %s", exc)
         return processed
 
     @staticmethod

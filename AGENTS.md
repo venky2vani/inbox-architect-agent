@@ -15,6 +15,10 @@
 ```text
 inbox-architect-agent/
 ├── agent.py                              # Orchestrator
+├── ui/                                   # Interactive review-mode UI
+│   ├── review_server.py                  # FastAPI server
+│   ├── review_runner.py                  # Batch-by-batch review orchestrator
+│   └── index.html                        # Web frontend
 ├── plugins/
 │   ├── base.py                           # Plugin interfaces
 │   ├── gmail_connector.py                # Gmail source
@@ -52,7 +56,10 @@ python agent.py --dry-run --limit 10
 python -m pytest tests/ -q
 
 # Syntax check
-python -m py_compile agent.py plugins/*.py tests/*.py
+python -m py_compile agent.py plugins/*.py tests/*.py ui/*.py
+
+# Start the interactive review UI
+python -m uvicorn ui.review_server:app --reload --host 127.0.0.1 --port 8000
 
 # Docker
  docker compose up --build
@@ -112,4 +119,10 @@ python -m pytest tests/ -q
 - `plugins/checkpoint.py` tracks processed email IDs so long runs can resume.
 - Large-batch settings live under `agent.daily_digest` (`batch_size`,
   `checkpoint_path`) and `processor.rate_limit_delay`.
+- `plugins/llm_processor.py` exposes an `on_llm_required` callback so callers can
+  be notified whenever an email bypasses sender overrides, dynamic labels, and
+  local intelligence and reaches the LLM.
+- The review-mode UI (`ui/`) wraps the agent to process emails one batch at a
+  time, pause on LLM-required items, suggest domain/keyword rules, and persist
+  accepted rules to `data/dynamic_labels.json` or `data/local_rules.json`.
 - Update this file when project structure or conventions change.

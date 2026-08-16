@@ -7,6 +7,121 @@
       "confirmed_at": "2026-08-16T12:51:30.843561"
     },
     {
+      "domain": "icicibank.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "axisbank.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "sbi.co.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "indusind.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "kotak.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "hsbc.co.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "standardchartered.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "yesbank.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "idbi.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "federalbank.co.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "rbl.co.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "paypal.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "wise.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "transferwise.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "revolut.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "stripe.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "razorpay.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "phonepe.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "googlepay.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "cred.club",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "chase.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "bofa.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
+      "domain": "wellsfargo.com",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T15:37:00.000000"
+    },
+    {
       "domain": "zomato.com",
       "label": "food_delivery",
       "confirmed_at": "2026-08-16T13:07:35.701605"
@@ -20,6 +135,116 @@
       "domain": "grubhub.com",
       "label": "food_delivery",
       "confirmed_at": "2026-08-16T13:09:01.456898"
+    },
+    {
+      "domain": "bigbasket.com",
+      "label": "shopping",
+      "confirmed_at": "2026-08-16T15:35:00.000000"
+    },
+    {
+      "domain": "bbasket.com",
+      "label": "shopping",
+      "confirmed_at": "2026-08-16T15:35:00.000000"
+    },
+    {
+      "domain": "flipkart.com",
+      "label": "shopping",
+      "confirmed_at": "2026-08-16T15:35:00.000000"
+    },
+    {
+      "domain": "amazon.in",
+      "label": "shopping",
+      "confirmed_at": "2026-08-16T15:35:00.000000"
+    },
+    {
+      "domain": "netflix.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "primevideo.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "amazon-prime.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "ahaott.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "sonyliv.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "hotstar.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "disneyplus.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "jiocinema.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "zee5.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "voot.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "mxplayer.in",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "spotify.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "apple.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "hulu.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "paramount.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "peacocktv.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "youtube.com",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
+    },
+    {
+      "domain": "twitch.tv",
+      "label": "subscription",
+      "confirmed_at": "2026-08-16T15:36:00.000000"
     }
   ],
   "rejected_patterns": [
