@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m venv .venv)",
+      "Bash(cp /home/venkatesh/inbox-architect-agent/.env.example /home/venkatesh/inbox-architect-agent/.env && echo \".env file created\")",
+      "Bash(chmod +x /home/venkatesh/inbox-architect-agent/setup.sh)",
+      "Bash(bash setup.sh)",
+      "Bash(chmod +x /home/venkatesh/inbox-architect-agent/setup.py /home/venkatesh/inbox-architect-agent/setup-quick.sh)",
+      "Bash(python3 setup.py)",
+      "Bash(find ~/Downloads -name \"credentials.json\" -o -name \"*credentials*.json\" 2>/dev/null | head -5)",
+      "Read(//home/venkatesh/Downloads/**)",
+      "Bash(ls -la ~/Downloads 2>/dev/null || echo \"Downloads folder not found or empty\")",
+      "Bash(cp ~/Downloads/client_secret_885148904414-nq9u6sm1alon1iaeoqopm8ke8uoc3e0r.apps.googleusercontent.com.json /home/venkatesh/inbox-architect-agent/credentials/credentials.json && echo \"✓ Credentials moved to credentials/credentials.json\")",
+      "Read(//home/venkatesh/**)",
+      "Bash(sort -t. -k1)",
+      "Bash(ls -lht ~/Downloads/ | head -20)",
+      "Bash(cp ~/Downloads/client_secret_885148904414-bnuq99ks52uc8u6tboqotgj3p6rqvtk8.apps.googleusercontent.com.json /home/venkatesh/inbox-architect-agent/credentials/credentials.json && echo \"✓ Latest credentials updated!\")",
+      "Bash(ls -lht ~/Downloads/client_secret_*.json | head -1)",
+      "Bash(cp ~/Downloads/client_secret_885148904414-fjaaprvsgjcplqn1g912bokhbduupntf.apps.googleusercontent.com.json /home/venkatesh/inbox-architect-agent/credentials/credentials.json && echo \"✓ Latest credentials copied!\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(ps aux *)",
+      "Bash(awk '{print $2}')",
+      "Bash(find ~/.cache -type d -name \"*chrome*\" -o -name \"*vscode*\" -o -name \"*code*\" 2>/dev/null | head -10)",
+      "Read(//home/venkatesh/.cache/**)",
+      "Bash(kill -9 95695 280159)",
+      "Bash(rm -rf ~/.cache/google-chrome/Default/Cache/* 2>/dev/null && echo \"Cleared Chrome cache\")"
+    ],
+    "additionalDirectories": [
+      "/home/venkatesh/inbox-architect-agent",
+      "/home/venkatesh/Downloads",
+      "/home/venkatesh/.cache/google-chrome/Default/Cache"
+    ]
+  }
+}

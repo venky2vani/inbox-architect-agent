@@ -1,0 +1,9 @@
+services:
+  inbox-architect:
+    build: .
+    container_name: inbox-architect-agent
+    env_file:
+      - .env
+    volumes:
+      - ./credentials:/app/credentials:ro
+    restart: unless-stopped

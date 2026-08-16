@@ -1,0 +1,45 @@
+agent:
+  name: "Inbox Architect Agent"
+  plugins_dir: "plugins"
+  daily_digest:
+    limit: 50
+    archive_noise: true
+    batch_size: 50
+    checkpoint_path: "data/checkpoint.json"
+
+gmail:
+  credentials_path: "credentials/credentials.json"
+  token_path: "credentials/token.json"
+  archive_label: "NOISE"
+
+persistence:
+  credentials_path: "credentials/credentials.json"
+  token_path: "credentials/token.json"
+  sheet_name: "Email Agent Index"
+  drive_root_name: "EmailAgent"
+
+processor:
+  model: "gpt-4o-mini"
+  # LLM provider: openai (default) or anthropic.
+  # provider: "openai"
+  # Optional: use an OpenAI-compatible API such as Kimi/Moonshot.
+  # base_url: "https://api.moonshot.cn/v1"
+  # Path to the system prompt template.
+  # prompt_path: "prompts/system.txt"
+  # Optional delay between LLM API calls to avoid rate limits (seconds).
+  # rate_limit_delay: 0.2
+  local_intelligence:
+    enabled: true
+    rules_path: "data/local_rules.json"
+    confidence_threshold: 0.85
+    min_hits: 3
+    prune_after_days: 30
+  rules:
+    # Comma-separated email addresses or domains.
+    high_priority_senders: "boss@company.com,ceo@company.com"
+    low_priority_senders: "newsletters@example.com"
+    always_noise_senders: "noreply@linkedin.com,noreply@twitter.com"
+    # Free-form instructions appended to the LLM system prompt.
+    custom: |
+      Always mark GitHub Dependabot alerts as "reference" with priority 2.
+      Treat any email containing "invoice" as at least priority 3.

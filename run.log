@@ -1,0 +1,150 @@
+Loaded connector: gmail
+Failed to instantiate GoogleWorkspacePersistence: APIError: [403]: Google Drive API has not been used in project 885148904414 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/drive.googleapis.com/overview?project=885148904414 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Loaded processor: smart_inbox
+Warning: no persistence plugin loaded.
+Authenticating gmail...
+
+*** DRY RUN: no emails will be archived or stored ***
+
+
+Fetching unread messages from gmail...
+Found 3 unread message(s).
+  Processing: Security alert...
+Traceback (most recent call last):
+  File "/home/venkatesh/inbox-architect-agent/agent.py", line 322, in <module>
+    main()
+    ~~~~^^
+  File "/home/venkatesh/inbox-architect-agent/agent.py", line 314, in main
+    agent.run_daily_digest(
+    ~~~~~~~~~~~~~~~~~~~~~~^
+        limit=limit,
+        ^^^^^^^^^^^^
+        archive_noise=archive_noise,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dry_run=args.dry_run,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/venkatesh/inbox-architect-agent/agent.py", line 157, in run_daily_digest
+    processed = processor.process(msg)
+  File "/home/venkatesh/inbox-architect-agent/plugins/llm_processor.py", line 102, in process
+    return self._process_with_llm(message)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/venkatesh/inbox-architect-agent/plugins/llm_processor.py", line 113, in _process_with_llm
+    response = self.client.chat.completions.create(
+        model=self.model,
+    ...<5 lines>...
+        temperature=0.2,
+    )
+  File "/home/venkatesh/inbox-architect-agent/.venv/lib/python3.14/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/home/venkatesh/inbox-architect-agent/.venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/venkatesh/inbox-architect-agent/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1382, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/venkatesh/inbox-architect-agent/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1155, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-08-16 01:08:18,031 [INFO] __main__: Loading plugins from plugins
+2026-08-16 01:08:18,031 [DEBUG] __main__: Importing module plugins.base
+2026-08-16 01:08:18,032 [DEBUG] __main__: Importing module plugins.gmail_connector
+2026-08-16 01:08:18,368 [INFO] __main__: Loaded connector: gmail
+2026-08-16 01:08:18,369 [DEBUG] __main__: Importing module plugins.google_workspace_persistence
+2026-08-16 01:08:18,379 [INFO] plugins.google_workspace_persistence: Loading Google Workspace persistence credentials
+2026-08-16 01:08:18,383 [INFO] plugins.google_workspace_persistence: Refreshing expired Workspace token
+2026-08-16 01:08:18,386 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2026-08-16 01:08:18,530 [DEBUG] urllib3.connectionpool: https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2026-08-16 01:08:18,532 [INFO] plugins.google_workspace_persistence: Workspace token refreshed in 0.15s
+2026-08-16 01:08:18,533 [INFO] plugins.google_workspace_persistence: Authorizing gspread and Drive service
+2026-08-16 01:08:18,533 [DEBUG] urllib3.util.retry: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-08-16 01:08:18,535 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:08:18,538 [INFO] plugins.google_workspace_persistence: Opening or creating spreadsheet: Email Agent Index
+2026-08-16 01:08:18,540 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.googleapis.com:443
+2026-08-16 01:08:19,106 [DEBUG] urllib3.connectionpool: https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%22application%2Fvnd.google-apps.spreadsheet%22+and+name+%3D+%22Email+Agent+Index%22&pageSize=1000&supportsAllDrives=True&includeItemsFromAllDrives=True&fields=kind%2CnextPageToken%2Cfiles%28id%2Cname%2CcreatedTime%2CmodifiedTime%29 HTTP/1.1" 200 None
+2026-08-16 01:08:19,109 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): sheets.googleapis.com:443
+2026-08-16 01:08:19,972 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:08:21,214 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:08:21,726 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ/values/%27Sheet1%27%21A1%3A1 HTTP/1.1" 200 None
+2026-08-16 01:08:21,727 [INFO] plugins.google_workspace_persistence: Opening or creating Drive folder: EmailAgent
+2026-08-16 01:08:21,736 [DEBUG] googleapiclient.discovery: URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27+and+name%3D%27EmailAgent%27+and+trashed%3Dfalse&spaces=drive&fields=files%28id%2C+name%29&alt=json
+2026-08-16 01:08:22,256 [INFO] __main__: Loaded persistence: google_workspace
+2026-08-16 01:08:22,256 [DEBUG] __main__: Importing module plugins.llm_processor
+2026-08-16 01:08:22,910 [INFO] __main__: Loaded processor: smart_inbox
+2026-08-16 01:08:22,910 [DEBUG] __main__: Importing module plugins.local_intelligence
+2026-08-16 01:08:22,911 [INFO] __main__: Authenticating connector: gmail
+2026-08-16 01:08:22,912 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:08:22,914 [INFO] plugins.gmail_connector: Gmail service built in 0.00s
+2026-08-16 01:08:22,914 [INFO] __main__: Authenticated gmail in 0.00s
+2026-08-16 01:08:22,914 [INFO] __main__: Fetching unread messages from gmail (limit=500)
+2026-08-16 01:08:22,915 [INFO] plugins.gmail_connector: Listing unread inbox messages (limit=500)
+2026-08-16 01:08:22,918 [DEBUG] googleapiclient.discovery: URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is%3Aunread+in%3Ainbox&maxResults=500&alt=json
+2026-08-16 01:08:23,263 [WARNING] googleapiclient.http: Encountered 403 Forbidden with reason "insufficientPermissions"
+2026-08-16 01:08:26,997 [INFO] __main__: Loading plugins from plugins
+2026-08-16 01:08:26,998 [DEBUG] __main__: Importing module plugins.base
+2026-08-16 01:08:26,998 [DEBUG] __main__: Importing module plugins.gmail_connector
+2026-08-16 01:08:27,295 [INFO] __main__: Loaded connector: gmail
+2026-08-16 01:08:27,295 [DEBUG] __main__: Importing module plugins.google_workspace_persistence
+2026-08-16 01:08:27,305 [INFO] plugins.google_workspace_persistence: Loading Google Workspace persistence credentials
+2026-08-16 01:08:27,308 [INFO] plugins.google_workspace_persistence: Authorizing gspread and Drive service
+2026-08-16 01:08:27,308 [DEBUG] urllib3.util.retry: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-08-16 01:08:27,310 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:08:27,313 [INFO] plugins.google_workspace_persistence: Opening or creating spreadsheet: Email Agent Index
+2026-08-16 01:08:27,316 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.googleapis.com:443
+2026-08-16 01:08:27,870 [DEBUG] urllib3.connectionpool: https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%22application%2Fvnd.google-apps.spreadsheet%22+and+name+%3D+%22Email+Agent+Index%22&pageSize=1000&supportsAllDrives=True&includeItemsFromAllDrives=True&fields=kind%2CnextPageToken%2Cfiles%28id%2Cname%2CcreatedTime%2CmodifiedTime%29 HTTP/1.1" 200 None
+2026-08-16 01:08:27,872 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): sheets.googleapis.com:443
+2026-08-16 01:08:28,382 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:08:29,088 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:08:29,582 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ/values/%27Sheet1%27%21A1%3A1 HTTP/1.1" 200 None
+2026-08-16 01:08:29,583 [INFO] plugins.google_workspace_persistence: Opening or creating Drive folder: EmailAgent
+2026-08-16 01:08:29,592 [DEBUG] googleapiclient.discovery: URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27+and+name%3D%27EmailAgent%27+and+trashed%3Dfalse&spaces=drive&fields=files%28id%2C+name%29&alt=json
+2026-08-16 01:08:30,225 [INFO] __main__: Loaded persistence: google_workspace
+2026-08-16 01:08:30,225 [DEBUG] __main__: Importing module plugins.llm_processor
+2026-08-16 01:08:30,907 [INFO] __main__: Loaded processor: smart_inbox
+2026-08-16 01:08:30,907 [DEBUG] __main__: Importing module plugins.local_intelligence
+2026-08-16 01:08:30,908 [INFO] __main__: Authenticating connector: gmail
+2026-08-16 01:08:30,909 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:08:30,911 [INFO] plugins.gmail_connector: Gmail service built in 0.00s
+2026-08-16 01:08:30,912 [INFO] __main__: Authenticated gmail in 0.00s
+2026-08-16 01:08:30,912 [INFO] __main__: Fetching unread messages from gmail (limit=500)
+2026-08-16 01:08:30,912 [INFO] plugins.gmail_connector: Listing unread inbox messages (limit=500)
+2026-08-16 01:08:30,915 [DEBUG] googleapiclient.discovery: URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is%3Aunread+in%3Ainbox&maxResults=500&alt=json
+2026-08-16 01:08:31,250 [WARNING] googleapiclient.http: Encountered 403 Forbidden with reason "insufficientPermissions"
+2026-08-16 01:12:25,813 [INFO] __main__: Loading plugins from plugins
+2026-08-16 01:12:25,813 [DEBUG] __main__: Importing module plugins.base
+2026-08-16 01:12:25,813 [DEBUG] __main__: Importing module plugins.gmail_connector
+2026-08-16 01:12:26,165 [INFO] __main__: Loaded connector: gmail
+2026-08-16 01:12:26,169 [DEBUG] __main__: Importing module plugins.google_workspace_persistence
+2026-08-16 01:12:26,193 [INFO] plugins.google_workspace_persistence: Loading Google Workspace persistence credentials
+2026-08-16 01:12:26,196 [INFO] plugins.google_workspace_persistence: Authorizing gspread and Drive service
+2026-08-16 01:12:26,197 [DEBUG] urllib3.util.retry: Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-08-16 01:12:26,199 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:12:26,202 [INFO] plugins.google_workspace_persistence: Opening or creating spreadsheet: Email Agent Index
+2026-08-16 01:12:26,206 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.googleapis.com:443
+2026-08-16 01:12:26,808 [DEBUG] urllib3.connectionpool: https://www.googleapis.com:443 "GET /drive/v3/files?q=mimeType%3D%22application%2Fvnd.google-apps.spreadsheet%22+and+name+%3D+%22Email+Agent+Index%22&pageSize=1000&supportsAllDrives=True&includeItemsFromAllDrives=True&fields=kind%2CnextPageToken%2Cfiles%28id%2Cname%2CcreatedTime%2CmodifiedTime%29 HTTP/1.1" 200 None
+2026-08-16 01:12:26,811 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): sheets.googleapis.com:443
+2026-08-16 01:12:28,615 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:12:29,026 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ?includeGridData=false HTTP/1.1" 200 None
+2026-08-16 01:12:29,842 [DEBUG] urllib3.connectionpool: https://sheets.googleapis.com:443 "GET /v4/spreadsheets/1iFTCfOmIOWxKqNWADZ35CjcSKKicgtF_3lG9ZSixrpQ/values/%27Sheet1%27%21A1%3A1 HTTP/1.1" 200 None
+2026-08-16 01:12:29,848 [INFO] plugins.google_workspace_persistence: Opening or creating Drive folder: EmailAgent
+2026-08-16 01:12:29,856 [DEBUG] googleapiclient.discovery: URL being requested: GET https://www.googleapis.com/drive/v3/files?q=mimeType%3D%27application%2Fvnd.google-apps.folder%27+and+name%3D%27EmailAgent%27+and+trashed%3Dfalse&spaces=drive&fields=files%28id%2C+name%29&alt=json
+2026-08-16 01:12:30,458 [INFO] __main__: Loaded persistence: google_workspace
+2026-08-16 01:12:30,458 [DEBUG] __main__: Importing module plugins.llm_processor
+2026-08-16 01:12:31,139 [INFO] __main__: Loaded processor: smart_inbox
+2026-08-16 01:12:31,139 [DEBUG] __main__: Importing module plugins.local_intelligence
+2026-08-16 01:12:31,139 [INFO] __main__: Authenticating connector: gmail
+2026-08-16 01:12:31,141 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-16 01:12:31,143 [INFO] plugins.gmail_connector: Gmail service built in 0.00s
+2026-08-16 01:12:31,143 [INFO] __main__: Authenticated gmail in 0.00s
+2026-08-16 01:12:31,143 [INFO] __main__: Fetching unread messages from gmail (limit=500)
+2026-08-16 01:12:31,143 [INFO] plugins.gmail_connector: Listing unread inbox messages (limit=500)
+2026-08-16 01:12:31,147 [DEBUG] googleapiclient.discovery: URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is%3Aunread+in%3Ainbox&maxResults=500&alt=json
+2026-08-16 01:12:32,083 [WARNING] googleapiclient.http: Encountered 403 Forbidden with reason "insufficientPermissions"
