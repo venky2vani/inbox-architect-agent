@@ -1,0 +1,32 @@
+{
+  "discovered_patterns": {},
+  "confirmed_labels": [
+    {
+      "domain": "hdfcbank.bank.in",
+      "label": "banking_investment",
+      "confirmed_at": "2026-08-16T12:51:30.843561"
+    },
+    {
+      "domain": "zomato.com",
+      "label": "food_delivery",
+      "confirmed_at": "2026-08-16T13:07:35.701605"
+    },
+    {
+      "domain": "swiggy.com",
+      "label": "food_delivery",
+      "confirmed_at": "2026-08-16T13:07:35.702322"
+    },
+    {
+      "domain": "grubhub.com",
+      "label": "food_delivery",
+      "confirmed_at": "2026-08-16T13:09:01.456898"
+    }
+  ],
+  "rejected_patterns": [
+    {
+      "domain": "test-domain.com",
+      "rejected_at": "2026-08-16T12:52:20.956870"
+    }
+  ],
+  "last_analysis": null
+}

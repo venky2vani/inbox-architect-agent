@@ -106,7 +106,7 @@ All **23 tests passing** with 100% success rate.
 
 ## Auto-Detected Categories
 
-Built-in pattern recognition for 11+ categories:
+Built-in pattern recognition for 12+ categories:
 
 | Category | Trigger Domains | Example Email |
 |----------|-----------------|---------------|
@@ -120,6 +120,7 @@ Built-in pattern recognition for 11+ categories:
 | `travel_booking` | booking, expedia, kayak | "Flight confirmation" |
 | `streaming_video` | twitch, vimeo | "Channel stream started" |
 | `banking_investment` | fidelity, vanguard | "Portfolio update" |
+| `food_delivery` | zomato, swiggy, doordash | "Your order is ready" |
 | `ecommerce` | amazon, ebay, shopify | "Order shipped" |
 
 ---

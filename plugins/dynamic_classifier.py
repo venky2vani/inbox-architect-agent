@@ -339,6 +339,27 @@ class DynamicClassifier:
                 "description": "Property listings, real estate, and rental platforms",
             }
 
+        # Food Delivery / Restaurants
+        if any(
+            x in domain_lower or x in keywords_text
+            for x in [
+                "zomato",
+                "swiggy",
+                "doordash",
+                "grubhub",
+                "ubereats",
+                "deliveroo",
+                "foodpanda",
+                "food delivery",
+                "restaurant order",
+                "food order",
+            ]
+        ):
+            return {
+                "label": "food_delivery",
+                "description": "Food delivery platforms and restaurant orders",
+            }
+
         # e-Commerce / Retail
         if any(
             x in domain_lower or x in keywords_text

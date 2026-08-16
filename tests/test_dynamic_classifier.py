@@ -129,6 +129,19 @@ class TestDynamicClassifierPatternDetection:
         assert result is not None
         assert result["label"] == "social_media"
 
+    def test_guess_category_food_delivery(self):
+        """Test category guessing for food delivery platforms."""
+        classifier = DynamicClassifier()
+
+        result = classifier._guess_category(
+            "zomato.com",
+            ["order", "delivery", "restaurant"],
+            []
+        )
+
+        assert result is not None
+        assert result["label"] == "food_delivery"
+
 
 class TestDynamicClassifierAnalysis:
     """Test email analysis and suggestion generation."""

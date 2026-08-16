@@ -187,6 +187,22 @@ class InboxArchitectAgent:
         print("\nTo approve a label, edit data/dynamic_labels.json or use:")
         print("  python agent.py --confirm-label <domain> <label_name>")
 
+    def confirm_label(self, domain: str, label: str) -> None:
+        """Confirm a dynamic label for a domain."""
+        from plugins.dynamic_classifier import DynamicClassifier
+        classifier = DynamicClassifier()
+        classifier.confirm_label(domain, label)
+        print(f"✓ Confirmed label '{label}' for domain: {domain}")
+        print(f"✓ New label saved to: data/dynamic_labels.json")
+
+    def reject_pattern(self, domain: str) -> None:
+        """Reject a suggested pattern for a domain."""
+        from plugins.dynamic_classifier import DynamicClassifier
+        classifier = DynamicClassifier()
+        classifier.reject_pattern(domain)
+        print(f"✓ Rejected pattern for domain: {domain}")
+        print(f"✓ Pattern will be skipped in future analyses")
+
     def run_daily_digest(
         self,
         limit: int = 50,
@@ -536,6 +552,17 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Analyze emails for new emerging patterns and suggest dynamic labels.",
     )
+    parser.add_argument(
+        "--confirm-label",
+        nargs=2,
+        metavar=("DOMAIN", "LABEL"),
+        help="Confirm a suggested dynamic label (requires DOMAIN and LABEL name).",
+    )
+    parser.add_argument(
+        "--reject-pattern",
+        metavar="DOMAIN",
+        help="Reject a suggested pattern from analysis.",
+    )
     return parser
 
 
@@ -597,6 +624,15 @@ def main() -> None:
 
     if args.analyze_patterns:
         agent.analyze_patterns(limit=limit)
+        return
+
+    if args.confirm_label:
+        domain, label = args.confirm_label
+        agent.confirm_label(domain, label)
+        return
+
+    if args.reject_pattern:
+        agent.reject_pattern(args.reject_pattern)
         return
 
     agent.run_daily_digest(

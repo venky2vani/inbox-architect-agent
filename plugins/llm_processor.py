@@ -12,6 +12,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from plugins.base import EmailMessage, ProcessedItem, ProcessorPlugin
 from plugins.local_intelligence import LocalIntelligence
 from plugins.retry import retry_with_backoff, is_transient_llm_error
+from plugins.dynamic_classifier import DynamicClassifier
 
 logger = logging.getLogger(__name__)
 
@@ -97,6 +98,42 @@ class SmartInboxProcessor(ProcessorPlugin):
         """Parse a comma-separated list of email addresses/domains."""
         return [s.strip().lower() for s in value.split(",") if s.strip()]
 
+    def _check_dynamic_label(self, message: EmailMessage) -> Optional[ProcessedItem]:
+        """Check if email matches a confirmed dynamic label."""
+        try:
+            classifier = DynamicClassifier()
+            confirmed_labels = classifier.get_confirmed_labels()
+            if not confirmed_labels:
+                return None
+
+            # Extract sender domain
+            sender_lower = message.sender.lower()
+            sender_domain = sender_lower.split("@")[-1].strip(">")
+
+            # Check if domain matches any confirmed label
+            for label_entry in confirmed_labels:
+                if label_entry["domain"].lower() in sender_domain:
+                    logger.info(
+                        "Dynamic label match: %s → %s",
+                        label_entry["domain"],
+                        label_entry["label"],
+                    )
+                    return ProcessedItem(
+                        original_id=message.id,
+                        sender=message.sender,
+                        subject=message.subject,
+                        category=label_entry["label"],
+                        priority=3,
+                        summary=f"Categorized by dynamic label: {label_entry['label']}",
+                        action_items=[],
+                        extracted_data={},
+                        destination="sheets_index",
+                        status="pending",
+                    )
+        except Exception as e:
+            logger.debug("Error checking dynamic labels: %s", e)
+        return None
+
     def _build_system_prompt(self) -> str:
         """Build the system prompt from a file, appending optional custom rules."""
         prompt_path = Path(self.prompt_path)
@@ -118,6 +155,11 @@ class SmartInboxProcessor(ProcessorPlugin):
         if override:
             logger.info("Hard rule override for sender: %s", message.sender)
             return override
+
+        # Check for confirmed dynamic labels.
+        dynamic_result = self._check_dynamic_label(message)
+        if dynamic_result:
+            return dynamic_result
 
         # Try local intelligence first.
         if self.local_intel is not None:
@@ -325,7 +367,7 @@ class SmartInboxProcessor(ProcessorPlugin):
             "tax": ["tax", "tds", "gst", "income tax"],
         }
         subscription_keywords = {
-            "streaming": ["netflix", "hulu", "disney+", "prime video", "spotify", "apple music", "youtube premium"],
+            "streaming": ["netflix", "hulu", "disney+", "prime video", "spotify", "apple music", "youtube premium", "aha", "sonyliv", "hotstar", "jiocinema", "zee5", "voot", "mxplayer", "twitch", "paramount+", "peacock", "apple tv+"],
             "software": ["adobe", "microsoft 365", "office 365", "slack", "figma", "notion", "canva", "photoshop"],
             "cloud": ["dropbox", "google one", "icloud", "onedrive", "backblaze", "crashplan"],
             "news": ["medium", "newsletter", "news subscription", "wall street journal", "new york times"],
