@@ -11472,6 +11472,17 @@
       "category": "action_needed",
       "priority": 3,
       "recorded_at": "2026-08-17T04:12:09.119329+00:00"
+    },
+    {
+      "id": "1a00e138ae5d6d25",
+      "thread_id": "1a00e138ae5d6d25",
+      "sender": "credit_cards@icici.bank.in",
+      "subject": "Transaction alert for your ICICI Bank Credit Card",
+      "body_text": "",
+      "received_at": "2026-08-17T10:24:31",
+      "category": "reference",
+      "priority": 2,
+      "recorded_at": "2026-08-17T05:10:07.476151+00:00"
     }
   ]
 }

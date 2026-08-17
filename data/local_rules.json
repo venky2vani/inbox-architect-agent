@@ -714,11 +714,11 @@
       "value": "icici.bank.in",
       "category": "reference",
       "priority": 2,
-      "should_archive": true,
+      "should_archive": false,
       "hits": 405,
-      "misses": 51,
+      "misses": 52,
       "created_at": "2026-08-15T18:07:14.232030+00:00",
-      "last_used": "2026-08-16T14:59:53.759703+00:00"
+      "last_used": "2026-08-17T05:10:07.495122+00:00"
     },
     {
       "id": "439be4b4-aef5-4f06-b311-535d5da34eac",
@@ -726,11 +726,11 @@
       "value": "transaction",
       "category": "reference",
       "priority": 2,
-      "should_archive": true,
+      "should_archive": false,
       "hits": 398,
-      "misses": 39,
+      "misses": 40,
       "created_at": "2026-08-15T18:07:14.232051+00:00",
-      "last_used": "2026-08-17T04:12:07.474695+00:00"
+      "last_used": "2026-08-17T05:10:07.495132+00:00"
     },
     {
       "id": "5940f3c7-1622-44b5-9b3f-3039a8eb640d",
@@ -739,10 +739,10 @@
       "category": "reference",
       "priority": 2,
       "should_archive": false,
-      "hits": 396,
+      "hits": 397,
       "misses": 91,
       "created_at": "2026-08-15T18:07:14.232076+00:00",
-      "last_used": "2026-08-16T14:59:53.759707+00:00"
+      "last_used": "2026-08-17T05:10:07.495955+00:00"
     },
     {
       "id": "e30a7664-b821-4a6b-882e-b51d4450213b",
@@ -4085,12 +4085,12 @@
       "type": "sender_email",
       "value": "credit_cards@icici.bank.in",
       "category": "reference",
-      "priority": 3,
+      "priority": 2,
       "should_archive": false,
       "hits": 404,
-      "misses": 44,
+      "misses": 45,
       "created_at": "2026-08-15T18:13:15.979430+00:00",
-      "last_used": "2026-08-16T11:22:58.800506+00:00"
+      "last_used": "2026-08-17T05:10:07.495100+00:00"
     },
     {
       "id": "42e8c7ae-9930-425e-a077-1214bc11d19a",
@@ -17110,7 +17110,7 @@
       "hits": 5,
       "misses": 0,
       "created_at": "2026-08-16T06:12:56.289331+00:00",
-      "last_used": "2026-08-16T14:13:40.426847+00:00"
+      "last_used": "2026-08-17T05:10:05.002492+00:00"
     },
     {
       "id": "16cf7ea0-04f7-408d-98d6-39f85241223d",
@@ -17134,7 +17134,7 @@
       "hits": 5,
       "misses": 0,
       "created_at": "2026-08-16T06:12:56.290683+00:00",
-      "last_used": "2026-08-16T14:13:40.427229+00:00"
+      "last_used": "2026-08-17T05:10:05.002514+00:00"
     },
     {
       "id": "14b2a445-69d7-4c35-9ee2-783a99535139",
@@ -17158,7 +17158,7 @@
       "hits": 5,
       "misses": 0,
       "created_at": "2026-08-16T06:12:56.292275+00:00",
-      "last_used": "2026-08-16T14:13:40.427726+00:00"
+      "last_used": "2026-08-17T05:10:05.002516+00:00"
     },
     {
       "id": "eb2b617e-95c2-4d48-a43e-abe173346d60",
@@ -17170,7 +17170,7 @@
       "hits": 5,
       "misses": 0,
       "created_at": "2026-08-16T06:12:56.295272+00:00",
-      "last_used": "2026-08-16T14:13:40.427958+00:00"
+      "last_used": "2026-08-17T05:10:05.002518+00:00"
     },
     {
       "id": "ee424dc4-109b-4322-aba3-9647ef85e73b",
@@ -85846,7 +85846,7 @@
       "hits": 6,
       "misses": 0,
       "created_at": "2026-08-16T19:30:20.660660+00:00",
-      "last_used": "2026-08-16T19:32:35.278100+00:00"
+      "last_used": "2026-08-17T05:10:05.002520+00:00"
     },
     {
       "id": "6b323f11-75f4-4aa9-a370-35d6d2070005",
@@ -102382,7 +102382,7 @@
       "hits": 5,
       "misses": 2,
       "created_at": "2026-08-17T04:08:01.817676+00:00",
-      "last_used": "2026-08-17T04:11:14.090203+00:00"
+      "last_used": "2026-08-17T05:10:05.002509+00:00"
     },
     {
       "id": "3f5dd04e-42ea-4868-8b20-07be8e9b3b7e",
@@ -106122,11 +106122,11 @@
       "value": "alert",
       "category": "reference",
       "priority": 2,
-      "should_archive": true,
+      "should_archive": false,
       "hits": 1,
-      "misses": 0,
+      "misses": 1,
       "created_at": "2026-08-17T04:12:07.476237+00:00",
-      "last_used": "2026-08-17T04:12:07.476237+00:00"
+      "last_used": "2026-08-17T05:10:07.495935+00:00"
     },
     {
       "id": "7e1a85a3-5e7e-41be-a7e0-3f88d90d4e07",
@@ -106175,6 +106175,42 @@
       "misses": 0,
       "created_at": "2026-08-17T04:12:09.238418+00:00",
       "last_used": "2026-08-17T04:12:09.238418+00:00"
+    },
+    {
+      "id": "4b3dcba2-02f7-45fd-b7f5-b68cccce3e9f",
+      "type": "subject_keyword",
+      "value": "bank",
+      "category": "reference",
+      "priority": 2,
+      "should_archive": false,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-17T05:10:07.497028+00:00",
+      "last_used": "2026-08-17T05:10:07.497028+00:00"
+    },
+    {
+      "id": "8b186b40-ae32-470d-9a29-288b512e4890",
+      "type": "subject_keyword",
+      "value": "credit",
+      "category": "reference",
+      "priority": 2,
+      "should_archive": false,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-17T05:10:07.497859+00:00",
+      "last_used": "2026-08-17T05:10:07.497859+00:00"
+    },
+    {
+      "id": "42862169-90e9-45c4-a1a0-78ccbb2ffd1a",
+      "type": "subject_keyword",
+      "value": "card",
+      "category": "reference",
+      "priority": 2,
+      "should_archive": false,
+      "hits": 1,
+      "misses": 0,
+      "created_at": "2026-08-17T05:10:07.499110+00:00",
+      "last_used": "2026-08-17T05:10:07.499110+00:00"
     }
   ]
 }
