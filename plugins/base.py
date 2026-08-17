@@ -64,8 +64,14 @@ class EmailConnector(ABC):
         ...
 
     @abstractmethod
-    def mark_processed(self, message_id: str, labels: List[str]) -> bool:
-        """Mark a message as processed."""
+    def mark_processed(self, message_id: str, labels: List[str], keep_unread: bool = False) -> bool:
+        """Mark a message as processed.
+
+        Args:
+            message_id: Email ID to mark
+            labels: List of labels to apply
+            keep_unread: If True, preserve email as unread; if False, mark as read
+        """
         ...
 
     def copy_for_thread(self) -> "EmailConnector":

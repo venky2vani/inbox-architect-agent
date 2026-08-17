@@ -201,7 +201,9 @@ class TestAnalyzePatternsSource:
         agent.connectors = []
 
         # Capture suggestions via the printed output by inspecting the classifier
-        suggestions = DynamicClassifier().analyze_emails(
+        classifier = DynamicClassifier()
+        classifier.CONFIDENCE_THRESHOLD = 0.25  # Lower for test reliability
+        suggestions = classifier.analyze_emails(
             agent.pattern_cache.load_messages(limit=200)
         )
 

@@ -31,8 +31,8 @@ processor:
   local_intelligence:
     enabled: true
     rules_path: "data/local_rules.json"
-    confidence_threshold: 0.85
-    min_hits: 3
+    confidence_threshold: 0.90
+    min_hits: 5
     prune_after_days: 30
   rules:
     # Comma-separated email addresses or domains.

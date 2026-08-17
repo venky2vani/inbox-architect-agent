@@ -5,8 +5,12 @@ import json
 from pathlib import Path
 from collections import defaultdict
 
-def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshold: float = 0.55):
-    """Remove problematic rules to improve overall accuracy."""
+def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshold: float = 0.65, aggressive: bool = True):
+    """Remove problematic rules to improve overall accuracy.
+
+    Args:
+        aggressive: If True, aggressively remove weak keywords to improve local intelligence hit rate.
+    """
 
     rules_path = Path(rules_file)
     if not rules_path.exists():
@@ -23,6 +27,20 @@ def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshol
     to_delete = []
     stats = defaultdict(int)
 
+    # Aggressive: Delete these specific weak keywords entirely (not just low-confidence samples)
+    weak_keywords = {
+        'payment',    # 39.1% - catastrophically weak
+        'please',     # 37.2% - catastrophically weak
+        'com',        # 60.8% - too generic
+        'card',       # 58.8% - ambiguous
+        'alert',      # 58.9% - ambiguous
+        'credit',     # 59.9% - ambiguous
+        'bank',       # Often misclassified
+        'account',    # Too generic
+        'confirm',    # Ambiguous
+        'update',     # Ambiguous
+    }
+
     for idx, rule in enumerate(rules):
         hits = rule.get('hits', 0)
         misses = rule.get('misses', 0)
@@ -36,9 +54,15 @@ def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshol
             stats['malformed'] += 1
             continue
 
-        # Reason 2: Too generic keywords (appear in almost everything)
+        # Reason 2: Aggressive - delete weak keywords entirely
+        if aggressive and (feature_type in ('subject_keyword', 'body_keyword')) and feature_value in weak_keywords:
+            to_delete.append(idx)
+            stats['weak_keyword_aggressive'] += 1
+            continue
+
+        # Reason 3: Too generic keywords (appear in almost everything)
         generic_keywords = {
-            'https', 'http', '.com', '.co', '.in', 'email', 'address',
+            'https', 'http', '.co', '.in', 'email', 'address',
             'click', 'here', 'link', 'website', 'contact', 'thank'
         }
         if feature_type == 'body_keyword' and feature_value in generic_keywords:
@@ -46,26 +70,33 @@ def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshol
             stats['generic_keyword'] += 1
             continue
 
-        # Reason 3: Too ambiguous single-word keywords
+        # Reason 4: Ambiguous keywords - delete ALL samples (not just <20)
         ambiguous_keywords = {'card', 'alert', 'payment', 'update', 'confirm'}
         if feature_type == 'subject_keyword' and feature_value in ambiguous_keywords:
-            if total < 20:  # Only delete if few samples
-                to_delete.append(idx)
-                stats['ambiguous_keyword'] += 1
-                continue
+            to_delete.append(idx)
+            stats['ambiguous_keyword'] += 1
+            continue
 
-        # Reason 4: Very low confidence with few hits
+        # Reason 5: Very low confidence with few hits
         if total >= 5 and hits < 2:  # < 40% confidence and few successes
             to_delete.append(idx)
             stats['very_low_confidence'] += 1
             continue
 
-        # Reason 5: Weak sender domain rules
+        # Reason 6: Weak sender domain rules
         if feature_type == 'sender_domain' and total >= 10:
             confidence = hits / total
-            if confidence < 0.45:  # < 45% for sender domains
+            if confidence < 0.50:  # Lowered from 0.45 to 0.50
                 to_delete.append(idx)
                 stats['weak_domain'] += 1
+                continue
+
+        # Reason 7: Low confidence general rules (aggressive threshold)
+        if aggressive and total >= 10:
+            confidence = hits / total
+            if confidence < confidence_threshold:  # 0.65 by default
+                to_delete.append(idx)
+                stats['low_confidence_aggressive'] += 1
                 continue
 
     # Delete in reverse order to maintain indices
@@ -94,17 +125,22 @@ def cleanup_rules(rules_file: str = "data/local_rules.json", confidence_threshol
         if count > 0:
             reason_text = {
                 'malformed': '❌ Malformed (empty/unknown feature)',
+                'weak_keyword_aggressive': '🔴 Weak keywords (payment, please, com, etc)',
                 'generic_keyword': '🔴 Generic keywords (https, .com, etc)',
-                'ambiguous_keyword': '🟠 Ambiguous keywords (card, alert, payment)',
+                'ambiguous_keyword': '🟠 Ambiguous keywords (card, alert, etc)',
                 'very_low_confidence': '🟡 Very low confidence (<40%)',
-                'weak_domain': '🟡 Weak sender domain rules (<45%)'
+                'low_confidence_aggressive': '🟡 Low confidence aggressive (<65%)',
+                'weak_domain': '🟡 Weak sender domain rules (<50%)'
             }
             print(f"  {reason_text.get(reason, reason):45} {count:4} rules")
 
     print(f"\n✅ Cleaned rules saved to: {rules_file}")
-    print(f"\n💡 Next step: Run a new digest cycle to learn better rules")
+    print(f"\n💡 Impact: Removed weak keywords to improve local intelligence hit rate")
+    print(f"   Next step: Run a new digest cycle to learn better rules")
     print("   $ python agent.py --limit 500")
     print("=" * 70 + "\n")
 
 if __name__ == "__main__":
-    cleanup_rules()
+    import sys
+    aggressive = '--aggressive' in sys.argv or True  # Default to aggressive
+    cleanup_rules(aggressive=aggressive)

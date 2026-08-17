@@ -1,0 +1,539 @@
+2026-08-17 09:40:53,829 [INFO] __main__: Loading plugins from plugins
+2026-08-17 09:40:54,136 [INFO] __main__: Loaded connector: gmail
+2026-08-17 09:40:54,158 [INFO] plugins.google_workspace_persistence: Loading Google Workspace persistence credentials
+2026-08-17 09:40:54,162 [INFO] plugins.google_workspace_persistence: Authorizing gspread and Drive service
+2026-08-17 09:40:54,164 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:40:54,167 [INFO] plugins.google_workspace_persistence: Opening or creating spreadsheet: Email Agent Index
+2026-08-17 09:40:58,322 [INFO] plugins.google_workspace_persistence: Opening or creating Drive folder: EmailAgent
+2026-08-17 09:40:58,937 [INFO] __main__: Loaded persistence: google_workspace
+2026-08-17 09:40:59,833 [INFO] __main__: Loaded processor: smart_inbox
+2026-08-17 09:40:59,833 [INFO] __main__: Authenticating connector: gmail
+2026-08-17 09:40:59,835 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:40:59,838 [INFO] plugins.gmail_connector: Gmail service built in 0.00s
+2026-08-17 09:40:59,838 [INFO] plugins.gmail_connector: Authenticated Gmail scopes: ['https://www.googleapis.com/auth/gmail.modify', 'https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+2026-08-17 09:40:59,838 [INFO] __main__: Authenticated gmail in 0.01s
+2026-08-17 09:40:59,838 [INFO] __main__: Listing unread messages from gmail (limit=500)
+2026-08-17 09:40:59,839 [INFO] plugins.gmail_connector: Listing unread inbox messages (limit=500)
+2026-08-17 09:41:00,952 [INFO] plugins.gmail_connector: Listed 58 unread message ID(s) in 1.11s (required 1 API calls)
+2026-08-17 09:41:00,952 [INFO] __main__: Listed 58 unread message ID(s) from gmail in 1.11s
+2026-08-17 09:41:00,952 [INFO] __main__: Processing batch 1-50 of 58
+2026-08-17 09:41:00,952 [INFO] __main__: Processing 50 emails with 8 parallel workers
+2026-08-17 09:41:00,953 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:00,959 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:00,960 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:00,975 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:00,977 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:00,978 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,003 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,013 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,019 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,091 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,092 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,093 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,093 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,124 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,137 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,142 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:41:01,497 [INFO] __main__: [2/50] Processing: [Bug Fix Advisory] RHBA-2024:4510 updated RHEL-8 based Middl
+2026-08-17 09:41:01,504 [INFO] __main__: [1/50] Processing: [Bug Fix Advisory] RHBA-2024:4511 updated RHEL-8 based Middl
+2026-08-17 09:41:01,522 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4510 updated RHEL-8 based Middl | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:01,528 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4510 updated RHEL-8 based Middl
+2026-08-17 09:41:01,552 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4511 updated RHEL-8 based Middl | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:01,553 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4511 updated RHEL-8 based Middl
+2026-08-17 09:41:01,556 [INFO] __main__: [6/50] Processing: [Bug Fix Advisory] RHBA-2024:4495 updated rhpam-7/rhpam-kogi
+2026-08-17 09:41:01,562 [INFO] __main__: [3/50] Processing: [Bug Fix Advisory] RHBA-2024:4506 updated rhel9/buildah cont
+2026-08-17 09:41:01,563 [INFO] __main__: [7/50] Processing: [Bug Fix Advisory] RHBA-2024:4493 updated rhel8/buildah cont
+2026-08-17 09:41:01,596 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4495 updated rhpam-7/rhpam-kogi | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:01,596 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4495 updated rhpam-7/rhpam-kogi
+2026-08-17 09:41:01,622 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4493 updated rhel8/buildah cont | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:01,623 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4493 updated rhel8/buildah cont
+2026-08-17 09:41:01,652 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4506 updated rhel9/buildah cont | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:01,652 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4506 updated rhel9/buildah cont
+2026-08-17 09:41:02,165 [INFO] __main__: [5/50] Processing: [Bug Fix Advisory] RHBA-2024:4328 OpenShift Container Platfo
+2026-08-17 09:41:02,189 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4328 OpenShift Container Platfo | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:02,189 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4328 OpenShift Container Platfo
+2026-08-17 09:41:02,191 [INFO] __main__: [4/50] Processing: [Bug Fix Advisory] RHBA-2024:4503 AMQ Broker 7.12.1.OPR.1.GA
+2026-08-17 09:41:02,214 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4503 AMQ Broker 7.12.1.OPR.1.GA | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:02,215 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4503 AMQ Broker 7.12.1.OPR.1.GA
+2026-08-17 09:41:02,235 [INFO] __main__: [8/50] Processing: [Bug Fix Advisory] RHBA-2024:4489 updated rhel9/gcc-toolset-
+2026-08-17 09:41:02,261 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4489 updated rhel9/gcc-toolset- | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:02,261 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4489 updated rhel9/gcc-toolset-
+2026-08-17 09:41:03,955 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,007 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.79s | [Bug Fix Advisory] RHBA-2024:4503 AMQ Br
+2026-08-17 09:41:04,128 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,130 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.59s | [Bug Fix Advisory] RHBA-2024:4510 update
+2026-08-17 09:41:04,144 [INFO] __main__: [4/50] Categorized as reference (priority=2) in 1.95s
+2026-08-17 09:41:04,189 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,192 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.57s | [Bug Fix Advisory] RHBA-2024:4493 update
+2026-08-17 09:41:04,203 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,213 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.66s | [Bug Fix Advisory] RHBA-2024:4511 update
+2026-08-17 09:41:04,344 [INFO] __main__: [2/50] Categorized as reference (priority=2) in 2.85s
+2026-08-17 09:41:04,373 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,402 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.81s | [Bug Fix Advisory] RHBA-2024:4495 update
+2026-08-17 09:41:04,512 [INFO] __main__: [7/50] Categorized as reference (priority=2) in 2.95s
+2026-08-17 09:41:04,515 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:04,523 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.33s | [Bug Fix Advisory] RHBA-2024:4328 OpenSh
+2026-08-17 09:41:04,620 [INFO] __main__: [1/50] Categorized as reference (priority=2) in 3.12s
+2026-08-17 09:41:04,688 [INFO] __main__: [6/50] Categorized as reference (priority=2) in 3.13s
+2026-08-17 09:41:04,770 [INFO] __main__: [5/50] Categorized as reference (priority=2) in 2.60s
+2026-08-17 09:41:05,232 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:05,234 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.97s | [Bug Fix Advisory] RHBA-2024:4489 update
+2026-08-17 09:41:05,314 [INFO] __main__: [8/50] Categorized as reference (priority=2) in 3.08s
+2026-08-17 09:41:05,509 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4510 updated RHEL-8 based Middl
+2026-08-17 09:41:05,900 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4495 updated rhpam-7/rhpam-kogi
+2026-08-17 09:41:05,905 [INFO] __main__: [9/50] Processing: [Bug Fix Advisory] RHBA-2024:4491 updated rhel8/rsyslog cont
+2026-08-17 09:41:05,929 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4491 updated rhel8/rsyslog cont | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:05,929 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4491 updated rhel8/rsyslog cont
+2026-08-17 09:41:06,043 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4328 OpenShift Container Platfo
+2026-08-17 09:41:06,211 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4503 AMQ Broker 7.12.1.OPR.1.GA
+2026-08-17 09:41:06,264 [INFO] __main__: [10/50] Processing: [Bug Fix Advisory] RHBA-2024:4490 updated rhel9/go-toolset c
+2026-08-17 09:41:06,284 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4490 updated rhel9/go-toolset c | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:06,285 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4490 updated rhel9/go-toolset c
+2026-08-17 09:41:06,357 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4493 updated rhel8/buildah cont
+2026-08-17 09:41:06,617 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4511 updated RHEL-8 based Middl
+2026-08-17 09:41:06,639 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4489 updated rhel9/gcc-toolset-
+2026-08-17 09:41:06,651 [INFO] __main__: [12/50] Processing: Your Tuesday morning trip with Uber
+2026-08-17 09:41:06,657 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your Tuesday morning trip with Uber | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:06,657 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your Tuesday morning trip with Uber
+2026-08-17 09:41:07,026 [INFO] __main__: [14/50] Processing: [Bug Fix Advisory] RHBA-2024:4097 updated RHOSE ASYNC - AUTO
+2026-08-17 09:41:07,046 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4097 updated RHOSE ASYNC - AUTO | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:07,046 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4097 updated RHOSE ASYNC - AUTO
+2026-08-17 09:41:07,071 [INFO] __main__: [15/50] Processing: Your Monday afternoon trip with Uber
+2026-08-17 09:41:07,075 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your Monday afternoon trip with Uber | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:07,075 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your Monday afternoon trip with Uber
+2026-08-17 09:41:07,084 [INFO] __main__: [11/50] Processing: [Bug Fix Advisory] RHBA-2024:4492 updated rhel8/skopeo conta
+2026-08-17 09:41:07,106 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4492 updated rhel8/skopeo conta | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:07,107 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4492 updated rhel8/skopeo conta
+2026-08-17 09:41:07,415 [INFO] __main__: [13/50] Processing: [Bug Fix Advisory] RHBA-2024:4176 updated rhel9/memcached co
+2026-08-17 09:41:07,439 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | [Bug Fix Advisory] RHBA-2024:4176 updated rhel9/memcached co | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:07,439 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: [Bug Fix Advisory] RHBA-2024:4176 updated rhel9/memcached co
+2026-08-17 09:41:08,359 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:08,360 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 1 | 1.70s | Your Tuesday morning trip with Uber
+2026-08-17 09:41:08,433 [INFO] __main__: [12/50] Categorized as reference (priority=1) in 1.78s
+2026-08-17 09:41:08,489 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:08,490 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.56s | [Bug Fix Advisory] RHBA-2024:4491 update
+2026-08-17 09:41:08,538 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:08,544 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 1 | 1.47s | Your Monday afternoon trip with Uber
+2026-08-17 09:41:08,584 [INFO] __main__: [9/50] Categorized as reference (priority=2) in 2.68s
+2026-08-17 09:41:08,639 [INFO] __main__: [15/50] Categorized as reference (priority=1) in 1.57s
+2026-08-17 09:41:08,737 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:08,738 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.45s | [Bug Fix Advisory] RHBA-2024:4490 update
+2026-08-17 09:41:08,816 [INFO] __main__: [10/50] Categorized as reference (priority=2) in 2.55s
+2026-08-17 09:41:09,288 [INFO] __main__: Applied labels ['Reference'] to: Your Tuesday morning trip with Uber
+2026-08-17 09:41:09,607 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:09,609 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.56s | [Bug Fix Advisory] RHBA-2024:4097 update
+2026-08-17 09:41:09,684 [INFO] __main__: [14/50] Categorized as reference (priority=2) in 2.66s
+2026-08-17 09:41:09,731 [INFO] __main__: [16/50] Processing: Your Monday morning trip with Uber
+2026-08-17 09:41:09,735 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your Monday morning trip with Uber | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:09,736 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your Monday morning trip with Uber
+2026-08-17 09:41:09,794 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:09,796 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.69s | [Bug Fix Advisory] RHBA-2024:4492 update
+2026-08-17 09:41:09,879 [INFO] __main__: [11/50] Categorized as reference (priority=2) in 2.80s
+2026-08-17 09:41:09,921 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4490 updated rhel9/go-toolset c
+2026-08-17 09:41:10,029 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4491 updated rhel8/rsyslog cont
+2026-08-17 09:41:10,203 [INFO] __main__: Applied labels ['Reference'] to: Your Monday afternoon trip with Uber
+2026-08-17 09:41:10,272 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:10,274 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.83s | [Bug Fix Advisory] RHBA-2024:4176 update
+2026-08-17 09:41:10,351 [INFO] __main__: [17/50] Processing: Your Thursday evening trip with Uber
+2026-08-17 09:41:10,352 [INFO] __main__: [13/50] Categorized as reference (priority=2) in 2.94s
+2026-08-17 09:41:10,360 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your Thursday evening trip with Uber | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:10,360 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your Thursday evening trip with Uber
+2026-08-17 09:41:10,598 [INFO] __main__: [19/50] Processing: SBI General Insurance policy certificate against IRCTC PA In
+2026-08-17 09:41:10,607 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | SBI General Insurance policy certificate against IRCTC PA In | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:10,607 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: SBI General Insurance policy certificate against IRCTC PA In
+2026-08-17 09:41:10,802 [INFO] __main__: [18/50] Processing: IKEA – Proof of payment 189897672
+2026-08-17 09:41:10,819 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | IKEA – Proof of payment 189897672 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:10,819 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: IKEA – Proof of payment 189897672
+2026-08-17 09:41:10,834 [INFO] __main__: Applied labels ['Reference', 'Work'] to: [Bug Fix Advisory] RHBA-2024:4097 updated RHOSE ASYNC - AUTO
+2026-08-17 09:41:11,123 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4492 updated rhel8/skopeo conta
+2026-08-17 09:41:11,124 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:11,134 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 1 | 1.40s | Your Monday morning trip with Uber
+2026-08-17 09:41:11,200 [INFO] __main__: [20/50] Processing: C0nfirmez votre C0mmande venky!
+2026-08-17 09:41:11,200 [INFO] __main__: [16/50] Categorized as reference (priority=1) in 1.47s
+2026-08-17 09:41:11,212 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | C0nfirmez votre C0mmande venky! | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:11,212 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: C0nfirmez votre C0mmande venky!
+2026-08-17 09:41:11,570 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4176 updated rhel9/memcached co
+2026-08-17 09:41:11,737 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:11,738 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 1 | 1.38s | Your Thursday evening trip with Uber
+2026-08-17 09:41:11,804 [INFO] __main__: [17/50] Categorized as reference (priority=1) in 1.45s
+2026-08-17 09:41:12,150 [INFO] __main__: [21/50] Processing: RE: Renew your Property if it's available
+2026-08-17 09:41:12,153 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RE: Renew your Property if it's available | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:12,154 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RE: Renew your Property if it's available
+2026-08-17 09:41:12,535 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:12,536 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.72s | IKEA – Proof of payment 189897672
+2026-08-17 09:41:12,608 [INFO] __main__: Applied labels ['Reference'] to: Your Thursday evening trip with Uber
+2026-08-17 09:41:12,619 [INFO] __main__: [18/50] Categorized as reference (priority=2) in 1.82s
+2026-08-17 09:41:12,619 [INFO] plugins.google_workspace_persistence: Storing attachment S59822V000145818.pdf in folder 2026-08-17
+2026-08-17 09:41:12,685 [INFO] __main__: Applied labels ['Reference'] to: Your Monday morning trip with Uber
+2026-08-17 09:41:12,707 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:12,708 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.10s | SBI General Insurance policy certificate
+2026-08-17 09:41:12,778 [INFO] __main__: [19/50] Categorized as reference (priority=2) in 2.18s
+2026-08-17 09:41:13,380 [INFO] __main__: [22/50] Processing: Report of VANDANA DESHPANDE vide Lab No.121710930 dtd 27 Jan
+2026-08-17 09:41:13,430 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | Report of VANDANA DESHPANDE vide Lab No.121710930 dtd 27 Jan | category: reference (confidence: 0.75)
+2026-08-17 09:41:13,431 [INFO] __main__: [22/50] Categorized as reference (priority=3) in 0.05s
+2026-08-17 09:41:13,431 [INFO] plugins.google_workspace_persistence: Storing attachment 121710930_VANDANA_DESHPANDE_WL.pdf in folder 2026-08-17
+2026-08-17 09:41:13,693 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:13,695 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.54s | RE: Renew your Property if it's availabl
+2026-08-17 09:41:13,764 [INFO] __main__: [21/50] Categorized as reference (priority=2) in 1.61s
+2026-08-17 09:41:13,914 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: SBI General Insurance policy certificate against IRCTC PA In
+2026-08-17 09:41:13,968 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:13,969 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.76s | C0nfirmez votre C0mmande venky!
+2026-08-17 09:41:13,992 [INFO] __main__: [24/50] Processing: Important: Notice to submit documents.
+2026-08-17 09:41:14,068 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | Important: Notice to submit documents. | category: reference (confidence: 0.75)
+2026-08-17 09:41:14,068 [INFO] __main__: [24/50] Categorized as reference (priority=2) in 0.08s
+2026-08-17 09:41:14,068 [INFO] plugins.google_workspace_persistence: Storing attachment MIMO.pdf in folder 2026-08-17
+2026-08-17 09:41:14,130 [INFO] __main__: [20/50] Categorized as action_needed (priority=3) in 2.93s
+2026-08-17 09:41:14,370 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:14,371 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 12.72s | [Bug Fix Advisory] RHBA-2024:4506 update
+2026-08-17 09:41:14,449 [INFO] __main__: [3/50] Categorized as reference (priority=2) in 12.89s
+2026-08-17 09:41:14,927 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: RE: Renew your Property if it's available
+2026-08-17 09:41:15,246 [INFO] __main__: Applied labels ['Action_Needed', 'Order'] to: C0nfirmez votre C0mmande venky!
+2026-08-17 09:41:15,352 [INFO] __main__: [26/50] Processing: NoBroker: Change in RM phone number
+2026-08-17 09:41:15,374 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | NoBroker: Change in RM phone number | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:15,374 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: NoBroker: Change in RM phone number
+2026-08-17 09:41:15,567 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: [Bug Fix Advisory] RHBA-2024:4506 updated rhel9/buildah cont
+2026-08-17 09:41:15,593 [INFO] __main__: [27/50] Processing: NoBroker: Change in RM phone number
+2026-08-17 09:41:15,614 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | NoBroker: Change in RM phone number | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:15,614 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: NoBroker: Change in RM phone number
+2026-08-17 09:41:15,701 [INFO] plugins.google_workspace_persistence: Attachment S59822V000145818.pdf uploaded in 3.08s
+2026-08-17 09:41:15,701 [INFO] __main__: Stored attachment S59822V000145818.pdf
+2026-08-17 09:41:15,923 [INFO] __main__: [28/50] Processing: NoBroker: Change in RM phone number
+2026-08-17 09:41:15,947 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | NoBroker: Change in RM phone number | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:15,947 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: NoBroker: Change in RM phone number
+2026-08-17 09:41:16,044 [INFO] __main__: [25/50] Processing: Vaishnavi Printout
+2026-08-17 09:41:16,052 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Vaishnavi Printout | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:16,052 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Vaishnavi Printout
+2026-08-17 09:41:16,210 [INFO] plugins.google_workspace_persistence: Attachment 121710930_VANDANA_DESHPANDE_WL.pdf uploaded in 2.78s
+2026-08-17 09:41:16,210 [INFO] __main__: Stored attachment 121710930_VANDANA_DESHPANDE_WL.pdf
+2026-08-17 09:41:17,062 [INFO] __main__: Applied labels ['Reference'] to: Report of VANDANA DESHPANDE vide Lab No.121710930 dtd 27 Jan
+2026-08-17 09:41:17,458 [INFO] __main__: Applied labels ['Reference', 'Order'] to: IKEA – Proof of payment 189897672
+2026-08-17 09:41:17,468 [INFO] __main__: [29/50] Processing: NoBroker: Change in RM phone number
+2026-08-17 09:41:17,491 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | NoBroker: Change in RM phone number | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:17,491 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: NoBroker: Change in RM phone number
+2026-08-17 09:41:17,540 [INFO] plugins.google_workspace_persistence: Attachment MIMO.pdf uploaded in 3.47s
+2026-08-17 09:41:17,540 [INFO] __main__: Stored attachment MIMO.pdf
+2026-08-17 09:41:17,813 [INFO] __main__: [30/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:17,836 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:17,836 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:17,840 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:17,841 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: personal        | Priority: 2 | 1.79s | Vaishnavi Printout
+2026-08-17 09:41:17,862 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:17,869 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.49s | NoBroker: Change in RM phone number
+2026-08-17 09:41:17,944 [INFO] __main__: [25/50] Categorized as personal (priority=2) in 1.90s
+2026-08-17 09:41:17,944 [INFO] plugins.google_workspace_persistence: Storing attachment Trainee Application form.pdf in folder 2026-08-17
+2026-08-17 09:41:18,042 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:18,047 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.43s | NoBroker: Change in RM phone number
+2026-08-17 09:41:18,048 [INFO] __main__: [26/50] Categorized as reference (priority=2) in 2.70s
+2026-08-17 09:41:18,128 [INFO] __main__: [27/50] Categorized as reference (priority=2) in 2.53s
+2026-08-17 09:41:18,334 [INFO] __main__: Applied labels ['Reference'] to: Important: Notice to submit documents.
+2026-08-17 09:41:18,378 [INFO] __main__: [23/50] Processing: Renewal Premium Intimation for your SBI Life Policy XXXXXXX3
+2026-08-17 09:41:18,390 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Renewal Premium Intimation for your SBI Life Policy XXXXXXX3 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:18,390 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Renewal Premium Intimation for your SBI Life Policy XXXXXXX3
+2026-08-17 09:41:18,752 [INFO] __main__: [31/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:18,800 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | RM NoBroker: Your phone is not contactable | category: action_needed (confidence: 0.75)
+2026-08-17 09:41:18,801 [INFO] __main__: [31/50] Categorized as action_needed (priority=3) in 0.05s
+2026-08-17 09:41:18,817 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:18,818 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.87s | NoBroker: Change in RM phone number
+2026-08-17 09:41:18,895 [INFO] __main__: [28/50] Categorized as reference (priority=2) in 2.97s
+2026-08-17 09:41:19,192 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: NoBroker: Change in RM phone number
+2026-08-17 09:41:19,278 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: NoBroker: Change in RM phone number
+2026-08-17 09:41:19,592 [INFO] __main__: Applied labels ['Action_Needed'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:19,598 [INFO] __main__: [32/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:19,622 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:19,623 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:19,623 [INFO] __main__: [33/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:19,646 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:19,647 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:20,021 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: NoBroker: Change in RM phone number
+2026-08-17 09:41:20,030 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:20,032 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.54s | NoBroker: Change in RM phone number
+2026-08-17 09:41:20,162 [INFO] __main__: [29/50] Categorized as reference (priority=2) in 2.69s
+2026-08-17 09:41:20,387 [INFO] __main__: [35/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:20,412 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:20,412 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:20,653 [INFO] __main__: [34/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:20,677 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:20,678 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:20,728 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:20,730 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 4 | 2.34s | Renewal Premium Intimation for your SBI 
+2026-08-17 09:41:20,798 [INFO] __main__: [23/50] Categorized as action_needed (priority=4) in 2.42s
+2026-08-17 09:41:20,798 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_01.jpg in folder 2026-08-17
+2026-08-17 09:41:21,055 [INFO] plugins.google_workspace_persistence: Attachment Trainee Application form.pdf uploaded in 3.11s
+2026-08-17 09:41:21,055 [INFO] __main__: Stored attachment Trainee Application form.pdf
+2026-08-17 09:41:21,055 [INFO] plugins.google_workspace_persistence: Storing attachment Eligibility Criteria_Self-declaration form_Year 2022_Engineering.pdf in folder 2026-08-17
+2026-08-17 09:41:21,111 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:21,112 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.28s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:21,191 [INFO] __main__: [30/50] Categorized as action_needed (priority=3) in 3.38s
+2026-08-17 09:41:21,299 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: NoBroker: Change in RM phone number
+2026-08-17 09:41:22,290 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:22,360 [INFO] __main__: [36/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:22,410 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | RM NoBroker: Your phone is not contactable | category: action_needed (confidence: 0.75)
+2026-08-17 09:41:22,410 [INFO] __main__: [36/50] Categorized as action_needed (priority=3) in 0.05s
+2026-08-17 09:41:22,640 [INFO] __main__: [37/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:22,698 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | RM NoBroker: Your phone is not contactable | category: action_needed (confidence: 0.75)
+2026-08-17 09:41:22,698 [INFO] __main__: [37/50] Categorized as action_needed (priority=3) in 0.06s
+2026-08-17 09:41:23,273 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:23,275 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.65s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:23,366 [INFO] __main__: [32/50] Categorized as action_needed (priority=3) in 3.77s
+2026-08-17 09:41:23,474 [INFO] __main__: Applied labels ['Action_Needed'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:23,718 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:23,720 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.31s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:23,819 [INFO] __main__: [35/50] Categorized as action_needed (priority=3) in 3.43s
+2026-08-17 09:41:23,828 [INFO] __main__: [38/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:23,842 [INFO] plugins.google_workspace_persistence: Attachment Eligibility Criteria_Self-declaration form_Year 2022_Engineering.pdf uploaded in 2.79s
+2026-08-17 09:41:23,842 [INFO] __main__: Stored attachment Eligibility Criteria_Self-declaration form_Year 2022_Engineering.pdf
+2026-08-17 09:41:23,868 [INFO] __main__: Applied labels ['Action_Needed'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:23,890 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RM NoBroker: Your phone is not contactable | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:23,891 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:23,960 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:23,961 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.28s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:24,027 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_01.jpg uploaded in 3.23s
+2026-08-17 09:41:24,032 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_01.jpg
+2026-08-17 09:41:24,038 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_02.jpg in folder 2026-08-17
+2026-08-17 09:41:24,120 [INFO] __main__: [34/50] Categorized as action_needed (priority=3) in 3.47s
+2026-08-17 09:41:24,589 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:24,709 [INFO] __main__: Applied labels ['Personal'] to: Vaishnavi Printout
+2026-08-17 09:41:24,717 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:24,718 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 5.07s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:24,832 [INFO] __main__: [33/50] Categorized as action_needed (priority=3) in 5.21s
+2026-08-17 09:41:24,932 [INFO] __main__: [39/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:24,984 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:25,063 [INFO] __main__: [40/50] Processing: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:25,069 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | RM NoBroker: Your phone is not contactable | category: action_needed (confidence: 0.75)
+2026-08-17 09:41:25,076 [INFO] __main__: [39/50] Categorized as action_needed (priority=3) in 0.14s
+2026-08-17 09:41:25,101 [INFO] __main__: [41/50] Processing: day2 sAJAN IN THE DEEP.wav
+2026-08-17 09:41:25,146 [INFO] plugins.llm_processor: ✓ LOCAL INTEL | RM NoBroker: Your phone is not contactable | category: action_needed (confidence: 0.75)
+2026-08-17 09:41:25,155 [INFO] __main__: [40/50] Categorized as action_needed (priority=3) in 0.09s
+2026-08-17 09:41:25,185 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | day2 sAJAN IN THE DEEP.wav | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:25,187 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: day2 sAJAN IN THE DEEP.wav
+2026-08-17 09:41:25,342 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:25,766 [INFO] __main__: [42/50] Processing: City Avenue: Consent for appointment Regenesis Facility Mana
+2026-08-17 09:41:25,775 [INFO] __main__: [43/50] Processing: Device successfully revoked
+2026-08-17 09:41:25,809 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | City Avenue: Consent for appointment Regenesis Facility Mana | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:25,818 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: City Avenue: Consent for appointment Regenesis Facility Mana
+2026-08-17 09:41:25,860 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Device successfully revoked | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:25,860 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Device successfully revoked
+2026-08-17 09:41:25,941 [INFO] __main__: Applied labels ['Action_Needed'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:26,053 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:26,380 [INFO] __main__: [44/50] Processing: Membership Renewal Notification
+2026-08-17 09:41:26,405 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Membership Renewal Notification | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:26,406 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Membership Renewal Notification
+2026-08-17 09:41:26,405 [INFO] __main__: [45/50] Processing: Membership Renewal Notification
+2026-08-17 09:41:26,430 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Membership Renewal Notification | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:26,430 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Membership Renewal Notification
+2026-08-17 09:41:26,887 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:26,889 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.00s | RM NoBroker: Your phone is not contactab
+2026-08-17 09:41:26,940 [INFO] __main__: Applied labels ['Action_Needed'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:27,002 [INFO] __main__: [38/50] Categorized as action_needed (priority=3) in 3.17s
+2026-08-17 09:41:27,065 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:27,067 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.88s | day2 sAJAN IN THE DEEP.wav
+2026-08-17 09:41:27,085 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_02.jpg uploaded in 3.05s
+2026-08-17 09:41:27,085 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_02.jpg
+2026-08-17 09:41:27,087 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_03.jpg in folder 2026-08-17
+2026-08-17 09:41:27,172 [INFO] __main__: [41/50] Categorized as reference (priority=2) in 2.07s
+2026-08-17 09:41:27,578 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:27,584 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.72s | Device successfully revoked
+2026-08-17 09:41:27,691 [INFO] __main__: [46/50] Processing: City Avenue: Maintenance
+2026-08-17 09:41:27,751 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | City Avenue: Maintenance | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:27,771 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: City Avenue: Maintenance
+2026-08-17 09:41:27,918 [INFO] __main__: [43/50] Categorized as reference (priority=2) in 2.14s
+2026-08-17 09:41:28,128 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RM NoBroker: Your phone is not contactable
+2026-08-17 09:41:28,268 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:28,269 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.45s | City Avenue: Consent for appointment Reg
+2026-08-17 09:41:28,350 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:28,352 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 1.95s | Membership Renewal Notification
+2026-08-17 09:41:28,352 [INFO] __main__: [42/50] Categorized as action_needed (priority=3) in 2.59s
+2026-08-17 09:41:28,355 [INFO] plugins.google_workspace_persistence: Storing attachment image001.jpg in folder 2026-08-17
+2026-08-17 09:41:28,380 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: day2 sAJAN IN THE DEEP.wav
+2026-08-17 09:41:28,450 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:28,452 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.02s | Membership Renewal Notification
+2026-08-17 09:41:28,460 [INFO] __main__: [44/50] Categorized as action_needed (priority=3) in 2.08s
+2026-08-17 09:41:28,540 [INFO] __main__: [47/50] Processing: Your Vi Postpaid Bill for September 2020
+2026-08-17 09:41:28,542 [INFO] __main__: [45/50] Categorized as action_needed (priority=3) in 2.14s
+2026-08-17 09:41:28,555 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your Vi Postpaid Bill for September 2020 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:28,555 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your Vi Postpaid Bill for September 2020
+2026-08-17 09:41:28,763 [INFO] __main__: [48/50] Processing: RE: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:28,786 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | RE: City avenue CHS-Constitution of Provisional Committee | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:28,786 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: RE: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:29,050 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: Device successfully revoked
+2026-08-17 09:41:29,623 [INFO] __main__: Applied labels ['Action_Needed', 'Subscription'] to: Membership Renewal Notification
+2026-08-17 09:41:29,682 [INFO] __main__: Applied labels ['Action_Needed', 'Subscription'] to: Membership Renewal Notification
+2026-08-17 09:41:29,943 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_03.jpg uploaded in 2.85s
+2026-08-17 09:41:29,943 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_03.jpg
+2026-08-17 09:41:29,943 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_04.jpg in folder 2026-08-17
+2026-08-17 09:41:30,203 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:30,204 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.43s | City Avenue: Maintenance
+2026-08-17 09:41:30,298 [INFO] __main__: [46/50] Categorized as reference (priority=2) in 2.61s
+2026-08-17 09:41:30,298 [INFO] plugins.google_workspace_persistence: Storing attachment image001.jpg in folder 2026-08-17
+2026-08-17 09:41:30,476 [INFO] __main__: [49/50] Processing: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:30,504 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | City avenue CHS-Constitution of Provisional Committee | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:30,505 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:30,707 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:30,708 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 5 | 2.15s | Your Vi Postpaid Bill for September 2020
+2026-08-17 09:41:30,785 [INFO] __main__: [47/50] Categorized as action_needed (priority=5) in 2.24s
+2026-08-17 09:41:31,121 [INFO] __main__: [50/50] Processing: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:31,142 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | City avenue CHS-Constitution of Provisional Committee | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:41:31,142 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:31,397 [INFO] plugins.google_workspace_persistence: Attachment image001.jpg uploaded in 3.04s
+2026-08-17 09:41:31,398 [INFO] __main__: Stored attachment image001.jpg
+2026-08-17 09:41:31,651 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:31,653 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.87s | RE: City avenue CHS-Constitution of Prov
+2026-08-17 09:41:31,727 [INFO] __main__: [48/50] Categorized as action_needed (priority=3) in 2.96s
+2026-08-17 09:41:31,910 [INFO] __main__: Applied labels ['Action_Needed', 'Bill'] to: Your Vi Postpaid Bill for September 2020
+2026-08-17 09:41:32,527 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: City Avenue: Consent for appointment Regenesis Facility Mana
+2026-08-17 09:41:32,738 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_04.jpg uploaded in 2.79s
+2026-08-17 09:41:32,738 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_04.jpg
+2026-08-17 09:41:32,738 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_05.jpg in folder 2026-08-17
+2026-08-17 09:41:33,016 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: RE: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:33,017 [INFO] plugins.google_workspace_persistence: Attachment image001.jpg uploaded in 2.72s
+2026-08-17 09:41:33,021 [INFO] __main__: Stored attachment image001.jpg
+2026-08-17 09:41:33,720 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:33,722 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 3.22s | City avenue CHS-Constitution of Provisio
+2026-08-17 09:41:33,723 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:41:33,737 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.59s | City avenue CHS-Constitution of Provisio
+2026-08-17 09:41:33,832 [INFO] __main__: [49/50] Categorized as action_needed (priority=3) in 3.36s
+2026-08-17 09:41:33,840 [INFO] plugins.google_workspace_persistence: Storing attachment image001.jpg in folder 2026-08-17
+2026-08-17 09:41:33,899 [INFO] __main__: [50/50] Categorized as action_needed (priority=3) in 2.78s
+2026-08-17 09:41:33,899 [INFO] plugins.google_workspace_persistence: Storing attachment image001.jpg in folder 2026-08-17
+2026-08-17 09:41:34,271 [INFO] __main__: Applied labels ['Reference', 'Personal'] to: City Avenue: Maintenance
+2026-08-17 09:41:35,494 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_05.jpg uploaded in 2.76s
+2026-08-17 09:41:35,494 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_05.jpg
+2026-08-17 09:41:35,494 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_06.jpg in folder 2026-08-17
+2026-08-17 09:41:36,722 [INFO] plugins.google_workspace_persistence: Attachment image001.jpg uploaded in 2.88s
+2026-08-17 09:41:36,722 [INFO] __main__: Stored attachment image001.jpg
+2026-08-17 09:41:37,159 [INFO] plugins.google_workspace_persistence: Attachment image001.jpg uploaded in 3.26s
+2026-08-17 09:41:37,159 [INFO] __main__: Stored attachment image001.jpg
+2026-08-17 09:41:37,884 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:38,288 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: City avenue CHS-Constitution of Provisional Committee
+2026-08-17 09:41:38,351 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_06.jpg uploaded in 2.86s
+2026-08-17 09:41:38,351 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_01_06.jpg
+2026-08-17 09:41:38,351 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_02_02.jpg in folder 2026-08-17
+2026-08-17 09:41:41,394 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_02_02.jpg uploaded in 3.04s
+2026-08-17 09:41:41,394 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_02_02.jpg
+2026-08-17 09:41:41,394 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_02.jpg in folder 2026-08-17
+2026-08-17 09:41:44,279 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_02.jpg uploaded in 2.88s
+2026-08-17 09:41:44,279 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_02.jpg
+2026-08-17 09:41:44,279 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_03.jpg in folder 2026-08-17
+2026-08-17 09:41:47,158 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_03.jpg uploaded in 2.88s
+2026-08-17 09:41:47,158 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_03.jpg
+2026-08-17 09:41:47,158 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01_02.jpg in folder 2026-08-17
+2026-08-17 09:41:50,650 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01_02.jpg uploaded in 3.49s
+2026-08-17 09:41:50,650 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01_02.jpg
+2026-08-17 09:41:50,650 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_01.jpg in folder 2026-08-17
+2026-08-17 09:41:53,590 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_01.jpg uploaded in 2.94s
+2026-08-17 09:41:53,590 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_01.jpg
+2026-08-17 09:41:53,590 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_01.jpg in folder 2026-08-17
+2026-08-17 09:41:56,372 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_01.jpg uploaded in 2.78s
+2026-08-17 09:41:56,372 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_01.jpg
+2026-08-17 09:41:56,372 [INFO] plugins.google_workspace_persistence: Storing attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_01.jpg in folder 2026-08-17
+2026-08-17 09:41:59,756 [INFO] plugins.google_workspace_persistence: Attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_01.jpg uploaded in 3.38s
+2026-08-17 09:41:59,757 [INFO] __main__: Stored attachment SBI_life_Inland-Letter_Policy-Holder_7_02_01_02_01.jpg
+2026-08-17 09:41:59,758 [INFO] plugins.google_workspace_persistence: Storing attachment RPN_2F653163206_15266.pdf in folder 2026-08-17
+2026-08-17 09:42:02,391 [INFO] plugins.google_workspace_persistence: Attachment RPN_2F653163206_15266.pdf uploaded in 2.63s
+2026-08-17 09:42:02,391 [INFO] __main__: Stored attachment RPN_2F653163206_15266.pdf
+2026-08-17 09:42:03,617 [INFO] __main__: Applied labels ['Action_Needed', 'Subscription'] to: Renewal Premium Intimation for your SBI Life Policy XXXXXXX3
+2026-08-17 09:42:03,620 [INFO] plugins.google_workspace_persistence: Appending 50 row(s) to sheet index
+2026-08-17 09:42:04,758 [INFO] plugins.google_workspace_persistence: Sheet index updated in 1.14s
+2026-08-17 09:42:04,758 [INFO] __main__: Processing batch 51-58 of 58
+2026-08-17 09:42:04,758 [INFO] __main__: Processing 8 emails with 8 parallel workers
+2026-08-17 09:42:04,767 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,771 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,775 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,785 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,791 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,792 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,799 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,817 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,823 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,833 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,848 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,854 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,855 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,870 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,883 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:04,862 [INFO] googleapiclient.discovery_cache: file_cache is only supported with oauth2client<4.0.0
+2026-08-17 09:42:05,325 [INFO] __main__: [4/8] Processing: Your appointment scheduled with Shreedhan Packers and Movers
+2026-08-17 09:42:05,332 [INFO] __main__: [5/8] Processing: Just Books
+2026-08-17 09:42:05,335 [INFO] __main__: [2/8] Processing: Shivangi Clothing: Invoice # 100004735 for Order # 100006467
+2026-08-17 09:42:05,342 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Your appointment scheduled with Shreedhan Packers and Movers | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,343 [INFO] __main__: [3/8] Processing: Transaction Alert on Atom Gateway for transaction done on SH
+2026-08-17 09:42:05,349 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Your appointment scheduled with Shreedhan Packers and Movers
+2026-08-17 09:42:05,352 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Shivangi Clothing: Invoice # 100004735 for Order # 100006467 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,354 [INFO] __main__: [1/8] Processing: Shivangi Clothing: Shipment # 100004725 for Order # 10000646
+2026-08-17 09:42:05,362 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Shivangi Clothing: Invoice # 100004735 for Order # 100006467
+2026-08-17 09:42:05,378 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Just Books | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,386 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Just Books
+2026-08-17 09:42:05,386 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Transaction Alert on Atom Gateway for transaction done on SH | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,396 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Transaction Alert on Atom Gateway for transaction done on SH
+2026-08-17 09:42:05,406 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Shivangi Clothing: Shipment # 100004725 for Order # 10000646 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,410 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Shivangi Clothing: Shipment # 100004725 for Order # 10000646
+2026-08-17 09:42:05,757 [INFO] __main__: [7/8] Processing: Schedule of  VRSEC REUNION 2019 on 14th December 2019 at Vij
+2026-08-17 09:42:05,789 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Schedule of  VRSEC REUNION 2019 on 14th December 2019 at Vij | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:05,790 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Schedule of  VRSEC REUNION 2019 on 14th December 2019 at Vij
+2026-08-17 09:42:06,093 [INFO] __main__: [6/8] Processing: City Avenue :- Maintenance Account Details
+2026-08-17 09:42:06,122 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | City Avenue :- Maintenance Account Details | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:06,122 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: City Avenue :- Maintenance Account Details
+2026-08-17 09:42:06,441 [INFO] __main__: [8/8] Processing: Nomination for VRSEC Distinguished Alumnus Award-2019
+2026-08-17 09:42:06,471 [WARNING] plugins.llm_processor: 🔴 LLM REQUIRED | Nomination for VRSEC Distinguished Alumnus Award-2019 | Reason: No sender override, no dynamic label, no local rule match
+2026-08-17 09:42:06,472 [INFO] plugins.llm_processor: 🔴 [LLM CALL] Sending to ANTHROPIC: Nomination for VRSEC Distinguished Alumnus Award-2019
+2026-08-17 09:42:06,927 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:06,928 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.58s | Your appointment scheduled with Shreedha
+2026-08-17 09:42:07,011 [INFO] __main__: [4/8] Categorized as reference (priority=2) in 1.69s
+2026-08-17 09:42:07,300 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:07,302 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 1 | 1.91s | Just Books
+2026-08-17 09:42:07,345 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:07,348 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 1.95s | Transaction Alert on Atom Gateway for tr
+2026-08-17 09:42:07,464 [INFO] __main__: [5/8] Categorized as reference (priority=1) in 2.13s
+2026-08-17 09:42:07,464 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:07,471 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: reference       | Priority: 2 | 2.06s | Shivangi Clothing: Shipment # 100004725 
+2026-08-17 09:42:07,552 [INFO] __main__: [3/8] Categorized as reference (priority=2) in 2.20s
+2026-08-17 09:42:07,611 [INFO] __main__: [1/8] Categorized as reference (priority=2) in 2.25s
+2026-08-17 09:42:07,855 [INFO] __main__: Applied labels ['Reference'] to: Your appointment scheduled with Shreedhan Packers and Movers
+2026-08-17 09:42:07,940 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:07,954 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.59s | Shivangi Clothing: Invoice # 100004735 f
+2026-08-17 09:42:08,127 [INFO] __main__: [2/8] Categorized as action_needed (priority=3) in 2.79s
+2026-08-17 09:42:08,292 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:08,294 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.50s | Schedule of  VRSEC REUNION 2019 on 14th 
+2026-08-17 09:42:08,449 [INFO] __main__: [7/8] Categorized as action_needed (priority=3) in 2.69s
+2026-08-17 09:42:08,451 [INFO] plugins.google_workspace_persistence: Storing attachment schedule of reunion 2019.docx in folder 2026-08-17
+2026-08-17 09:42:08,633 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: Just Books
+2026-08-17 09:42:08,735 [INFO] __main__: Applied labels ['Reference', 'Notification'] to: Transaction Alert on Atom Gateway for transaction done on SH
+2026-08-17 09:42:09,022 [INFO] __main__: Applied labels ['Reference', 'Order'] to: Shivangi Clothing: Shipment # 100004725 for Order # 10000646
+2026-08-17 09:42:09,056 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:09,059 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.94s | City Avenue :- Maintenance Account Detai
+2026-08-17 09:42:09,117 [INFO] httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-08-17 09:42:09,119 [INFO] plugins.llm_processor: 🔴 [LLM RESULT] Category: action_needed   | Priority: 3 | 2.65s | Nomination for VRSEC Distinguished Alumn
+2026-08-17 09:42:09,197 [INFO] __main__: [6/8] Categorized as action_needed (priority=3) in 3.10s
+2026-08-17 09:42:09,197 [INFO] plugins.google_workspace_persistence: Storing attachment image001.jpg in folder 2026-08-17
+2026-08-17 09:42:09,275 [INFO] __main__: [8/8] Categorized as action_needed (priority=3) in 2.83s
+2026-08-17 09:42:09,275 [INFO] plugins.google_workspace_persistence: Storing attachment Reciprocae1 .docx in folder 2026-08-17
+2026-08-17 09:42:09,380 [INFO] __main__: Applied labels ['Action_Needed', 'Invoice'] to: Shivangi Clothing: Invoice # 100004735 for Order # 100006467
+2026-08-17 09:42:11,737 [INFO] plugins.google_workspace_persistence: Attachment schedule of reunion 2019.docx uploaded in 3.29s
+2026-08-17 09:42:11,737 [INFO] __main__: Stored attachment schedule of reunion 2019.docx
+2026-08-17 09:42:11,948 [INFO] plugins.google_workspace_persistence: Attachment image001.jpg uploaded in 2.75s
+2026-08-17 09:42:11,948 [INFO] __main__: Stored attachment image001.jpg
+2026-08-17 09:42:11,948 [INFO] plugins.google_workspace_persistence: Storing attachment image002.png in folder 2026-08-17
+2026-08-17 09:42:11,982 [INFO] plugins.google_workspace_persistence: Attachment Reciprocae1 .docx uploaded in 2.71s
+2026-08-17 09:42:11,982 [INFO] __main__: Stored attachment Reciprocae1 .docx
+2026-08-17 09:42:12,972 [INFO] __main__: Applied labels ['Action_Needed', 'Event'] to: Schedule of  VRSEC REUNION 2019 on 14th December 2019 at Vij
+2026-08-17 09:42:13,329 [INFO] __main__: Applied labels ['Action_Needed', 'Personal'] to: Nomination for VRSEC Distinguished Alumnus Award-2019
+2026-08-17 09:42:14,713 [INFO] plugins.google_workspace_persistence: Attachment image002.png uploaded in 2.76s
+2026-08-17 09:42:14,713 [INFO] __main__: Stored attachment image002.png
+2026-08-17 09:42:16,028 [INFO] __main__: Applied labels ['Action_Needed', 'Bill'] to: City Avenue :- Maintenance Account Details
+2026-08-17 09:42:16,043 [INFO] plugins.google_workspace_persistence: Appending 8 row(s) to sheet index
+2026-08-17 09:42:17,788 [INFO] plugins.google_workspace_persistence: Sheet index updated in 1.75s
+2026-08-17 09:42:17,788 [INFO] __main__: Run completed in 77.95s
+
+--- Daily Digest Summary ---
+Generated at: 2026-08-17T09:42:17.788953
+Total attempted: 58
+Successfully processed: 58
+Failed: 0
+  action_needed: 24
+  waiting_for: 0
+  reference: 33
+  noise: 0
+Local intelligence hits: 7
+LLM calls: 51
+Total elapsed: 77.95s
+----------------------------

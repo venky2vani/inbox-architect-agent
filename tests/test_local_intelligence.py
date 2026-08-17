@@ -119,3 +119,76 @@ def test_body_keywords_are_extracted():
         result = intel.classify(msg)
         assert result is not None
         assert result.category == "action_needed"
+
+
+def test_noisy_tokens_are_not_learned():
+    """Generic boilerplate tokens should not become rules."""
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "rules.json"
+        intel = LocalIntelligence(rules_path=str(path))
+        body = "Please click here to view the online version. Dear user, thanks."
+        msg = make_message("newsletter@example.com", "Update", body)
+        item = make_item(category="noise", priority=1)
+
+        intel.learn(msg, item)
+
+        data = json.loads(path.read_text())
+        values = {r["value"] for r in data["rules"]}
+        noisy_values = {"click", "please", "dear", "thanks", "view"}
+        assert not values.intersection(noisy_values), f"Noisy tokens learned: {values}"
+
+
+def test_low_confidence_rules_are_pruned():
+    """Rules with many samples but low confidence should be removed by prune()."""
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "rules.json"
+        intel = LocalIntelligence(rules_path=str(path), min_hits=1)
+
+        # Inject a manually-created rule with 3 hits and 7 misses (30%).
+        intel.rules.append(
+            {
+                "id": "test-rule",
+                "type": "subject_keyword",
+                "value": "shaky",
+                "category": "noise",
+                "priority": 1,
+                "should_archive": True,
+                "hits": 3,
+                "misses": 7,
+                "created_at": "2026-08-17T00:00:00+00:00",
+                "last_used": "2026-08-17T00:00:00+00:00",
+            }
+        )
+        intel.prune()
+
+        assert not any(r["value"] == "shaky" for r in intel.rules)
+
+
+def test_per_type_min_confidence_excludes_noisy_rules():
+    """Rules below their per-type confidence floor should not vote."""
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "rules.json"
+        intel = LocalIntelligence(
+            rules_path=str(path), confidence_threshold=0.5, min_hits=1
+        )
+        msg = make_message("newsletter@example.com", "Weekly newsletter", body="payment")
+
+        # Inject a body_keyword rule with 1 hit and 4 misses (20%).
+        # The overall threshold is 0.5, but the body_keyword floor is 0.80.
+        intel.rules.append(
+            {
+                "id": "test-rule",
+                "type": "body_keyword",
+                "value": "payment",
+                "category": "action_needed",
+                "priority": 4,
+                "should_archive": False,
+                "hits": 1,
+                "misses": 4,
+                "created_at": "2026-08-17T00:00:00+00:00",
+                "last_used": "2026-08-17T00:00:00+00:00",
+            }
+        )
+
+        result = intel.classify(msg)
+        assert result is None

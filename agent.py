@@ -279,6 +279,7 @@ class InboxArchitectAgent:
         batch_size: int = 50,
         resume: bool = False,
         checkpoint_path: Optional[str] = None,
+        keep_unread: bool = False,
     ) -> None:
         """Main execution loop: fetch, process, store, and optionally archive."""
         if not self.connectors:
@@ -339,6 +340,7 @@ class InboxArchitectAgent:
                     batch_ids,
                     archive_noise,
                     dry_run,
+                    keep_unread,
                 )
                 all_processed.extend(batch_processed)
                 total_attempted += len(batch_ids)
@@ -366,14 +368,15 @@ class InboxArchitectAgent:
         batch_ids: List[Dict[str, str]],
         archive_noise: bool,
         dry_run: bool,
+        keep_unread: bool = False,
     ) -> List[ProcessedItem]:
         """Fetch and process a batch of message IDs.
 
         Uses parallel processing if enabled (default), otherwise sequential.
         """
         if self.use_parallel and len(batch_ids) > 1:
-            return self._process_batch_parallel(connector, batch_ids, archive_noise, dry_run)
-        return self._process_batch_sequential(connector, batch_ids, archive_noise, dry_run)
+            return self._process_batch_parallel(connector, batch_ids, archive_noise, dry_run, keep_unread)
+        return self._process_batch_sequential(connector, batch_ids, archive_noise, dry_run, keep_unread)
 
     def _process_batch_parallel(
         self,
@@ -381,6 +384,7 @@ class InboxArchitectAgent:
         batch_ids: List[Dict[str, str]],
         archive_noise: bool,
         dry_run: bool,
+        keep_unread: bool = False,
     ) -> List[ProcessedItem]:
         """Process batch in parallel using ThreadPoolExecutor.
 
@@ -430,6 +434,7 @@ class InboxArchitectAgent:
                 idx,
                 total,
                 get_thread_persistence(),
+                keep_unread,
             )
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -468,6 +473,7 @@ class InboxArchitectAgent:
         idx: int,
         total: int,
         persistence: Optional[PersistencePlugin] = None,
+        keep_unread: bool = False,
     ) -> Optional[ProcessedItem]:
         """Process a single email (can be called in parallel).
 
@@ -542,7 +548,7 @@ class InboxArchitectAgent:
                 logger.info("[dry-run] Would apply labels %s to: %s", labels_to_apply, msg.subject[:60])
             else:
                 try:
-                    connector.mark_processed(msg.id, labels_to_apply)
+                    connector.mark_processed(msg.id, labels_to_apply, keep_unread=keep_unread)
                     logger.info("Applied labels %s to: %s", labels_to_apply, msg.subject[:60])
                 except Exception as exc:  # pylint: disable=broad-except
                     logger.error("Failed to apply labels to %s: %s", msg.id, exc)
@@ -559,6 +565,7 @@ class InboxArchitectAgent:
         batch_ids: List[Dict[str, str]],
         archive_noise: bool,
         dry_run: bool,
+        keep_unread: bool = False,
     ) -> List[ProcessedItem]:
         """Process batch sequentially (original implementation)."""
         if dry_run:
@@ -869,6 +876,12 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Launch the interactive review UI server (http://127.0.0.1:8000).",
     )
+    parser.add_argument(
+        "--keep-unread",
+        action="store_true",
+        default=False,
+        help="Keep emails marked as unread in Gmail after processing.",
+    )
     return parser
 
 
@@ -975,6 +988,7 @@ def main() -> None:
         dry_run=args.dry_run,
         batch_size=batch_size,
         resume=args.resume,
+        keep_unread=args.keep_unread,
     )
 
 

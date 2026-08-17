@@ -264,16 +264,29 @@ class GmailConnector(EmailConnector):
         )
         return created["id"]
 
-    def mark_processed(self, message_id: str, labels: List[str]) -> bool:
-        """Apply Gmail label names to a message, creating missing labels first."""
+    def mark_processed(self, message_id: str, labels: List[str], keep_unread: bool = False) -> bool:
+        """Apply Gmail label names to a message, creating missing labels first.
+
+        Args:
+            message_id: Email ID to label
+            labels: List of label names to apply
+            keep_unread: If True, preserve UNREAD label (email stays unread). If False, Gmail's default applies.
+        """
         if not self.service:
             raise RuntimeError("Connector is not authenticated.")
         if not labels:
             return True
         try:
             label_ids = [self._get_or_create_label(name) for name in labels]
+            modify_body = {"addLabelIds": label_ids}
+
+            # If keep_unread is False, remove UNREAD label (marks as read)
+            # If keep_unread is True, don't remove UNREAD label (stays unread)
+            if not keep_unread:
+                modify_body["removeLabelIds"] = ["UNREAD"]
+
             self.service.users().messages().modify(
-                userId="me", id=message_id, body={"addLabelIds": label_ids}
+                userId="me", id=message_id, body=modify_body
             ).execute()
             return True
         except Exception as exc:  # pylint: disable=broad-except

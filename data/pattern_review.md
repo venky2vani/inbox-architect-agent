@@ -9,21 +9,21 @@ Review the suggested categories below. For each:
 
 ---
 
-## 1. BANKING_INVESTMENT
+## 1. CATEGORY_ADVISORY
 
-**Domain:** `hdfcbank.net`
-**Email Count:** 243
-**Confidence:** 100.0%
-**Description:** Banking, investment accounts, and portfolio updates
+**Domain:** `redhat.com`
+**Email Count:** 144
+**Confidence:** 83.2%
+**Description:** Emails related to advisory
 
-**Common Keywords:** `have`, `done`, `card`, `check`, `details`
+**Common Keywords:** `advisory`, `2024`, `container`, `rhba`, `updated`
 
 **Sample Subjects:**
-- ❗  You have done a UPI txn. Check details!
-- Rs.220.00 debited via Credit Card **0348
-- Rs.179.00 debited via Credit Card **0348
+- [Bug Fix Advisory] RHBA-2024:4506 updated rhel9/buildah cont
+- [Bug Fix Advisory] RHBA-2024:4176 updated rhel9/memcached co
+- [Bug Fix Advisory] RHBA-2024:4492 updated rhel8/skopeo conta
 
-**Period:** 2025-10-04 03:02:36 to 2025-09-04 19:28:43
+**Period:** 2024-07-12 00:27:08 to 2024-07-15 22:45:09
 
 ---
 

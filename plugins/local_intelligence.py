@@ -113,6 +113,51 @@ _RULE_TYPE_WEIGHTS = {
     "body_keyword": 0.25,
 }
 
+# Minimum individual confidence a rule must have before it can vote in
+# classification. Body keywords are noisier, so they need higher individual
+# reliability than sender-based rules.
+_RULE_TYPE_MIN_CONFIDENCE = {
+    "sender_email": 0.80,
+    "sender_domain": 0.75,
+    "subject_keyword": 0.70,
+    "body_keyword": 0.80,
+}
+
+# Tokens that are too generic or boilerplate to be useful predictors.
+_NOISY_TOKENS = {
+    "com",
+    "www",
+    "dear",
+    "please",
+    "click",
+    "regards",
+    "thanks",
+    "hello",
+    "unsubscribe",
+    "view",
+    "browser",
+    "online",
+    "web",
+    "version",
+    "footer",
+    "privacy",
+    "policy",
+    "terms",
+    "conditions",
+    "mailto",
+    "http",
+    "https",
+    "html",
+    "body",
+    "message",
+    "email",
+}
+
+# Rules with enough samples but persistently low confidence are unlikely to
+# become useful and pollute aggregate confidence.
+_LOW_CONFIDENCE_PRUNE_SAMPLES = 10
+_LOW_CONFIDENCE_PRUNE_THRESHOLD = 0.5
+
 
 class LocalIntelligence:
     """Self-updating local rule cache learned from LLM outputs."""
@@ -189,7 +234,7 @@ class LocalIntelligence:
         tokens = re.findall(r"[a-zA-Z]{3,}", text.lower())
         counts: Dict[str, int] = {}
         for token in tokens:
-            if token in _STOP_WORDS:
+            if token in _STOP_WORDS or token in _NOISY_TOKENS:
                 continue
             counts[token] = counts.get(token, 0) + 1
         # Return the most frequent keywords, deduplicated and sorted.
@@ -308,6 +353,10 @@ class LocalIntelligence:
                 total = rule.get("hits", 0) + rule.get("misses", 0)
                 if total < self.min_hits:
                     continue
+                individual_conf = self._confidence(rule)
+                min_conf = _RULE_TYPE_MIN_CONFIDENCE.get(rule_type, 0.0)
+                if individual_conf < min_conf:
+                    continue
                 matched_rules.append(rule)
 
             if not matched_rules:
@@ -383,6 +432,13 @@ class LocalIntelligence:
 
             conf = self._confidence(rule)
             total = rule.get("hits", 0) + rule.get("misses", 0)
+
+            # Drop rules that have enough samples but are still wrong most of the time.
+            if (
+                total >= _LOW_CONFIDENCE_PRUNE_SAMPLES
+                and conf < _LOW_CONFIDENCE_PRUNE_THRESHOLD
+            ):
+                continue
 
             # Keep rules that are either young or proven (high confidence and enough hits).
             proven = total >= self.min_hits and conf >= self.confidence_threshold
